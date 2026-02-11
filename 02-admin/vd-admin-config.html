@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VD-Portal Admin-Konfiguration</title>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --p:#1a73e8;--ph:#1557b0;--pc:#d3e3fd;
+  --sf:#fff;--sc:#f1f3f4;
+  --t1:#202124;--t2:#5f6368;--t3:#80868b;
+  --g:#1e8e3e;--y:#f9ab00;--r:#ea4335;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+
+body{
+  font-family:'Plus Jakarta Sans',-apple-system,sans-serif;
+  color:var(--t1);min-height:100vh;
+  background:linear-gradient(135deg,#667eea 0%,#764ba2 100%);
+  padding:40px 20px;
+}
+
+.container{
+  max-width:900px;margin:0 auto;
+  background:#fff;border-radius:24px;
+  padding:40px;box-shadow:0 20px 60px rgba(0,0,0,.3);
+}
+
+h1{
+  font-size:32px;font-weight:800;
+  margin-bottom:8px;color:var(--t1);
+}
+
+.subtitle{
+  font-size:15px;color:var(--t2);
+  margin-bottom:40px;line-height:1.6;
+}
+
+.section{
+  margin-bottom:32px;
+}
+
+.section-header{
+  display:flex;align-items:center;
+  gap:12px;margin-bottom:16px;
+  padding-bottom:12px;
+  border-bottom:2px solid var(--sc);
+}
+
+.badge{
+  padding:4px 12px;border-radius:12px;
+  font-size:11px;font-weight:700;
+  text-transform:uppercase;letter-spacing:.5px;
+}
+
+.badge.p0{background:#fef3c7;color:#92400e}
+.badge.p1{background:#dbeafe;color:#1e40af}
+.badge.p2{background:#d1fae5;color:#065f46}
+
+.section-title{
+  font-size:18px;font-weight:700;
+  color:var(--t1);
+}
+
+.toggle-group{
+  display:flex;flex-direction:column;gap:12px;
+}
+
+.toggle-item{
+  display:flex;align-items:flex-start;
+  gap:12px;padding:16px;
+  background:var(--sf);border:1px solid #e5e7eb;
+  border-radius:12px;transition:all .2s;
+  cursor:pointer;
+}
+
+.toggle-item:hover{
+  background:#f9fafb;
+  border-color:var(--p);
+  transform:translateX(4px);
+}
+
+.toggle-item input[type="checkbox"]{
+  width:20px;height:20px;
+  margin-top:2px;cursor:pointer;
+  accent-color:var(--p);
+}
+
+.toggle-content{flex:1}
+
+.toggle-label{
+  font-size:14px;font-weight:600;
+  color:var(--t1);margin-bottom:4px;
+  display:flex;align-items:center;gap:8px;
+}
+
+.toggle-id{
+  font-family:monospace;
+  font-size:11px;color:var(--t3);
+  background:#f3f4f6;padding:2px 6px;
+  border-radius:4px;
+}
+
+.toggle-desc{
+  font-size:13px;color:var(--t2);
+  line-height:1.5;
+}
+
+.actions{
+  display:flex;gap:12px;
+  padding-top:24px;
+  border-top:2px solid var(--sc);
+}
+
+.btn{
+  padding:14px 28px;border-radius:12px;
+  font-size:15px;font-weight:600;
+  border:none;cursor:pointer;
+  transition:all .2s;
+}
+
+.btn-primary{
+  background:var(--p);color:#fff;
+  flex:1;
+}
+
+.btn-primary:hover{
+  background:var(--ph);
+  transform:translateY(-2px);
+  box-shadow:0 4px 12px rgba(26,115,232,.3);
+}
+
+.btn-secondary{
+  background:var(--sc);color:var(--t1);
+}
+
+.btn-secondary:hover{
+  background:#e5e7eb;
+}
+
+.status{
+  padding:16px;border-radius:12px;
+  margin-top:20px;display:none;
+}
+
+.status.success{
+  background:#d1fae5;color:#065f46;
+  border:1px solid #6ee7b7;
+}
+
+.status.show{display:block}
+
+.quick-actions{
+  display:flex;gap:8px;margin-bottom:24px;
+}
+
+.quick-btn{
+  padding:8px 16px;border-radius:8px;
+  font-size:12px;font-weight:600;
+  border:1px solid #e5e7eb;
+  background:#fff;cursor:pointer;
+  transition:all .2s;
+}
+
+.quick-btn:hover{
+  background:var(--p);color:#fff;
+  border-color:var(--p);
+}
+
+.info-box{
+  background:#f0f9ff;
+  border-left:4px solid var(--p);
+  padding:16px;border-radius:8px;
+  margin-bottom:24px;
+}
+
+.info-box p{
+  font-size:13px;line-height:1.6;
+  color:#1e40af;
+}
+
+.counter{
+  position:fixed;top:20px;right:20px;
+  background:#fff;padding:12px 20px;
+  border-radius:12px;
+  box-shadow:0 4px 12px rgba(0,0,0,.1);
+  font-size:13px;font-weight:600;
+}
+
+.counter span{
+  color:var(--p);font-size:18px;
+  margin-left:4px;
+}
+</style>
+</head>
+<body>
+
+<div class="counter">
+  Aktiv: <span id="activeCount">0</span> / 11
+</div>
+
+<div class="container">
+  
+  <h1>🎛️ VD-Portal Admin-Konfiguration</h1>
+  <div class="subtitle">
+    Legen Sie hier die Standard-Einstellungen für alle neuen VD-Aufträge fest. Diese Defaults können pro Mandant individuell überschrieben werden.
+  </div>
+
+  <div class="info-box">
+    <p>
+      <strong>💡 Tipp:</strong> P0 = Kritische Blind Spots (rechtlich wichtig) | P1 = Wichtige Ergänzungen (GoBD-relevant) | P2 = Nice-to-Have Features (optional)
+    </p>
+  </div>
+
+  <div class="quick-actions">
+    <button class="quick-btn" onclick="selectAll()">✓ Alle auswählen</button>
+    <button class="quick-btn" onclick="selectNone()">✗ Keine auswählen</button>
+    <button class="quick-btn" onclick="selectP0()">P0 + P1</button>
+    <button class="quick-btn" onclick="selectP0Only()">Nur P0</button>
+  </div>
+
+  <!-- P0: CRITICAL BLIND SPOTS -->
+  <div class="section">
+    <div class="section-header">
+      <span class="badge p0">P0</span>
+      <div class="section-title">Critical Blind Spots (5 Klauseln)</div>
+    </div>
+    <div class="toggle-group">
+      
+      <label class="toggle-item">
+        <input type="checkbox" id="p0-01-hierarchy" data-priority="p0">
+        <div class="toggle-content">
+          <div class="toggle-label">
+            Vertragshierarchie bei Widersprüchen
+            <span class="toggle-id">p0-01</span>
+          </div>
+          <div class="toggle-desc">
+            Klärt, dass VD-Bedingungen bei Widersprüchen Vorrang vor dem Haupt-Steuerberatervertrag haben.
+          </div>
+        </div>
+      </label>
+
+      <label class="toggle-item">
+        <input type="checkbox" id="p0-03-widerruf" data-priority="p0">
+        <div class="toggle-content">
+          <div class="toggle-label">
+            Widerrufsrecht bei Fernabsatzvertrag
+            <span class="toggle-id">p0-03</span>
+          </div>
+          <div class="toggle-desc">
+            Mandant verzichtet auf 14-Tage-Widerrufsrecht bei vorzeitigem Leistungsbeginn (§ 356 Abs. 4 BGB).
+          </div>
+        </div>
+      </label>
+
+      <label class="toggle-item">
+        <input type="checkbox" id="p0-04-eidas" data-priority="p0">
+        <div class="toggle-content">
+          <div class="toggle-label">
+            eIDAS Elektronische Signatur Klausel
+            <span class="toggle-id">p0-04</span>
+          </div>
+          <div class="toggle-desc">
+            Anerkennung der einfachen elektronischen Signatur inkl. Audit-Trail (IP, Zeitstempel, Hash).
+          </div>
+        </div>
+      </label>
+
+      <label class="toggle-item">
+        <input type="checkbox" id="p0-05-pdf-hash" data-priority="p0">
+        <div class="toggle-content">
+          <div class="toggle-label">
+            PDF-Hash Unveränderlichkeit
+            <span class="toggle-id">p0-05</span>
+          </div>
+          <div class="toggle-desc">
+            SHA-256 Hash des signierten PDFs wird gespeichert – Nachweis gegen nachträgliche Änderungen.
+          </div>
+        </div>
+      </label>
+
+      <label class="toggle-item">
+        <input type="checkbox" id="p0-10-double-submit" data-priority="p0">
+        <div class="toggle-content">
+          <div class="toggle-label">
+            Doppel-Submission Schutz
+            <span class="toggle-id">p0-10</span>
+          </div>
+          <div class="toggle-desc">
+            Bei versehentlicher Mehrfach-Übermittlung gilt nur die erste als verbindlich.
+          </div>
+        </div>
+      </label>
+
+    </div>
+  </div>
+
+  <!-- P1: IMPORTANT BLIND SPOTS -->
+  <div class="section">
+    <div class="section-header">
+      <span class="badge p1">P1</span>
+      <div class="section-title">Important Blind Spots (4 Klauseln)</div>
+    </div>
+    <div class="toggle-group">
+      
+      <label class="toggle-item">
+        <input type="checkbox" id="p1-07-phases" data-priority="p1">
+        <div class="toggle-content">
+          <div class="toggle-label">
+            Phasen-basierte Abrechnung bei Kündigung
+            <span class="toggle-id">p1-07</span>
+          </div>
+          <div class="toggle-desc">
+            Honorar wird bei vorzeitiger Kündigung anteilig nach abgeschlossenen Phasen berechnet (20/40/30/10%).
+          </div>
+        </div>
+      </label>
+
+      <label class="toggle-item">
+        <input type="checkbox" id="p1-08-retention" data-priority="p1">
+        <div class="toggle-content">
+          <div class="toggle-label">
+            Aufbewahrungspflicht der VD (10 Jahre)
+            <span class="toggle-id">p1-08</span>
+          </div>
+          <div class="toggle-desc">
+            Mandant muss VD 10 Jahre lang archivieren (§ 147 Abs. 3 AO) – für Betriebsprüfungen.
+          </div>
+        </div>
+      </label>
+
+      <label class="toggle-item">
+        <input type="checkbox" id="p1-09-liability" data-priority="p1">
+        <div class="toggle-content">
+          <div class="toggle-label">
+            Erweiterte Haftungsausschlüsse
+            <span class="toggle-id">p1-09</span>
+          </div>
+          <div class="toggle-desc">
+            Detaillierte Haftungsausschlüsse für fehlerhafte Mandanten-Angaben bei VD-Erstellung.
+          </div>
+        </div>
+      </label>
+
+      <label class="toggle-item">
+        <input type="checkbox" id="p1-14-audit-gobd" data-priority="p1">
+        <div class="toggle-content">
+          <div class="toggle-label">
+            GoBD-Konformität der Audit-Logs
+            <span class="toggle-id">p1-14</span>
+          </div>
+          <div class="toggle-desc">
+            Audit-Logs (Zeitstempel, IP, Scroll-Verhalten) werden GoBD-konform unveränderlich gespeichert.
+          </div>
+        </div>
+      </label>
+
+    </div>
+  </div>
+
+  <!-- P2: NICE-TO-HAVE -->
+  <div class="section">
+    <div class="section-header">
+      <span class="badge p2">P2</span>
+      <div class="section-title">Nice-to-Have Features (2 Klauseln)</div>
+    </div>
+    <div class="toggle-group">
+      
+      <label class="toggle-item">
+        <input type="checkbox" id="p2-11-updates" data-priority="p2">
+        <div class="toggle-content">
+          <div class="toggle-label">
+            Update-Pflege mit Automatik-Verlängerung
+            <span class="toggle-id">p2-11</span>
+          </div>
+          <div class="toggle-desc">
+            300 € / Jahr für jährliche VD-Updates, automatische Verlängerung, 4 Wochen Kündigungsfrist.
+          </div>
+        </div>
+      </label>
+
+      <label class="toggle-item">
+        <input type="checkbox" id="p2-12-transfer" data-priority="p2">
+        <div class="toggle-content">
+          <div class="toggle-label">
+            Praxisverkauf Nutzungsrecht-Transfer
+            <span class="toggle-id">p2-12</span>
+          </div>
+          <div class="toggle-desc">
+            Bei Praxisverkauf kann Nutzungsrecht für 1.000 € (50% des Erstpreises) übertragen werden.
+          </div>
+        </div>
+      </label>
+
+    </div>
+  </div>
+
+  <!-- ACTIONS -->
+  <div class="actions">
+    <button class="btn btn-secondary" onclick="resetDefaults()">↺ Zurücksetzen</button>
+    <button class="btn btn-primary" onclick="saveConfig()">💾 Konfiguration speichern</button>
+  </div>
+
+  <div class="status success" id="statusMsg">
+    ✓ Konfiguration erfolgreich gespeichert!
+  </div>
+
+</div>
+
+<script>
+const TOGGLES = [
+  'p0-01-hierarchy','p0-03-widerruf','p0-04-eidas','p0-05-pdf-hash','p0-10-double-submit',
+  'p1-07-phases','p1-08-retention','p1-09-liability','p1-14-audit-gobd',
+  'p2-11-updates','p2-12-transfer'
+];
+
+function updateCounter(){
+  const checked = TOGGLES.filter(id => document.getElementById(id)?.checked).length;
+  document.getElementById('activeCount').textContent = checked;
+}
+
+function selectAll(){
+  TOGGLES.forEach(id => {
+    const el = document.getElementById(id);
+    if(el) el.checked = true;
+  });
+  updateCounter();
+}
+
+function selectNone(){
+  TOGGLES.forEach(id => {
+    const el = document.getElementById(id);
+    if(el) el.checked = false;
+  });
+  updateCounter();
+}
+
+function selectP0(){
+  TOGGLES.forEach(id => {
+    const el = document.getElementById(id);
+    if(el){
+      const priority = el.getAttribute('data-priority');
+      el.checked = priority === 'p0' || priority === 'p1';
+    }
+  });
+  updateCounter();
+}
+
+function selectP0Only(){
+  TOGGLES.forEach(id => {
+    const el = document.getElementById(id);
+    if(el){
+      const priority = el.getAttribute('data-priority');
+      el.checked = priority === 'p0';
+    }
+  });
+  updateCounter();
+}
+
+function saveConfig(){
+  const config = {};
+  TOGGLES.forEach(id => {
+    const el = document.getElementById(id);
+    if(el) config[id] = el.checked;
+  });
+  
+  localStorage.setItem('vd_admin_toggles', JSON.stringify(config));
+  
+  const status = document.getElementById('statusMsg');
+  status.classList.add('show');
+  setTimeout(() => status.classList.remove('show'), 3000);
+  
+  console.log('✓ Config saved:', config);
+}
+
+function resetDefaults(){
+  if(!confirm('Alle Einstellungen zurücksetzen auf: NUR P0 aktiv?')) return;
+  selectP0Only();
+  saveConfig();
+}
+
+function loadConfig(){
+  const saved = localStorage.getItem('vd_admin_toggles');
+  if(saved){
+    try{
+      const config = JSON.parse(saved);
+      TOGGLES.forEach(id => {
+        const el = document.getElementById(id);
+        if(el && config.hasOwnProperty(id)){
+          el.checked = config[id];
+        }
+      });
+    }catch(e){
+      console.error('Failed to load config:', e);
+    }
+  } else {
+    // Default: Nur P0 aktiv
+    selectP0Only();
+  }
+  updateCounter();
+}
+
+// Event Listeners
+document.querySelectorAll('input[type="checkbox"]').forEach(cb => {
+  cb.addEventListener('change', updateCounter);
+});
+
+// Init
+loadConfig();
+</script>
+
+</body>
+</html>

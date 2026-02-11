@@ -1,0 +1,1668 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Verfahrensdokumentation – Steuerberater Daniel Hildebrandt</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+<style>
+:root{
+  --p:#1a73e8;--ph:#1557b0;--pc:#d3e3fd;--pl:#e8f0fe;--pu:#f6f9fe;
+  --sf:#fff;--sd:#f8f9fa;--sc:#f1f3f4;--sh:#e8eaed;
+  --ol:#dadce0;--ov:#c4c7c5;
+  --t1:#6A6D6E;--t2:#6A6D6E;--t3:#80868b;--t4:#9AA0A6;
+  --g:#1e8e3e;--gd:#0d652d;--gs:#e6f4ea;--gb:#34a853;
+  --r:#DF2D39;--rd:#b8232d;--rs:#fce8e6;
+  --ys:#fef7e0;--yb:#f9ab00;
+  --dv:#7c3aed;--dvl:rgba(124,58,237,.08);--dvb:rgba(124,58,237,.4);
+  --f:'Plus Jakarta Sans',-apple-system,sans-serif;
+  --e:cubic-bezier(.2,0,0,1);--es:cubic-bezier(.34,1.56,.64,1);
+  --rx:8px;--rs2:12px;--rm:16px;--rl:20px;--rf:9999px;
+  --s1:0 1px 3px rgba(0,0,0,.06);--s2:0 2px 8px rgba(0,0,0,.08);--s3:0 6px 20px rgba(0,0,0,.1);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+.ic{display:inline-flex;align-items:center;justify-content:center;flex-shrink:0}
+.ic svg{stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.ic-14 svg{width:14px;height:14px}.ic-16 svg{width:16px;height:16px}.ic-18 svg{width:18px;height:18px}.ic-20 svg{width:20px;height:20px}.ic-22 svg{width:22px;height:22px}
+
+/* CI BACKGROUND */
+body{font-family:var(--f);color:var(--t1);min-height:100vh;-webkit-font-smoothing:antialiased;line-height:1.4;margin:0;
+  background:
+    radial-gradient(ellipse at 85% 25%, rgba(200,220,0,.7) 0%, transparent 25%),
+    radial-gradient(ellipse at 90% 42%, rgba(255,120,50,.6) 0%, transparent 22%),
+    radial-gradient(ellipse at 80% 55%, rgba(255,40,120,.65) 0%, transparent 28%),
+    radial-gradient(ellipse at 84% 78%, rgba(140,40,255,.65) 0%, transparent 28%),
+    radial-gradient(ellipse at 92% 92%, rgba(40,130,255,.65) 0%, transparent 28%),
+    #fff;
+  background-attachment:fixed;
+}
+.ci-logo{position:fixed;top:24px;left:28px;height:54px;z-index:10;pointer-events:none}
+.ci-claim{position:fixed;bottom:24px;right:32px;z-index:10;pointer-events:none;height:140px}
+@media(max-width:768px){.ci-logo{height:40px;top:16px;left:16px}.ci-claim{bottom:14px;right:16px;height:90px}}
+@media(max-width:480px){.ci-logo{height:32px;top:12px;left:12px}.ci-claim{bottom:10px;right:12px;height:70px}}
+
+/* GLASS APP CARD */
+.app-shell{position:relative;z-index:20;max-width:680px;margin:90px auto 28px;padding-bottom:60px}
+.app-card{
+  background:rgba(255,255,255,.72);
+  backdrop-filter:blur(24px) saturate(1.4);
+  -webkit-backdrop-filter:blur(24px) saturate(1.4);
+  border:1px solid rgba(255,255,255,.5);
+  border-radius:24px;
+  box-shadow:0 8px 40px rgba(0,0,0,.08), 0 1px 3px rgba(0,0,0,.04);
+  overflow:hidden;
+}
+.app-card-top{display:flex;align-items:center;justify-content:flex-end;padding:10px 20px 0}
+.enc-pill{display:inline-flex;align-items:center;gap:4px;padding:4px 10px;border-radius:20px;background:rgba(52,168,83,.08);border:1px solid rgba(52,168,83,.18);font-size:10px;font-weight:600;color:var(--g);letter-spacing:.03em}
+@media(max-width:768px){.app-shell{margin:72px 12px 60px;max-width:none}}
+@media(max-width:480px){.app-shell{margin:58px 6px 52px}.app-card{border-radius:18px}}
+
+/* JOURNEY BANNER */
+.journey-banner{background:rgba(255,255,255,.65);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid rgba(0,0,0,.06);padding:16px 0;position:sticky;top:0;z-index:90;border-radius:24px 24px 0 0}
+.jb-in{margin:0 auto;padding:0 20px}
+.jb-steps{display:flex;align-items:flex-start;gap:0}
+.jb-step{flex:1;display:flex;flex-direction:column;align-items:center;text-align:center;position:relative;padding:0 4px}
+.jb-step .jb-dot{width:28px;height:28px;border-radius:50%;border:2px solid var(--ol);background:var(--sf);display:flex;align-items:center;justify-content:center;color:var(--t4);transition:all .3s;position:relative;z-index:2}
+.jb-step .jb-dot .ic svg{width:14px;height:14px}
+.jb-step.done .jb-dot{background:var(--p);border-color:var(--p);color:#fff}
+.jb-step.active .jb-dot{background:var(--sf);border-color:var(--p);color:var(--p);box-shadow:0 0 0 3px var(--pc)}
+.jb-step.waiting .jb-dot{border-style:dashed;border-color:var(--ov)}
+.jb-step .jb-lbl{font-size:10px;color:var(--t4);margin-top:5px;line-height:1.3;max-width:80px;transition:color .3s}
+.jb-step.active .jb-lbl{color:var(--p);font-weight:600}
+.jb-step.done .jb-lbl{color:var(--t2)}
+.jb-step:not(:last-child)::after{content:'';position:absolute;top:14px;left:calc(50% + 18px);right:calc(-50% + 18px);height:2px;background:var(--ol);z-index:1}
+.jb-step.done:not(:last-child)::after{background:var(--p)}
+@media(max-width:768px){
+  .journey-banner{padding:10px 0}
+  .jb-steps{display:none}
+  .jb-mobile{display:flex!important}
+}
+.jb-mobile{display:none;align-items:center;justify-content:space-between}
+.jb-m-pill{font-size:11px;font-weight:600;color:var(--sf);background:var(--p);padding:2px 8px;border-radius:var(--rf)}
+.jb-m-label{font-size:13px;font-weight:500;color:var(--t2);margin-left:8px}
+.jb-m-btn{display:flex;align-items:center;gap:5px;padding:6px 12px;border-radius:var(--rf);border:1px solid var(--ol);background:var(--sf);font-family:var(--f);font-size:12px;font-weight:500;color:var(--t3);cursor:pointer}
+.jb-m-btn:hover{background:var(--sc)}
+.jb-m-track{height:3px;background:var(--sh);border-radius:2px;margin-top:8px}
+.jb-m-fill{height:100%;background:var(--p);border-radius:2px;transition:width .6s var(--e)}
+.jp-overlay{position:fixed;inset:0;background:rgba(0,0,0,.4);z-index:500;opacity:0;pointer-events:none;transition:opacity .3s}
+.jp-overlay.open{opacity:1;pointer-events:all}
+.jp-panel{position:fixed;bottom:0;left:0;right:0;background:var(--sf);border-radius:20px 20px 0 0;z-index:501;transform:translateY(100%);transition:transform .4s var(--e);max-height:85vh;display:flex;flex-direction:column}
+.jp-panel.open{transform:translateY(0)}
+.jp-handle{padding:12px 0 4px;display:flex;justify-content:center}
+.jp-handle-bar{width:36px;height:4px;background:var(--sh);border-radius:2px}
+.jp-head{padding:8px 24px 16px;display:flex;align-items:center;justify-content:space-between}
+.jp-head h3{font-size:16px;font-weight:700}
+.jp-close{width:32px;height:32px;border-radius:50%;border:none;background:var(--sc);cursor:pointer;color:var(--t3);display:flex;align-items:center;justify-content:center}
+.jp-close:hover{background:var(--sh)}
+.jp-body{flex:1;overflow-y:auto;padding:0 24px 32px}
+.jp-phase-label{font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.1em;color:var(--t4);margin:16px 0 10px;display:flex;align-items:center;gap:6px}
+.jp-phase-label::after{content:'';flex:1;height:1px;background:var(--ol)}
+.jp-item{display:flex;gap:12px}
+.jp-rail{display:flex;flex-direction:column;align-items:center;width:28px;flex-shrink:0}
+.jp-dot{width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;flex-shrink:0;border:2px solid var(--ol);background:var(--sf);color:var(--t4);z-index:2;transition:all .3s}
+.jp-dot .ic svg{width:14px;height:14px}
+.jp-item.done .jp-dot{background:var(--p);border-color:var(--p);color:#fff}
+.jp-item.active .jp-dot{border-color:var(--p);color:var(--p);box-shadow:0 0 0 3px var(--pc)}
+.jp-item.waiting .jp-dot{border-style:dashed;border-color:var(--ov)}
+.jp-item.locked .jp-dot{border-style:dashed;border-color:var(--sh);color:var(--sh)}
+.jp-line{width:2px;flex:1;min-height:12px;background:var(--ol);margin:2px 0}
+.jp-item.done .jp-line{background:var(--p)}
+.jp-item:last-child .jp-line{display:none}
+.jp-content{flex:1;padding:4px 0 16px}
+.jp-title{font-size:13px;font-weight:600;color:var(--t1)}.jp-item.locked .jp-title{color:var(--t4)}.jp-item.waiting .jp-title{color:var(--t3)}
+.jp-desc{font-size:11px;color:var(--t4);line-height:1.5}
+.jp-tag{display:inline-flex;align-items:center;gap:3px;font-size:9px;font-weight:600;padding:2px 6px;border-radius:var(--rf);margin-top:4px}
+.jp-tag.current{background:var(--pl);color:var(--p)}
+.jp-tag.auto{background:var(--gs);color:var(--gd)}
+.jp-tag.action{background:var(--ys);color:#a85e00}
+.jp-tag.wait{background:var(--sc);color:var(--t4)}
+
+/* MAIN */
+.main-w{max-width:none;margin:0 auto;padding:28px 28px 32px}
+.scr{display:none}.scr.on{display:block}
+.scr.on>.hl{animation:fadeUp .5s var(--e) both}
+.scr.on>.sub{animation:fadeUp .5s var(--e) .06s both}
+.scr.on>.decisions,.scr.on>.dl-card,.scr.on>.wt-section,.scr.on>.pdfv,.scr.on>div:nth-child(n+3){animation:fadeUp .5s var(--e) .12s both}
+.scr.on>.acts{animation:fadeUp .5s var(--e) .18s both}
+.scr.on>.done-box{animation:fadeUp .6s var(--e) both}
+.scr.on .done-box .post-tl{animation:fadeUp .5s var(--e) .15s both}
+.scr.on .done-box .s5-foot{animation:fadeUp .5s var(--e) .25s both}
+@keyframes fadeUp{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+.hl{font-family:'Inter',var(--f);font-size:26px;font-weight:800;letter-spacing:.02em;line-height:.95;margin-bottom:10px;color:var(--t1);text-transform:uppercase}
+.sub{font-size:14px;color:var(--t3);line-height:1.4;margin-bottom:24px}
+@media(max-width:480px){.hl{font-size:22px}.sub{font-size:13px}.main-w{padding:20px 18px 28px}}
+@media(max-width:480px){.dl-card{flex-wrap:wrap}.dl-btn{width:100%;justify-content:center}}
+/* MOBILE: Buttons & Actions */
+@media(max-width:480px){
+  .acts{flex-direction:column-reverse;gap:8px}
+  .acts .btn{width:100%;justify-content:center;text-align:center;white-space:normal;line-height:1.3}
+  .acts div:empty{display:none}
+  .btn{padding:10px 16px;font-size:13px;min-height:44px}
+  .ft-pill{padding:6px 10px;font-size:10px}
+  .ft-pill span.ic{display:none}
+  .ft-wa span.ic{display:inline-flex}
+  .ftin{flex-wrap:wrap;gap:6px;justify-content:center}
+  .ft-spacer{display:none}
+  .ft-exp{margin-top:2px}
+  .pt-dl-btn{width:100%;justify-content:center}
+  .done-box.ok .done-ic{width:64px;height:64px}
+  .done-box.ok .done-ic .ic{width:28px;height:28px}
+  .done-box.nope .done-ic{width:64px;height:64px}
+  .done-box.nope .done-ic .ic{width:28px;height:28px}
+  .s5-meta{flex-direction:column;align-items:center;gap:4px}
+  .wt-section{margin:0 -4px}
+}
+
+/* DEV */
+.dev-pill{display:inline-flex;align-items:center;gap:3px;cursor:pointer;user-select:none;padding:1px 3px 1px 5px;border-radius:var(--rf);border:1px dashed var(--dvb);background:var(--dvl);transition:all .15s}
+.dev-pill:hover{border-color:rgba(124,58,237,.6);background:rgba(124,58,237,.12)}
+.dev-pill .dl{font-size:9px;font-weight:600;color:var(--dv)}
+.dev-pill .dl.off{color:var(--t4)}
+.swi{width:18px;height:10px;background:var(--sh);border-radius:5px;position:relative;transition:background .3s;flex-shrink:0}
+.swi::after{content:'';position:absolute;width:6px;height:6px;background:#fff;border-radius:50%;top:2px;left:2px;transition:transform .3s var(--e);box-shadow:var(--s1)}
+.swi.on{background:var(--dv)}.swi.on::after{transform:translateX(8px)}
+.dev-bar{display:none;align-items:center;gap:8px;padding:8px 16px;background:var(--dvl);border:1px dashed var(--dvb);border-radius:var(--rs2);margin-bottom:12px;font-size:12px;color:var(--t4)}
+.dev-bar.show{display:flex}.dev-bar .lbl{font-weight:500;flex:1}
+.pkg{background:var(--dvl);color:var(--dv);font-size:9px;font-weight:600;padding:2px 6px;border-radius:var(--rf);border:1px dashed var(--dvb)}
+
+/* CARDS */
+.stag{display:inline-flex;background:var(--pl);color:var(--p);font-size:10px;font-weight:600;padding:2px 7px;border-radius:var(--rf);margin-right:3px}
+.pcard{background:var(--sf);border:1px solid var(--ol);border-radius:var(--rm);margin-bottom:12px;overflow:hidden}
+.pcard-top{display:flex;align-items:center;justify-content:space-between;padding:14px 16px;background:var(--pu);border-bottom:1px solid var(--pc);transition:border-radius .3s}
+.pcard-top h3{font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.07em;color:var(--p)}
+
+/* BEAUFTRAGEN + KONDITIONEN + INFO GROUP */
+.dc-group{position:relative;border-radius:var(--rl);overflow:hidden;border:1px solid var(--ol);transition:box-shadow .25s var(--e),transform .25s var(--e),border-color .25s}
+.dc-group:hover{box-shadow:var(--s3);transform:translateY(-2px);border-color:var(--g)}
+.dc-group>.dc{position:relative;z-index:2;border-radius:0;border:none}
+.dc-group>.dc:hover{transform:none;box-shadow:none}
+.dc-group:hover>.dc.a .glow{opacity:1}
+.dc-group:hover>.dc.a .dc-ic{transform:scale(1.05)}
+.dc-group:hover>.dc.a .dc-arr{color:var(--g);transform:translateX(3px)}
+.dc-group-d:hover{border-color:var(--r)}
+.dc-group-d:hover>.dc.d .glow{opacity:1}
+.dc-group-d:hover>.dc.d .dc-ic{transform:scale(1.05)}
+.dc-group-d:hover>.dc.d .dc-arr{color:var(--r);transform:translateX(3px)}
+.pcard-tuck-warn{background:var(--rs)}
+.pcard-tuck-warn .pcard-tuck-body{border-top:1px solid rgba(217,48,37,.15)}
+.pcard-tuck{background:var(--sf);border-top:1px solid var(--pc);border-radius:0;overflow:hidden;position:relative;z-index:1}
+.pcard-tuck-hd{display:flex;align-items:center;justify-content:space-between;padding:10px 16px;background:var(--pu);border-top:1px solid var(--pc);cursor:pointer;user-select:none;transition:background .15s}
+.pcard-tuck-hd:hover{background:var(--pl)}
+.pcard-tuck-hd h3{font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.07em;color:var(--p)}
+/* Green tuck cards (under Beauftragen) */
+.dc-group:first-child .pcard-tuck{border-top-color:rgba(30,142,62,.2)}
+.dc-group:first-child .pcard-tuck-hd{background:rgba(30,142,62,.05);border-top-color:rgba(30,142,62,.2)}
+.dc-group:first-child .pcard-tuck-hd:hover{background:rgba(30,142,62,.1)}
+.dc-group:first-child .pcard-tuck-hd h3{color:var(--gd)}
+.dc-group:first-child .pcard-tuck-body{border-top-color:rgba(30,142,62,.15)}
+.dc-group:first-child .pcard-tuck.collapsed .pcard-tuck-body{border-top:none}
+.dc-group:first-child .stag{background:var(--gs);color:var(--gd)}
+.dc-group:first-child .pcard-tuck-body strong{color:var(--gd)}
+.dc-group:first-child .pcard-chev{color:var(--gd)}
+.pcard-chev{color:var(--t4);transition:transform .3s var(--e)}
+.pcard-tuck.collapsed .pcard-chev{transform:rotate(-90deg)}
+.pcard-tuck-body{max-height:300px;overflow:hidden;transition:max-height .35s var(--e),opacity .25s;opacity:1;border-top:1px solid var(--pc)}
+.pcard-tuck.collapsed .pcard-tuck-body{max-height:0;opacity:0;border-top:none}
+.prows{padding:2px 0}
+.pr{display:flex;justify-content:space-between;align-items:center;padding:10px 16px}
+.pr:not(:last-child){border-bottom:1px solid var(--sc)}
+.pr-l{font-size:13px;font-weight:600;color:var(--gd)}.pr-v{font-size:13px;font-weight:600;color:var(--gd)}
+.pr.main .pr-l{font-size:18px;font-weight:700;color:var(--gd)}.pr.main .pr-v{font-size:18px;font-weight:700;color:var(--gd)}
+.pfoot{padding:8px 16px;background:var(--sd);font-size:11px;color:var(--t4)}
+
+/* DECISIONS */
+.decisions{display:flex;flex-direction:column;gap:8px;margin-top:16px}
+.dc{border:1px solid var(--ol);border-radius:var(--rl);cursor:pointer;transition:all .25s var(--e);background:var(--sf);overflow:hidden;position:relative}
+.dc:hover{box-shadow:var(--s3);transform:translateY(-2px)}
+.dc.a{background:rgba(30,142,62,.04);border-color:rgba(30,142,62,.2)}
+.dc.a:hover{border-color:var(--g);background:rgba(30,142,62,.07);box-shadow:0 4px 16px rgba(30,142,62,.12)}
+.dc.d{background:rgba(217,48,37,.03);border-color:rgba(217,48,37,.12)}
+.dc.d:hover{border-color:var(--r);background:rgba(217,48,37,.06);box-shadow:0 4px 16px rgba(217,48,37,.1)}
+.dc-inner{display:flex;align-items:center;gap:16px;padding:20px 22px}
+.dc .glow{position:absolute;inset:0;opacity:0;transition:opacity .25s;pointer-events:none;border-radius:var(--rl)}
+.dc:hover .glow{opacity:1}
+.dc.a .glow{background:linear-gradient(135deg,rgba(30,142,62,.03),rgba(30,142,62,.08))}
+.dc.d .glow{background:linear-gradient(135deg,rgba(217,48,37,.03),rgba(217,48,37,.06))}
+.dc-ic{width:48px;height:48px;border-radius:var(--rs2);display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:transform .3s var(--es);position:relative;z-index:1}
+.dc:hover .dc-ic{transform:scale(1.05)}
+.dc.a .dc-ic{background:var(--gs);color:var(--g)}
+.dc.d .dc-ic{background:var(--rs);color:var(--r)}
+/* Beauftragen: checkmark draws in */
+.dc.a .dc-ic svg path{stroke-dasharray:60;stroke-dashoffset:0;transition:stroke-dashoffset .01s}
+.dc.a:hover .dc-ic svg path{animation:drawCheck .6s var(--e)}
+@keyframes drawCheck{from{stroke-dashoffset:60}to{stroke-dashoffset:0}}
+.dc.a:hover .dc-ic svg circle{animation:pulseCircle .6s var(--e)}
+@keyframes pulseCircle{0%{r:10;opacity:.8}50%{r:11;opacity:1}100%{r:10;opacity:1}}
+/* Ablehnen: X rotates in from + */
+.dc.d .dc-ic .ic{transition:transform .4s var(--es)}
+.dc.d:hover .dc-ic .ic{transform:rotate(90deg)}
+.dc-bd{flex:1;z-index:1}.dc-tt{font-size:15px;font-weight:600;margin-bottom:2px}
+.dc.a .dc-tt{color:var(--gd)}.dc.d .dc-tt{color:var(--r)}
+.dc-ds{font-size:12px;color:var(--t4);line-height:1.5}
+.dc-arr{transition:all .3s;z-index:1}
+.dc.a .dc-arr{color:rgba(30,142,62,.25)}
+.dc.d .dc-arr{color:rgba(217,48,37,.2)}
+.dc.a:hover .dc-arr{color:var(--g);transform:translateX(3px)}
+.dc.d:hover .dc-arr{color:var(--r);transform:translateX(3px)}
+@media(max-width:480px){.dc-inner{padding:16px 18px;gap:12px}.dc-ic{width:42px;height:42px}}
+.dw-btn{padding:7px 16px;border-radius:var(--rf);font-family:var(--f);font-size:12px;font-weight:600;border:none;background:var(--r);color:#fff;cursor:pointer}.dw-btn:hover{background:var(--rd)}
+
+/* DOWNLOAD CARD */
+.dl-card{display:flex;align-items:center;gap:14px;padding:16px;background:var(--sf);border:1px solid var(--ol);border-radius:var(--rm);margin-bottom:8px;transition:box-shadow .2s}
+.dl-card:hover{box-shadow:var(--s1)}
+.dl-card-ic{width:44px;height:44px;border-radius:12px;background:var(--pu);display:flex;align-items:center;justify-content:center;flex-shrink:0;color:var(--p)}
+.dl-card-bd{flex:1;min-width:0}
+.dl-card-tt{font-family:'Inter',var(--f);font-size:14px;font-weight:700;color:var(--t1);margin-bottom:2px}
+.dl-card-ds{font-size:12px;color:var(--t3);line-height:1.5}
+.dl-btn{display:inline-flex;align-items:center;gap:5px;padding:8px 14px;border-radius:20px;border:1px solid var(--pc);background:var(--pu);color:var(--p);font-family:var(--f);font-size:12px;font-weight:600;cursor:pointer;transition:all .2s;flex-shrink:0}
+.dl-btn:hover{background:var(--pl);border-color:var(--p)}
+
+/* WUNSCHTERMIN */
+.wt-section{margin:24px -4px 16px;padding:20px 18px;background:linear-gradient(135deg,rgba(26,115,232,.03),rgba(26,115,232,.07));border:1px solid var(--pc);border-radius:var(--rm);position:relative}
+.wt-section::before{content:'';position:absolute;top:-12px;left:50%;transform:translateX(-50%);width:40px;height:3px;border-radius:2px;background:var(--pc)}
+.wt-opts{display:flex;flex-direction:column;gap:6px}
+.wt-opt{display:flex;align-items:center;gap:10px;padding:12px 14px;border:1px solid var(--ol);border-radius:var(--rs2);cursor:pointer;transition:all .2s;background:var(--sf);box-shadow:0 1px 2px rgba(0,0,0,.04)}
+.wt-opt:hover{background:var(--pu);border-color:var(--pc);box-shadow:0 2px 6px rgba(0,0,0,.06)}
+.wt-opt.on{background:var(--pl);border-color:var(--p);box-shadow:0 0 0 1px var(--p)}
+.wt-opt input{display:none}
+.wt-radio{width:18px;height:18px;border:2px solid var(--ov);border-radius:50%;flex-shrink:0;position:relative;transition:all .2s}
+.wt-opt.on .wt-radio{border-color:var(--p)}
+.wt-opt.on .wt-radio::after{content:'';position:absolute;top:3px;left:3px;width:8px;height:8px;background:var(--p);border-radius:50%}
+.wt-tt{font-size:13px;font-weight:600;color:var(--t1)}.wt-ds{font-size:11px;color:var(--t4);line-height:1.4}
+.wt-date{padding:6px 10px;border:1px solid var(--ol);border-radius:8px;font-family:var(--f);font-size:12px;color:var(--t1);background:var(--sf);cursor:pointer;margin-left:auto;flex-shrink:0;transition:border-color .2s}
+.wt-date:focus{outline:none;border-color:var(--p)}
+.wt-opt-date{flex-wrap:wrap}
+.wt-opt-date .wt-date{width:100%;margin-top:8px;display:none}
+.wt-opt-date.on .wt-date{display:block}
+.wt-feat{background:var(--pu);border-color:var(--pc);position:relative}
+.wt-feat:not(.on):hover{background:var(--pl)}
+.wt-err{display:none;align-items:center;gap:6px;padding:8px 12px;margin-top:8px;background:var(--ys);border:1px solid rgba(249,171,0,.3);border-radius:var(--rs2);font-size:12px;color:#a85e00;font-weight:500;animation:fadeUp .3s var(--e)}
+.wt-err.show{display:flex}
+
+/* PDF */
+.pdfv{background:var(--sf);border:1px solid var(--ol);border-radius:var(--rm);overflow:hidden;margin-bottom:12px}
+.pdfv-bar{display:flex;align-items:center;justify-content:space-between;padding:8px 14px;background:var(--sc);border-bottom:1px solid var(--ol);font-size:12px;color:var(--t3)}
+.pdfv-bar .fn{font-weight:600;color:var(--t1);display:flex;align-items:center;gap:5px}.pdfv-bar .fn .ic{color:var(--r)}
+.pdfs{max-height:340px;overflow-y:auto;padding:28px;scroll-behavior:smooth}
+.pdfs::-webkit-scrollbar{width:3px}.pdfs::-webkit-scrollbar-thumb{background:var(--ov);border-radius:2px}
+.pdfs h4{font-size:15px;font-weight:700;margin:20px 0 6px}.pdfs h4:first-child{margin-top:0}
+.pdfs p{font-size:12px;color:var(--t2);line-height:1.5;margin-bottom:4px}
+.pdfs .lg{font-size:11px;color:var(--t4);border-left:3px solid var(--sh);padding-left:12px;margin:10px 0;line-height:1.7}
+.shint{display:flex;align-items:center;justify-content:center;gap:6px;padding:8px 14px;border-radius:var(--rx);font-size:12px;font-weight:500;margin-bottom:16px;background:var(--ys);border:1px solid var(--yb);color:#a85e00;transition:all .4s}
+.shint.ok{background:var(--gs);border-color:var(--gb);color:var(--gd)}
+
+/* CHECKBOX */
+.cb{display:flex;gap:10px;padding:14px;border:1px solid var(--ol);border-radius:var(--rs2);margin-bottom:8px;cursor:pointer;transition:all .25s var(--e);background:var(--sf);user-select:none}
+.cb:hover{background:var(--pu);border-color:var(--pc)}.cb.on{background:var(--pl);border-color:var(--p)}
+.cb-b{width:18px;height:18px;border:2px solid var(--ov);border-radius:4px;flex-shrink:0;display:flex;align-items:center;justify-content:center;transition:all .25s;margin-top:1px}
+.cb.on .cb-b{background:var(--p);border-color:var(--p);animation:cbPop .35s var(--es)}
+@keyframes cbPop{0%{transform:scale(1)}40%{transform:scale(1.3)}100%{transform:scale(1)}}
+.cb-k{display:none;color:#fff}.cb.on .cb-k{display:flex}
+.cb.on .cb-k svg polyline{stroke-dasharray:24;stroke-dashoffset:24;animation:cbDraw .35s var(--e) .05s forwards}
+@keyframes cbDraw{to{stroke-dashoffset:0}}
+.cb-t{font-size:13px;color:var(--t2);line-height:1.55}
+.cb.on .cb-t{color:var(--t1)}
+@media(max-width:480px){.cb{padding:12px}.cb-t{font-size:12px}}
+
+/* BUTTON GLOW – enabled transition */
+.btn.glow-on{animation:btnGlow .6s var(--es)}
+@keyframes btnGlow{0%{box-shadow:0 0 0 0 rgba(26,115,232,.4)}40%{box-shadow:0 0 0 8px rgba(26,115,232,.15)}100%{box-shadow:none}}
+
+/* RADIO POP */
+.wt-opt.on .wt-radio{animation:radioPop .3s var(--es)}
+.wt-opt.on .wt-radio::after{animation:radioDot .25s var(--es)}
+@keyframes radioPop{0%{transform:scale(1)}50%{transform:scale(1.15)}100%{transform:scale(1)}}
+@keyframes radioDot{from{transform:scale(0)}to{transform:scale(1)}}
+
+/* SCROLL HINT – celebration on read */
+.shint.ok{animation:hintCelebrate .5s var(--es)}
+@keyframes hintCelebrate{0%{transform:scale(1)}30%{transform:scale(1.03)}100%{transform:scale(1)}}
+
+/* SKELETON LOADING */
+.skel-wrap{position:relative}
+.skel-over{position:absolute;inset:0;z-index:10;padding:0;transition:opacity .4s var(--e);pointer-events:none;display:none;opacity:0}
+.skel-over.gone{opacity:0}
+.skel-block{border-radius:8px;background:linear-gradient(90deg,var(--sc) 25%,var(--sf) 50%,var(--sc) 75%);background-size:200% 100%;animation:shimmer 1.5s infinite}
+@keyframes shimmer{0%{background-position:200% 0}100%{background-position:-200% 0}}
+.skel-hl{height:58px;width:65%;margin-bottom:12px}
+.skel-sub{height:40px;width:90%;margin-bottom:24px}
+.skel-card{height:72px;width:100%;margin-bottom:10px;border-radius:var(--rm)}
+.skel-card-sm{height:48px;width:100%;margin-bottom:8px;border-radius:var(--rs2)}
+.skel-content{opacity:1}
+.skel-content.revealed{opacity:1}
+
+/* S1 PROGRESSIVE DISCLOSURE – staggered entrance synced with skeleton reveal */
+#s1 .skel-content.revealed>.hl{animation:fadeUp .6s var(--e) both}
+#s1 .skel-content.revealed>.sub{animation:fadeUp .6s var(--e) .1s both}
+#s1 .skel-content.revealed .dc-group:first-child>.dc{animation:fadeUp .5s var(--e) .25s both}
+#s1 .skel-content.revealed .dc-group:first-child>#priceWrap{animation:fadeUp .5s var(--e) .4s both}
+#s1 .skel-content.revealed .dc-group:first-child>#infoWrap{animation:fadeUp .5s var(--e) .5s both}
+#s1 .skel-content.revealed .dc-group-d{animation:fadeUp .5s var(--e) .65s both}
+#s1 .skel-content.revealed .dev-bar{animation:fadeUp .4s var(--e) .75s both}
+
+/* SIGNATURE */
+.sig-s{margin-bottom:20px}
+.sig-s h3{font-size:14px;font-weight:600;margin-bottom:3px;display:flex;align-items:center;gap:6px}
+.sig-s>p{font-size:12px;color:var(--t4);margin-bottom:12px}
+.mbar{display:flex;background:var(--sc);border-radius:var(--rm);padding:3px;margin-bottom:14px;border:1px solid var(--ol);gap:3px}
+.mt{flex:1;padding:10px 14px;border-radius:10px;font-size:13px;font-weight:600;cursor:pointer;color:var(--t3);transition:all .3s var(--e);border:none;background:none;font-family:var(--f);display:flex;align-items:center;justify-content:center;gap:6px}
+.mt:hover{color:var(--t1);background:var(--sf)}
+.mt.on{background:var(--sf);color:var(--p);box-shadow:var(--s2);border:1px solid var(--pc)}
+.sigw{border:2px dashed var(--ol);border-radius:var(--rs2);background:var(--sf);position:relative;overflow:hidden;transition:all .3s}
+.sigw:hover{border-color:var(--ov)}.sigw.drawn{border-color:var(--p);border-style:solid;background:var(--pu)}
+.sigc{width:100%;height:120px;cursor:crosshair;display:block;touch-action:none}
+@media(max-width:480px){.sigc{height:140px}}
+.sigg{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;pointer-events:none;color:var(--t4);font-size:12px;gap:3px;transition:opacity .3s}
+.sigw.drawn .sigg{opacity:0}.sigg .ic{opacity:.3}
+.siggl{position:absolute;bottom:30px;left:18px;right:18px;height:1px;background:var(--ol);opacity:.5;pointer-events:none}
+.sigtb{display:flex;align-items:center;justify-content:space-between;padding:8px 10px;margin-top:8px;border-radius:var(--rs2);background:var(--sd);border:1px solid var(--ol)}
+.sigtb-l{display:flex;gap:4px;align-items:center}
+.stl{height:30px;padding:0 10px;border:1px solid var(--ol);background:var(--sf);border-radius:20px;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;gap:4px;color:var(--t3);transition:all .2s;font-family:var(--f);font-size:11px;font-weight:500}
+.stl .ic svg{width:13px;height:13px}
+.stl:hover:not(:disabled){background:var(--pu);border-color:var(--pc);color:var(--p)}.stl:disabled{opacity:.25;cursor:not-allowed}
+.psel{display:flex;align-items:center;gap:5px;padding:0 8px;margin:0 2px}
+.pd{border-radius:50%;border:2px solid var(--ov);cursor:pointer;transition:all .2s}
+.pd:hover{border-color:var(--t3)}
+.pd.th{width:7px;height:7px}.pd.md{width:10px;height:10px}.pd.tk{width:14px;height:14px}
+.pd.on{background:var(--p);border-color:var(--p)}
+.sinfo{font-size:10px;color:var(--t4);font-weight:500;padding:0 4px}
+.sig-err{display:none;align-items:center;gap:6px;padding:8px 12px;margin-top:8px;background:var(--rs);border:1px solid rgba(223,45,57,.2);border-radius:var(--rs2);font-size:12px;color:var(--r);font-weight:500;animation:fadeUp .3s var(--e)}
+.sig-err.show{display:flex}
+.sigw.shake{animation:shake .4s var(--e)}
+@keyframes shake{0%,100%{transform:translateX(0)}25%{transform:translateX(-4px)}50%{transform:translateX(4px)}75%{transform:translateX(-2px)}}
+.qrz{display:none;flex-direction:column;align-items:center;padding:28px 14px;gap:12px;text-align:center}.qrz.on{display:flex}
+.qr-c{background:#fff;padding:12px;border-radius:var(--rs2);border:1px solid var(--ol);box-shadow:var(--s2)}
+.qr-c canvas,.qr-c img{border-radius:4px!important}
+.qr-w{font-size:12px;color:var(--t4);display:flex;align-items:center;gap:5px}
+.qr-w .bl{width:5px;height:5px;border-radius:50%;background:var(--p);animation:bk 1.5s infinite}
+@keyframes bk{0%,100%{opacity:1}50%{opacity:.15}}
+.qr-meta{font-size:10px;color:var(--ov);display:flex;align-items:center;gap:6px}
+
+/* QR COUNTDOWN TIMER */
+.qr-timer{display:inline-flex;align-items:center;gap:6px;padding:6px 14px;background:var(--ys);border:1px solid var(--yb);border-radius:20px;font-size:13px;font-weight:700;color:#a85e00;margin-top:2px;font-variant-numeric:tabular-nums;transition:all .3s}
+.qr-timer.warn{background:var(--rs);border-color:rgba(217,48,37,.3);color:var(--r);animation:timerPulse 1s infinite}
+@keyframes timerPulse{0%,100%{opacity:1}50%{opacity:.7}}
+.qr-expired{display:flex;flex-direction:column;align-items:center;gap:8px;margin-top:2px}
+.qr-expired>span{font-size:12px;font-weight:600;color:var(--r)}
+.qr-renew{display:inline-flex;align-items:center;gap:6px;padding:8px 16px;background:var(--p);color:#fff;border:none;border-radius:20px;font-family:var(--f);font-size:12px;font-weight:600;cursor:pointer;transition:all .2s}
+.qr-renew:hover{background:var(--pd);transform:scale(1.03)}
+
+/* S7 DECLINE DONE – cinematic like S5 but red */
+.done-box.nope{text-align:center}
+.done-box.nope .done-ic{width:72px;height:72px;margin:0 auto 20px;background:var(--rs);color:var(--r);animation:popBig .7s var(--es),ringPulseR 2s var(--es) 1s both}
+.done-box.nope .done-ic .ic{width:32px;height:32px}
+.done-box.nope .done-ic::before,.done-box.nope .done-ic::after{content:'';position:absolute;inset:-10px;border-radius:50%;border:2px solid var(--r);opacity:0;animation:declineRing 1.6s var(--es) .4s both}
+.done-box.nope .done-ic::after{inset:-28px;border-width:1px;animation-delay:.7s;animation-duration:1.8s}
+@keyframes declineRing{0%{transform:scale(.6);opacity:0}20%{opacity:.4}100%{transform:scale(1.4);opacity:0}}
+@keyframes ringPulseR{0%{box-shadow:0 0 0 0 rgba(217,48,37,.25)}100%{box-shadow:0 0 0 40px rgba(217,48,37,0)}}
+/* X mark draws */
+.done-box.nope .done-ic svg path:first-child{stroke-dasharray:80;stroke-dashoffset:80;animation:drawIn .8s var(--e) .3s forwards}
+.done-box.nope .done-ic svg line{stroke-dasharray:20;stroke-dashoffset:20;animation:drawIn .5s var(--e) .5s forwards}
+.drz{display:none}.drz.on{display:block}
+
+/* BUTTONS */
+.btn{padding:9px 22px;border-radius:var(--rf);font-family:var(--f);font-size:13px;font-weight:600;cursor:pointer;transition:all .25s var(--e);display:inline-flex;align-items:center;gap:6px;border:none}
+.btn-p{background:var(--p);color:#fff;box-shadow:var(--s1)}.btn-p:hover:not(:disabled){background:var(--ph);box-shadow:var(--s2);transform:translateY(-1px)}
+.btn-p:disabled,.btn-r:disabled{background:var(--sh);color:var(--t4);cursor:not-allowed;box-shadow:none;transform:none}
+.btn-t{background:var(--sc);color:var(--t2)}.btn-t:hover{background:var(--sh)}
+.btn-r{background:var(--r);color:#fff;box-shadow:var(--s1)}.btn-r:hover:not(:disabled){background:var(--rd)}
+.acts{display:flex;justify-content:space-between;align-items:center;margin-top:24px;gap:10px;flex-wrap:wrap}
+@media(max-width:480px){.btn{padding:10px 20px;font-size:14px;min-height:44px;white-space:normal;line-height:1.3}}
+
+/* DONE */
+.done-box{padding:32px 0}
+.done-box.ok{text-align:center}
+.done-ic{width:48px;height:48px;border-radius:50%;display:flex;align-items:center;justify-content:center;margin-bottom:16px;animation:pop .5s var(--es);position:relative}
+@keyframes pop{from{transform:scale(0)}to{transform:scale(1)}}
+.done-box.ok .done-ic{width:72px;height:72px;margin:0 auto 20px;background:var(--pl);color:var(--p);animation:popBig .7s var(--es)}
+@keyframes popBig{0%{transform:scale(0);opacity:0}60%{transform:scale(1.15)}100%{transform:scale(1);opacity:1}}
+/* Success ring animation - three expanding rings */
+.done-box.ok .done-ic::before,.done-box.ok .done-ic::after{content:'';position:absolute;inset:-10px;border-radius:50%;border:2px solid var(--p);opacity:0;animation:successRing 1.6s var(--es) .4s both}
+.done-box.ok .done-ic::after{inset:-28px;border-width:1px;animation-delay:.7s;animation-duration:1.8s}
+@keyframes successRing{0%{transform:scale(.6);opacity:0}20%{opacity:.5}100%{transform:scale(1.4);opacity:0}}
+/* Third ring via box-shadow */
+.done-box.ok .done-ic{box-shadow:0 0 0 0 rgba(26,115,232,0);animation:popBig .7s var(--es),ringPulse 2s var(--es) 1s both}
+@keyframes ringPulse{0%{box-shadow:0 0 0 0 rgba(26,115,232,.25)}100%{box-shadow:0 0 0 40px rgba(26,115,232,0)}}
+/* Checkmark draws slowly */
+.done-box.ok .done-ic svg polyline{stroke-dasharray:30;stroke-dashoffset:30;animation:drawIn .8s var(--e) .6s forwards}
+.done-box.ok .done-ic svg path{stroke-dasharray:80;stroke-dashoffset:80;animation:drawIn 1s var(--e) .3s forwards}
+@keyframes drawIn{to{stroke-dashoffset:0}}
+.done-box.ok .done-ic .ic{width:32px;height:32px}
+.done-box h2{font-family:'Inter',var(--f);font-size:20px;font-weight:800;margin-bottom:8px;color:var(--t1);text-transform:uppercase;letter-spacing:.02em;line-height:.95}
+.done-box p{font-size:13px;color:var(--t3);line-height:1.4;margin-bottom:4px}
+
+/* POST TIMELINE */
+.post-tl{margin:24px 0 0}
+.post-tl h4{font-size:12px;font-weight:600;color:var(--t1);margin-bottom:14px}
+.pt-item{display:flex;gap:12px}
+.pt-rail{display:flex;flex-direction:column;align-items:center;width:28px;flex-shrink:0}
+.pt-dot{width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;z-index:2}.pt-dot .ic svg{width:14px;height:14px}
+.pt-dot.done{background:var(--g);color:#fff;border:2px solid var(--g)}
+.pt-dot.next{background:var(--sf);color:var(--p);border:2px solid var(--p);animation:pulse 2s infinite}
+.pt-dot.future{background:var(--sf);color:var(--t4);border:2px dashed var(--ol)}
+@keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(26,115,232,.3)}50%{box-shadow:0 0 0 6px rgba(26,115,232,0)}}
+.pt-line{width:2px;flex:1;min-height:8px;margin:2px 0}.pt-line.done{background:var(--g)}.pt-line.pending{background:repeating-linear-gradient(180deg,var(--ol) 0,var(--ol) 3px,transparent 3px,transparent 7px)}
+.pt-content{flex:1;padding:3px 0 18px}
+.pt-title{font-size:13px;font-weight:600;color:var(--t1)}.pt-title.muted{color:var(--t4)}
+.pt-desc{font-size:12px;color:var(--t4);line-height:1.5;margin-top:1px}
+.pt-tag{display:inline-flex;align-items:center;gap:3px;font-size:9px;font-weight:600;padding:2px 6px;border-radius:var(--rf);margin-top:3px}
+.pt-tag.sent{background:var(--gs);color:var(--gd)}.pt-tag.next{background:var(--pl);color:var(--p)}.pt-tag.wait{background:var(--sc);color:var(--t4)}
+
+/* INLINE TOGGLE CLAUSES IN CONTRACT */
+.toggle-clause{margin:20px 0}
+.clause-toggle-box{background:rgba(124,58,237,.04);border:2px solid rgba(124,58,237,.2);border-radius:12px;padding:14px 16px;margin-bottom:12px;cursor:pointer;transition:all .3s}
+.clause-toggle-box:hover{background:rgba(124,58,237,.08);border-color:rgba(124,58,237,.3);transform:translateX(2px)}
+.clause-toggle-box.checked{background:rgba(124,58,237,.12);border-color:#7c3aed;box-shadow:0 2px 8px rgba(124,58,237,.15)}
+.clause-toggle-header{display:flex;align-items:flex-start;gap:12px}
+.clause-toggle-checkbox{width:22px;height:22px;cursor:pointer;accent-color:#7c3aed;flex-shrink:0;margin-top:2px;pointer-events:none}
+.clause-toggle-content{flex:1}
+.clause-toggle-title{font-size:12px;font-weight:700;color:#7c3aed;margin-bottom:4px;display:flex;align-items:center;gap:6px}
+.clause-toggle-desc{font-size:11px;color:#6b21a8;line-height:1.5}
+.clause-badge{display:inline-flex;font-size:9px;font-weight:700;padding:2px 6px;border-radius:4px;text-transform:uppercase;letter-spacing:.3px}
+.clause-badge.p0{background:#fef3c7;color:#92400e}
+.clause-badge.p1{background:#dbeafe;color:#1e40af}
+.clause-badge.p2{background:#d1fae5;color:#065f46}
+.clause-content{padding:12px 16px;background:#fff;border-radius:8px;margin-top:8px;border:1px solid rgba(124,58,237,.1)}
+.pt-dl-btn{display:inline-flex;align-items:center;gap:4px;padding:5px 10px;border-radius:16px;border:1px solid var(--pc);background:var(--pu);color:var(--p);font-family:var(--f);font-size:11px;font-weight:600;cursor:pointer;transition:all .2s;margin-top:6px}
+.pt-dl-btn:hover{background:var(--pl);border-color:var(--p);transform:translateY(-1px);box-shadow:var(--s1)}
+.pt-dl-btn.done{display:none}
+/* HIGHLIGHT TIMELINE STEP */
+.pt-highlight{background:var(--pu);margin:0 -16px;padding:4px 16px;border-radius:var(--rs2);border:1px solid var(--pc)}
+.pt-highlight .pt-desc{color:var(--t2);font-weight:500}
+
+/* ANIMATED CLOCK */
+.clock-ic{display:inline-flex;width:20px;height:20px;position:relative;vertical-align:-4px;margin-right:2px}
+.clock-ic svg{width:100%;height:100%}
+
+/* S5 COMPACT FOOTER */
+.s5-foot{margin-top:24px;padding-top:16px;border-top:1px solid var(--ol)}
+.s5-meta{display:flex;flex-wrap:wrap;gap:4px 16px;justify-content:center}
+.s5-meta-item{display:inline-flex;align-items:center;gap:4px;font-size:10px;color:var(--t4);font-weight:500;letter-spacing:.01em}
+.s5-meta-item .ic{opacity:.5}
+
+.wbox{background:var(--ys);border:1px solid var(--yb);border-radius:var(--rs2);padding:14px 16px;margin-bottom:16px;display:flex;gap:10px;align-items:flex-start}
+.wbox .ic{color:#a85e00;margin-top:1px}.wbox p{font-size:13px;color:var(--t2);line-height:1.6}
+
+
+/* FOOTER */
+.pgft{padding:0 28px 24px}
+.ftin{display:flex;align-items:center;justify-content:center;gap:6px}
+.ft-pill{display:inline-flex;align-items:center;gap:5px;padding:6px 12px;border-radius:20px;background:var(--sd);font-size:11px;color:var(--t3);text-decoration:none;transition:all .2s;border:1px solid transparent}
+.ft-pill:hover{background:var(--pu);border-color:var(--pc);color:var(--p)}
+.ft-pill .ic{opacity:.5}.ft-pill:hover .ic{opacity:1}
+.ft-wa{background:rgba(37,211,102,.08);color:#128C7E}.ft-wa .ic{opacity:.7;color:#25D366}.ft-wa:hover{background:rgba(37,211,102,.15);border-color:rgba(37,211,102,.3);color:#128C7E}
+.ft-spacer{flex:1}
+.ft-exp{display:inline-flex;align-items:center;gap:0;padding:0;border-radius:20px;background:var(--sd);border:1px solid transparent;transition:all .35s var(--e);overflow:hidden;cursor:default;height:28px}
+.ft-exp:hover{background:var(--sf);border-color:var(--ol)}
+.ft-exp-ic{width:28px;height:28px;display:flex;align-items:center;justify-content:center;flex-shrink:0;color:var(--t4);transition:color .2s}
+.ft-exp:hover .ft-exp-ic{color:var(--p)}
+.ft-exp-links{display:flex;align-items:center;gap:0;max-width:0;opacity:0;transition:max-width .35s var(--e),opacity .25s .05s,padding .35s;padding:0;white-space:nowrap}
+.ft-exp:hover .ft-exp-links{max-width:200px;opacity:1;padding:0 12px 0 0}
+.ft-exp-links a{font-size:10px;color:var(--t4);text-decoration:none;transition:color .15s;padding:4px 6px;border-radius:8px;letter-spacing:.01em}
+.ft-exp-links a:hover{color:var(--p);background:var(--pu)}
+.ft-exp-links span{font-size:9px;color:var(--ov)}
+.tag{position:fixed;bottom:12px;left:12px;background:var(--t1);color:#fff;font-size:9px;font-weight:700;padding:4px 10px;border-radius:var(--rf);z-index:200;letter-spacing:.1em;text-transform:uppercase}
+
+/* LOADING OVERLAY */
+.ld-over{display:none;position:fixed;inset:0;background:rgba(255,255,255,.85);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);z-index:300;align-items:center;justify-content:center;flex-direction:column;gap:16px}
+.ld-over.on{display:flex}
+.ld-spin{width:36px;height:36px;border:3px solid var(--sc);border-top-color:var(--p);border-radius:50%;animation:spin .8s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.ld-text{font-size:14px;font-weight:600;color:var(--t1)}.ld-sub{font-size:12px;color:var(--t4);margin-top:-8px}
+
+/* ERROR BANNER */
+.err-bar{display:none;align-items:center;gap:10px;padding:12px 16px;margin:-4px 0 16px;background:var(--rs);border:1px solid rgba(217,48,37,.2);border-radius:var(--rs2);animation:fadeUp .3s var(--e)}
+.err-bar.on{display:flex}
+.err-bar .ic{color:var(--r);flex-shrink:0}
+.err-bar p{font-size:12px;color:var(--t1);flex:1}
+.err-bar button{padding:5px 12px;border-radius:16px;border:1px solid rgba(217,48,37,.3);background:#fff;color:var(--r);font-family:var(--f);font-size:11px;font-weight:600;cursor:pointer;flex-shrink:0;transition:all .2s}
+.err-bar button:hover{background:var(--rs);border-color:var(--r)}
+
+/* SESSION TIMEOUT */
+.ses-bar{display:none;position:fixed;top:0;left:50%;transform:translateX(-50%);z-index:250;padding:8px 18px;border-radius:0 0 var(--rs2) var(--rs2);font-size:12px;font-weight:500;gap:8px;align-items:center;box-shadow:var(--s2);animation:fadeDown .3s var(--e)}
+.ses-bar.warn{display:flex;background:var(--ys);border:1px solid var(--yb);border-top:none;color:#a85e00}
+.ses-bar.expired{display:flex;background:var(--rs);border:1px solid rgba(217,48,37,.2);border-top:none;color:var(--r)}
+.ses-bar a{font-weight:600;color:inherit;text-decoration:underline;cursor:pointer}
+@keyframes fadeDown{from{opacity:0;transform:translateX(-50%) translateY(-100%)}to{opacity:1;transform:translateX(-50%) translateY(0)}}
+
+/* ALREADY COMPLETED (S8) */
+.s8-card{text-align:center;padding:40px 20px}
+.s8-ic{width:56px;height:56px;border-radius:50%;background:var(--gs);color:var(--g);display:flex;align-items:center;justify-content:center;margin:0 auto 16px}
+.s8-status{display:inline-flex;align-items:center;gap:5px;padding:4px 12px;border-radius:16px;background:var(--gs);color:var(--gd);font-size:11px;font-weight:600;margin-bottom:16px}
+.s8-details{margin-top:20px;padding:16px;background:var(--sd);border-radius:var(--rs2);text-align:left}
+.s8-row{display:flex;justify-content:space-between;padding:6px 0;font-size:12px}
+.s8-row:not(:last-child){border-bottom:1px solid var(--ol)}
+.s8-row .s8-l{color:var(--t3)}.s8-row .s8-v{font-weight:600;color:var(--t1)}
+</style>
+</head>
+<body>
+<div class="tag" onclick="try{localStorage.removeItem('vd_'+CFG.token)}catch(e){}location.reload()" style="cursor:pointer" title="Klick = Reset">Prototype v9</div>
+<div class="ses-bar" id="sesBar"><span class="ic ic-14"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></span><span id="sesText"></span><a onclick="resetSession()">Verlängern</a></div>
+<div class="ld-over" id="ldOver"><div class="ld-spin"></div><div class="ld-text" id="ldText">Wird übermittelt…</div><div class="ld-sub" id="ldSub">Bitte warten Sie einen Moment.</div></div>
+<img class="ci-logo" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+CjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL0dyYXBoaWNzL1NWRy8xLjEvRFREL3N2ZzExLmR0ZCI+Cjxzdmcgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDQ4NSAxMzEiIHZlcnNpb249IjEuMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSIgeG1sbnM6c2VyaWY9Imh0dHA6Ly93d3cuc2VyaWYuY29tLyIgc3R5bGU9ImZpbGwtcnVsZTpldmVub2RkO2NsaXAtcnVsZTpldmVub2RkO3N0cm9rZS1saW5lam9pbjpyb3VuZDtzdHJva2UtbWl0ZXJsaW1pdDoyOyI+CiAgICA8dXNlIGlkPSJIaW50ZXJncnVuZCIgeGxpbms6aHJlZj0iI19JbWFnZTEiIHg9IjAiIHk9IjAiIHdpZHRoPSI0ODVweCIgaGVpZ2h0PSIxMzFweCIvPgogICAgPGRlZnM+CiAgICAgICAgPGltYWdlIGlkPSJfSW1hZ2UxIiB3aWR0aD0iNDg1cHgiIGhlaWdodD0iMTMxcHgiIHhsaW5rOmhyZWY9ImRhdGE6aW1hZ2UvcG5nO2Jhc2U2NCxpVkJPUncwS0dnb0FBQUFOU1VoRVVnQUFBZVVBQUFDRENBWUFBQUN6NmdPUkFBQUFDWEJJV1hNQUFBN0VBQUFPeEFHVkt3NGJBQUFnQUVsRVFWUjRuTzJkZVpnY1ZiMi8zNnJ1bmpXWjdDU0JFRWdnQ1R0SUlNZ09ZVk9JSXJJSUtBYkVuMEJKRlhDOWlNdkZEVkJRdkdpVkZ2RUtDTEpKQUFtZ3JDSnJnaXdoYUNBQkF0bDNNcE5NWnUrdGZuK2M2a3gxZGZVMjB6UFRQVG52ODlRenRadzZkYXFudXo1MXp2a3VJSkZJSkJLSnBDeFFkckxyVmhMT1FEZEFJcEZJSlAxTGY0aWpVc0I2dHZLRG5TRGhkUXBZbDBna0Vza2dwSzhFVUFHWU8zZHVaTmFzV1VlRVFxRkppcUxzNmxuR0EzV0ZWT1E0enFBUmFVVlJIQ0RwT003bVpESzV3WEdjOWZGNGZFTTBHdDJ3Yk5teXQyYk1tTEdKYnZIMS9nM2FKNUZJSkpKQlJxa0ZUOW0wYVZQOXlKRWpUMVZWOVV1cXFwNEJqQ3p4TlFZclRqd2VmNk9ycSt1Smp6LysrTWxERGpua1k3b0ZPV2dCS2M0U2lVUWlDVURwN096Y0w1RklQT3c0VG9jajZUWHhlSHhKVTFQVEZUTm16R2dBYW9FYW9BcUlBQ0ZBUmJ4VURacVJCSWxFSXBIMGtyYTJ0dDBTaWNRZkhjZEpETFNRRFVaaXNkaVM1Y3VYbnp0eTVNZ0dvQjRoME5WSWNaWklKQkpKaWcwYk50UW5Fb2tiSE1kcEcyamgyaG5vN094OGJjR0NCY2NES1hGTzlaekRwSXV6UkNLUlNDcVVIajNFMjlyYUp0VFYxYzBEcHBlNFBaSWNKSlBKMk9yVnE2K2VOR25TZzBBQ2lBTkpkejJKbkcrV1NDU1NpcVpvVVk1R296TWlrY2c4WUh3ZnRFZFNBRnUyYlBuZEFRY2NjTU9tVFp1aUNHRk9pYkpYbkVFS3MwUWlrVlFVYWpHRjQvSDRoWkZJNUdXa0lBOG9vMGVQdnZMamp6Kys5NUpMTGhsSnV2Rlhha245WCtWd3RrUWlrVlFRQlQrMDQvSDRWME9oMEgxOTJSaEpjWFIwZEx4NTdMSEhucnR3NGNKMklFWjNyem5WWTA2NlJXV1BXU0tSU0NxQWdrVFpIYkorR1dGY0pDa2p0bXpaOHBlSkV5ZitkMGRIUnhRaHpER2tNRXNrRWtsRmtuZjR1cTJ0YmRkSUpQSVlVcERMa3RHalI1Ky9hTkdpU3hIRDJLbWhiSzlGZGxGVEZCS0pSQ0laT0hJK3NGZXZYbDFiVjFmM0dMQnJQN1ZIMGdPbVRadjJvMmVmZmZaRXVvWFo3eVlsL1pnbEVvbWtBc2o1b0U0a0VqOVRWZlg2L21xTXBPZkVZckZQVHp6eHhCUG56NSsvRGZBT1pYdXRzNzB1VXhLSlJDSXBNN0tLY210cjYvajYrdnBsaUVBVmtncmdvNDgrdW0zYXRHa1dRcFM3M0w5eE1vVlpJcEZJSkdWSXR1RnJwYmEyOWtkSVFhNG9KaytlL0swTExyaGdIR0plT1dodVdRNWpTeVFTU1JrVCtJRHU3T3ljVmwxZC9UN2lnUzZwSUZhdVhIbnZwRW1UYmdRNjZlNHQrNE9NeUdGc2lVUWlLVU9DZXNwS0pCTDVDVktRSzVLSkV5ZWVmK1dWVjA0ZzJCSmI5cFFsRW9ta2pNa1E1UTBiTnRTcHFucm1RRFJHMG50VVZZMWNmUEhGcHlIRU9DWEswaHBiSXBGSUtnQy9LQ3VqUjQ4K0JaRWVVRktoVEo0OCtVUXlCVmxta3BKSUpKSXlKNk9uTEh2SmxjK3dZY09tbjN6eXlTUHBGdVV3M2NaZVVwZ2xFb21rVEVrVDVULzg0UTloVlZWbkRWUmpKS1ZCVlZYMXV1dXVPNWIwWG5KcVhVRU9ZVXNrRWtsWjRoVmw1YUtMTHBvQmpCNm94a2hLeDM3NzdYYzg2V0tzSW52TEVvbEVVdGFFdlJ1aFVHaEtYMTBvSG8vak9HWGdoYU1vUk1MZHQrMTBkSkRzNklReWFKdGFWNHRTVzVycC9DRkRoa3dnczVjc0JWa2lrVWpLbURSUlZoU2xUMkpjSnhJSlZxOWRSelFhN1l2cWkwSlZWYWJzTlJsRlVTQ1pwUDNsK2JRKy9oUWtrL2xQN2tzVUdQS2xXZFIvN3VTU1ZGZGRYVDBHSWNBaHo5OXNGdGdELzBZaWtVZ2tralJSVnZwS2xKUEpKQzJ0clhSMmR2WkY5VVVSVXJ0SDdCM0hJYjUrSXgydnZ6bndvZ3pVSEhab3llcXFycTRlTVhUbzBIQkxTMHVNNEtoZXNyY3NrVWdrWlVaS29SUUFSVkhHRDJCYkpLVkZQZlhVVTBlUk9aY3NoVmtpa1VqS2xEVHJheW5LZzR2cDA2ZVBRUWl2RkdPSlJDS3BBTktzcjRHR2dXcUlwUFNNR2pWcUtKbGlMSVZaSXBGSXlwUnNXYUlrZ3dldkNBZjFscVU0U3lRU1Naa2dSWG5ud0MvQ1VwQWxFb21rREFubkw5SzNLSXJDc0lZR2hnNGQwbS9YVXhSbHgzck5ZWjloaEhGNXYvZ3BKN2UzMFBiVWM4UTNiZTd6YXdFa2s4a2dNWlpDTEpGSUpHWEtnSXN5UU1QUUlZemRaWmYrdjdDcVVyWGZOS3FtN3RVdmw0dXYyMERIdjk2Q2ZoSmxEMzR4RHRxV3Zzb1NpVVF5d0tSRWVVQjdVSXFpb0tvRE01S3VoTU1RN3A5M0U2V21Ha1h0OTQvWkw3NFNpVVFpS1ZQa25QTE9RVFpobGlJdGtVZ2taWVFVWllsRUlwRkl5b1N5bUZQdU1ja2tUaUloUW1TbXdtUXFDb1JDS0tFUTlIUkkzSEhBY1hJbTBFZ1ppNkVvWXBGSUpCS0pwSmRVbmlnN0RrNDBTdGVTRCtpYy93YlJaWitRK0xTUlJHTWpUaUpKYVBnd3doTW5VSFBvd2RRZU9ZUHdIcnVMZWVNaVNEUTIwZnEzWjRpdjI1QzFqQklLb2RSVUV4bzFrc2prUGFrK1lEL1VocUZTb0NVU2lVVFNZeXBMbEIySCtQb05OTjd3SzZKTFB5VFJ2RDBqa1VSaTg2ZEVQL3FZanBmbnMvM0JSeGh4MVJYVW5YQXNTbFdrNE1za3Q3ZlEvdnhMZEMxK1AzOWhWVVVkT29TYXd3OWw1SDlkU1hpMzhUdTlNR3U2MFFBTUE5YmJscGtZNlBaSUpCSkpwVkJSb2h4ZnU1N0dHMzhsc2pxcEt1cVFlaUo3VENRMGNqaEtiUzFPUEU2eWFTdXhOZXRJTm0wbHZtWWRXMzl0b1ZSWFUzZnNrV25EMlU0aUFkRW95YzR1UXNPSFpSVlNwYnFheUo2N285VFVkTzkwSEVnbVNXeHRKckZsQzhubTdiVC84eFdTTGEyTS91a1BDTzg2cnE4L2lySkMwNDFxWURad0NUQVZHT2tlaW1tNnNScFlDTnhzVythaWdIUFBCcjVRZ21aY2JsdG1wNlliWndGbjlyQ09OMjNMdEQxdHV3SFkzZDI4MnJiTWJZVlVvdWxHUGZCN2QzT2piWm5mOHgwL0F6aTNoMjM4dDIyWnQzbnF1Z0k0b29EemtzQmFZQm53am0yWldkODROZDI0RURnMVQxMVJvQk5vQmhZQXI5cVcyWjZqenJLKzUyeG91dkVkNEVCMzgwUGJNbitScC93ZmdPcGlyK1BqVmRzeTczVHJ1eDNvYVpMMW0yekxYT2JXTXdiNFZZSG50UUtmSUQ2M2wyekxiTzNoOVNVOW9HSkUyWW5GMlByN1A5TDUxanVnS0ZSTjNadGhzeStnK3BBRENZMGFpVkpkalpOSWtOeTZqYTUvdjBmelBRL1E5Wi8zaVcvY1RPc2pqMU45MFA2RVJnd0hJTm5XVHNjcjgrbDQ0MjFDRFEwTU55N0xPc1FkSGp1R0VkZDhtOGllZTZTM3gzMEI2SGo5VGJZLzhEREo1dTEwL2VkOTJwOS9rYUVYbm9NU0tieG5Yc2xvdXZFbDRIWWc2RTBrQXV6bEx1ZHB1dkU0TU51MnpHWlBtZWtJUWU4dEJrSWtEdTFGZmZXQTdkbitFbkNBdS80RG9DQlJCbW84YlZnR2ZNOTMvTUJldFBGcDREYlA5dkhBVjRxdFJOT05oNEh2MlphNVBPRHdFUlRmdnFpbUc3K3hMZk82TE1jUDZrR2RLWjRpL1o1UEFNNHJ0aEpOTitZQzM4OXl6MEhsUndBM0l2NmZBSEZOTis2eUxYTlRqdE8rQnRRVjJ6WWZEbkNudS81VllHZ1A2N2tEOGYzRHJhTW5uLzlHVFRkK0F0d2hSNzM2aDRvUjVlZ0hIOUgrNHFzNDhUaEtkUlhEdnZsMTZrODVNYTJIcTRURGhNYU1wbTdtY1RqeE9GcysvRGxPWnljZEM5NGdzWG5Mamg1eGZQMEd0djUyRHZHTm02Zzkrb2pjMGJ6Q1lVS2pSd1gzZmlkT29Hci9mWEJpY1pydi9ETk9WeGRkN3k5bFNGZDBweEJsVFRlT0IvNUNkOC9nUGVCUllBMFFBL1lFamdGT2NZK2ZDZHlyNmNhWnRtV21QdlF0ZEQ4NC9GUURFOTMxZG1CZGp1WUVQVEEySTNweWhiSytpTEtsWWd1d3RZanlhM01jVzRmNG5JSUlJM3I5cWQvOHVjQnhtbTRjbkVka05nSXRBZnNiZ0xHZTdTcmd1NXB1MU5pV2VWV08rcUQ0ZTg3MWYxOExkR1E1NXIvbjgraSs1MElpK0h5TmJrRk8xVGNiK0dXT2M1YVJYWlRIMHAzMFp6M1FscVhjeGh4MUYwTzJ6NlVMV0ozanZKSEFLSGQ5SERBSDhUdjhZWkhYbC9TQWloSGxybmNYUXp3T2dGSlRRKzJNNmRubmJsV1ZxcWw3VTNmaXNjUTNpdWVORTRzSzhkMXhUbWtDV0NtUkNGWDdURUd0clNIWjBVbGkwNmM3MmptWTBYUmpPREFQSVp3T2NKbHRtWC9NVW5ZRzhEZGdER0tvK2pyZ1pnRGJNdjhYK044czUwMEgzblkzNTl1V21XdElOWWlmZW9lank1UmYycFpaNkxCaVBpNnhMZlA1YkFjMTNZZ0FNeEdqQVpNUkluRW5NQ3RIbmRmYWxubGZsdnBHSTNyOW53ZXVkWGNibW03ODJiYk1oVG5xdk5tMnpGL25PRjRNRjl1VytVSzJnKzQ5bjRTNDUwa0lrYm1Ud3FaTUxuWC92bzZ3a2RnUCtBWTVSTm0yekVOeXRPVWU0T3Z1NXJkc3kveDdBVzFJRWJjdGMyb1I1WE94MkxiTXczTVYwSFJqRjhUb2tJR0laL0E5VFRlZXNTM3oxUksxUVpLRml2RlRkcnFpTzlZVlJZV3FxcHpsd3hNbk1QSmFnekczL0pReHQveVV5T1JKeERkOVN1eVRGY1JYcjhXSkNlRjAyanVJZmJKQ0xLdFdrMnpMT2kyV0ZiVytEcVhhN1N4R1FqdUxvZGN4d0hCMy9ZNXNnZ3hnVythYndEbUlPVDZBaS91MmFaSWdiTXVNMlpiNUxIQUdZaVFENEhUWE1LOG45VzJ4TGZORjJ6Sy9DMWllUXlmM3Nxa2x3NzNuWnhBdkhxbTM1VE0wM2NnNUpLenB4bUhBd2U3bXZjRDk3dm8wVFRlTzdaUEdsaEcyWlc2MkxmTnE0RzUzbDByUGJRSWtSVkF4b2x3MWRXOEloUUJJZG5iUytlYmJPTkZZMXZKS2F0aDUzRmpDNDhRb1c4dERqN0xsK3B2WTl2cy9rbXh1aG1TUzZFY2YwL2pUbTlseS9VMXN2ZlYzeEQ3NnVLaDJPZkU0OFRYclNMWjNnS0lRM25VODdBUkQxd2hSVHBHMXA1TEN0c3hYZ0hmY3pXbnVtN2hrQUxBdDh3UGdKWGRUb1Z0OGVzTlRudldaSmFpdnBOaVd1WVRpN2puVlM0NENEd0VQMEQyOGRtbmdHWU1UNzBqVFp3YXNGVHNSbFNQSysrOURlT3d1b0NnNFhWMXNtL01uV2g2ZVI5ZDdTMGswTm1XNFJtWGdPRGdkblNSYldrbTJ0ME5TL0w2Y2VFTHMyOTVDc3JVVnA5Q2g1MlNTUk5OVzJ2L3hFaTJQUEk3VEpheTRhdzZmamxLZHV4Yy9TUEJhdm9VS1BPY2g0RU4zMmEva0xaSVV3d3JQZWlsZWtGWjYxblBOZXc4azNuc2VrNjJRcGh0MXdBWHU1dE8yWlRiWmxya1NZV1VPY0c1UFJ4Y3FrRkovVHlSNXFKZzU1ZERJRVRSY2RCNWJmek9IWkdzcjBhVWZzdldUNVlUSGo2TnE2dDVFcHU1TjlYN1RxTnBuS3FGUkl6T0drSldhYW9hZWR4WjFwNXhJZk8xNnRwcHpTRFJ0cFdyS1pJWmYrUzJVY0JpbHFvckl4QWtrbXJwdFVKTE4yMmw3K25rNjMzYTllUndnbVNEWjJrWnMrVW82M25pYlpQTjIxSWFoREQzM1M5UWRmN1NJSmpiNGVRTTQzMTIvVk5PTmgvSlpaOXFXZVN0d2E1KzNURklJZTN2V1N5R2kwenpyejVTZ3ZyNmcwSHMrQnpHSERHTG9Pc1g5d05FSVE2NExnRCtVdEhYbFNhbS9KNUk4Vkl3b295alVuMzRxVGpSR3k2TlBrTml3a1dSN0I3R1ZxNG10WEkzeTBxdUVSbzhpdE1zWXFpWlBvdnFnL2FrNllGOGl1KytHVWx1TEVnb1IyV3NTRVNBNnJHRkhNQkYxV0FNMTB3OUpzNWIyaW5KaTZ6YTIzLzh3U3NqajQ1eDBJQllUdldwRkliemJlQnErZWg1RFpuMU9SUFhhT1hqSnN6NFRXS0RweGxYQUd4N0xha2tab3VuR01PQXdkM01yOEo5ZTFsY04vTWpkN0FLeUdwc05GSzVoWXVxZW00REZPWXFuaHFlM0lRd1VVOHdGZm90dzlidVVuVU9VdmZZQkx3OVlLM1lpS2tlVUFYWElFSWFlY3lZMWgwK25jK0Vpb3U4dnBXdkpoOFRYck1XSnhvaXYzMGg4L1VhaTczOUEyd3N2RVI2M0MzV256R1RvbDc5QWFQU28vQmNJSXBuRTZlckt0TlZPdVZFNURzbVdWcnJlWFV4a2o5MTNtdUZyMnpMZjFYVGpCOERQM1YwekVGYXFqWnB1dkFUOEUvaW5PMzg1VUl6VWRHT1AvTVVBaU5xV21UMnVhdDh4dklnMnhtM0x6T1VlbEJkTk4wWUNqOVB0bW5PN2JablpYR2NBUm1WcFh3MndHOEw2V2tmNG9xOEh6aWtneU1xSUFiam5KK2oyOTczZHRzek9MR1duQU1lNW13L2JsdG1WT21aYlpxT21HODhpak1ZTzEzVGpJTnN5ZS9WQ1V3eEZmR1lBamIwTitxSHB4am5BVDl6TlZuYU9sNUFCcDZKRUdZUTdWTlcwdmFtYU1wbGtXenVKTFkzRTE2Mm42OTNGZEw2MWlPaUtsVGh0N1NTM3R4QnQzaTZNc0pxM00venliNkFPSFZMMDljSzdqbU80OWszQ3UrK1dmaUFXSjdaeU5lMy9mSm5PaGUvUzl2eUxkTDIzbEJILzlXM3FUenErNThrd0tnamJNbitoNlVZTGNEM2Q4MDJqZ0xQZEJVMDMxZ0xQSVF5Qm5yQXRNN3QxWHVtNXdWMEtZU2tETTgvOUEzY3BoTldreitYNytiS21Hd2NFN0E4RG94RkR6SjlIK0JTREVPY2Y1N25tYjl3bEg4dUE0MnpMek9aajYrV0hGTzd6dWdyaDc1Nk5zelhkT0NoZ2Y3Wjdua2Z1ZS9ZYWNRVzVndDFQdHd2WnBVQStuK3hTRVNaOTNqNGZsNU5kUk1kcXVuRk5sbU5ERWIvbFV4RFIrVUNNZnB5Wng1OWRVaUlxVHBSMzRNYWNWb2NPRVQzVTZZY3c5UHl6aVcvY1JPZmI3OUwrd2t0MExWNUNzcjJEMXI4K1FmVkIrMU4zMHZGRko2ZFFhbXFvMm1lcXNQNzI0amhVSDNJUWRTY2VSOHVqajdQOW5nZUliOWhJeTBPUFVqVnRieUlUZHcrdWNKQmhXK2J2Tk4yNEF4Rm80VXhFaENudkdQNEVoRy9uTjRCVm1tN2NCTndsb3dQMUNaY1hXRzROY0RVd3o3Yk1QQmFTQlRNRmVGN1RqWi9abHZsd2llb3NoQ3NLTExlYTduc09uRjdSZENNVkhBVEV5MENRVCs0VGlGN2pFT0JybW01ODE5dWJyaEIySjB0c2dBRCtCUHpFdHN4Y3dVWWtKYVJ5UmRtTHFxTFUxaEtxclNVMGFpUlYwNlpRKzluRGFMenhWMEtZMjlwcGUvcDVhbzg1c21oUnpvcWlvRlJGQ0kwWnhkQXZmNEhPdDk2aDg2MTNpQzFmUlhUSmh6dU5LQU80UTRGM0FIZTREN2JERWJHVFQwVU1hNmMrOUQyQS8zUDMvYjkrYU5yZHdEOEtMRnRNNUs5UzhpQlFhQkNKVXNVZzNoM1JPMStGaUV1ZWk5dUIrVm1PMVFQamdkTVIvOU1EZ0xtYWJseGpXMmF1M3ZVRHBMdFE1YUpVOXp5UjdudCtKMHVaTStnT0YzdC9rSGpibHRtdTZjWmp3RVdJeUZkbklhTGE5VFVKaWd1VCtVYUpybnN1c0UzVGpmOHU0UXVjSkFlVkljckpKTEhWYTNFNnhUUlFhTnd1aElZUER5NnJLQ0xLMXJRcDFCNTdGTEdQbHd1RHNCV3JSRlN2WG9lbHpVUnRHRXBrcjBsMHZ2VU95YloyWWl0V2xmd2FsWUp0bVhIRTNQTHJ3RTlkMTVHWmlNaEFKN3JGdnFucHhqTGJNbk9GS3l3RmI5bVdlWC8rWWdQS29oSzJjUlppTGorSUdvUm82b2dIN1hUZ0dVMDNwdG1XMlpTanpnVUZ0TytuYmlLUXVZaG55czJhYmp4cVcrYWFMT1hmS2VFOW4wNjYwYUdYMUQwYkNJdnF3K2krNTZBd245LzByQitsNmNhRFdlcmR5M2RPZjRpeVU4TFBiQ0dRS3dES2JzQlJpTjcwS09BYVJFalE2MHQwZlVrT0trS1VreDJkTk4xcUVsM3lJUURETHYwNkRWL05FMXhHVVFpUDNRV2xxaHJhTzBUVUxiWHZYSldVbEF0V0xFYWlzWml3dm9NYjJ6SzNBL00wM1hnQ01iK2Jtai9OR2E2d1RJaDYxb3VKQ09QOVhVV3psaW85MFJ4R1d4Mkk0ZGhYTmQxNEdXSE1OQnBoWFR1M3R4ZTJMZk14VFRkTTRMOFFvVmN2QVg3VzIzb0xJTzg5YTdyeEdzSnkrRmlFZi9KSndDUGVncHB1N0lxWWUwNXhRb0hYbjZucHhpVGJNbGZrTDFvMk9IbU0rejRHUHRaMFl6bmRRL2dYSUVXNVg2Z0lheVMxdGdhbkswcGlTeU9KTFkxMHZQeGEvbUFoeVNTeEZhdElkb2l3bVZYN1RFV0o5TTA3aU5NVjNkRTdUZzFwRDJZMDNUaEIwNDIzM2VXaVFzNXhoNzV1b0R1NXdWVFhLcmFjK2NTelBybUk4eVpscWFOYzhJcndLVmxMRmM4cm52VnBXVXYxTSs0d2RMNTd2cGp1SURnckVNbFZjaTBwaTNBRjhZSTVHSmxQdDIveVhwcHVUTXBWV0ZJYUtxS25qS3BTZThSaGRDMzZOMDQwUnVlN2kybC9lVDYxUngwUjZIN2tSR04wdnJXUTluKytndU5tYktvKzlCQmYrRXUzWnh0UDdJanVWUlNPZzVOTTRuUjAwUHEzWitoYUlqeC8xR0VOVk85Yk5zK2p2bUlWWXZnVHhEemN2VG5LN3NETmQvdzZZcTVaUVF3RDVobzZIV2lXZU5iM0FWNHM4THdwbnZXQmRBbkx4bU9JV05VSzZlRlNlNHMzNjFHNXhacDlEREFKdUdkTk43ekMyZ1ZNenpLODdUMW5QeUNWbi9saVRUZCtQTmptWEczTGREVGRtQWRjNmU0Nmh2UUlYNUkrb0NKNnlnQkR6anhkeExCMncydzIzWEliTFkvTUk3WjZEWWxQRzBsdWF5YlIyRVI4N1hwYW4zaUtwbHN0WW12V2dxcFNkK3BNYW8rYXNjUElTNGxFSUtTSzN2U3ExVVEvWGk3Q2JMYTE0OFRTUFhhY1dJekVwaytKcjF1ZnRrUS9Yazc3OHkreTVZYzNzTzMzZDVEYzNvSVNDbEY5OElGVUh4emtsVEo0Y0lmcXRyaWJ4MnE2VVV3UzlwVDdTZ2U5REZyUkR5ejFySitmdFZRbVgvYXNsNTBvMjVhNW51NmVYaWxESng3cVdmOTNDZXZ0TmE2dmN5bzE1MWpmNFJQb25pZCtNcDhndS9VdEFkd3dmMHdBUGxlQ1pwWWpiM3JXWlpqTmZxQXllc3BBYU14b2hsMStLZHQrOXdmaUd6Y1RYNytScGx0K2cvS2Iyd252TnA3d3VGMUliRzBtdm1ZdHlkWTIxK0FyVFBYQkJ6SnM5Z1dFUm83WVVaYzZ2SUhROE9IRTE2d2p2bUVUbS9WcnFUNW9mMEs3akdISUZ6K1BXdGR0REJaZnM0NU4zLzVPN3NhcHFuQ2QybmNxRFY4OWIyZUo2dlVxd3ZKMFYrRFBtbTZjbHkrU2w2WWJKOUZ0M2JxZ0FseEpYcVhiL2VVNFRUY3VzUzN6VDdsTzBIUmpKdkFsZDdPTk1veHU1ZEtJRUpQaG1tNm92ZTNsdVFsR3J2WHNlaVZiMlFHa0VXSEVOTUozejE3ZjVIdUtxTzgrdXBNMFhFcmhGdVdWeEJiUCt1Q2VseXNUK2tXVUZVV2hLaEloR1RBUHJDZ0thb0d4b3V0UG5ZbGFVODMyKytjU1c3bWE1UFlXbks0dVlzdFhFbHUrVWdoeE9JdzZaQWpoOFdPcFBmNFk2azg1Z2NpVXZkTHFDVFUwTU9STFo1Qm9iQkk5NUpZV09sNTduZkN1NDZrNzRWalVocUdvUSt0Umh3OExiZ2lnb0VCSUZkbW94bytsOXJPSFV6ZnplS3FtN3BVOWRXTW9oRHBxNUk2c1ZSbDExcGZlTXJ3UDBZRWpFU0o3RHNLWTZ5ZTJaUzd5RjlSMEk0UVFjTzhETDZlNGxRTzJaYTdYZE9PN2RHZkttZU5HZkxyUnRzeTBISi91RU9pM2dGczh1NiszTGJOYzR3V25Icllxd3ZpcDZNQVE3ajN2aVRDZytqbkNjQXhnYnBubTNmWGU4Mmhnc3h0KzgyeDMvMmFLaTl2OUlNSllNUVI4UWRPTlhXekwzRnlxeHBZSlhsRU9mbkJKU2txL2lISW9GR0xpN2hNQ1JSbWdPcFdMT0E5S1ZZUzZrNDZuOXJpajZYaDFBUjJ2djBWODNYcWNEbUZJcUE0ZFNtanNHQkZNNU1nWlZFM2VNeml5bHFveTlPd3ZVbjN3QVhRc2VKUEU1ay9CY1FpUEgwdGs0Z1RVWVEwTVBmOXM2cHF5ajJJcGtRaHFiUzFxUXdOViswMURyYXZORzhVck5HSUVJL1RMY2RxRGN6YUh4bGZPZDk2MnpIV2FicHlObUdldEFyNElmRkhUamJjUVdhQldJcXh3eHlNc2ZNZDVUcittbjF5VmZxL3B4dStMS1ArcWJabkgrZmJOUVR5MFQwTGM1L2NSTGwzL1J0eG5DOEtvNlNEU1hXWGVSTXhoNXVPWG1tNFVZNFgram0yWjAvTVh5NHQzYnZCTWhQOTRFUGRxdWxHUXpZRExVdkpIdWJwVjA0MWlFcE84YlZ2bTRVV1V6NGIvbnY4SWZCWGhPZ1h3Z092U1Z4QzJaVzdRZE9NRmhJMUVCUGc2Zlpkd0phenBSckhHTCtmWWx2bG9MNis3MHJOK3VxWWI0V0krSTBueDlGdFB1YjZ1UkwxQU4yaEgzVW5IVXpmek9KSWRuVGh0d3I1RWJSaUtVcURBbzZwVVRkMDdNMUtYUzkwSnBjOWpybFJYVVRVdCtIcVZpRzJaQ3pUZE9BWVJIL2QwZC9maDdoTEVTdUFHMnpMdjZ2dlc5WWlNSVE3WDJHVVdRbWkrajhnZU5BYnhvbkd5dnp4aXJ2d1c0SlkraWxxV1pSaW1hRjZsMnk5M050bEZ1VkFTaUdRTlA4d1dWN29YbFBLZVUwUFZzeEdpN1BWTkxtYm9Pc1Y5Q0ZIR3JidWNzcUQxK25PekxmTlRUVGMrUUJnNmpnTk9vL0JnTjVJZVVERnp5b0VvaXVpaDFoVmpaeVFwSmJabHZnV2NvZW5HZE1TRGJtK0UrOUFlaUN3N3E0RGxpQUFMZnl0eTduSWQ4RC91K3ZJQ3oza2U2S2tvQklZU2RFWG1GamVjNk9XSUdObVQzYVVPNGRlNURORnp2dFBOdlp1TGwrbStyMkx4SjgzNEM5MFpqejR1b3A1blBHMXdOTjJvc2kwejVWUDlOOFJRYmlGc0J0NEYzc3ZqKzFycWUwNFpDUmJqY3BaMnoxZGNxWTlBK0NzL0FyVFpsdmx1RDlyMlYwUzBNRUJrbzhxUmtPTVI0Q04zL2NNQzYvOFpZc1NwSjd6bldXK2krOTdYQjVUTnhRL29qZ3ZmbjdIcmQwcFNiMUlxb0NZU2lYZFZWZDIvMUJkSkpwTnMycnlaV0N4NDFHUEU4R0VNSFJwc0hCWGZ1SW5rdHUyUW1hZXBHMFZGQ1lkUTZ1dFFhMnNoRWtHcHJpb3NyN0hqa056ZVFueERaaHo5OFBoeHdtZ3JZSTQ0dXV3VFNLUjNoSlRxYXNLN2pzdmFXNC9GWW16YXZKbk96bUROR0RWeUZDTkdaSWxVMWdQbXpKbHo5UlZYWFBFR3dzMmp3MTA2M1NVS3hCRTlISWVjSDdCRUlwRkkrb04rNlNsM2RYWHh6NWRlWWV1MnpCZElWVlU1K3JOSGNQQkJCd2FlMi9yNFU3Uy84QkpPRmtGUG9hZ3FTbFVFdGFHQjhHN2pxZHBuQ2xYNzcwZlYzcE55RG1rN2lRU2RpLzdOMXQvT3lUZzI0dW9ycUR2MnFFQlJicnJ4VmhMYnQ2ZnRpMHphZ3hGWGEwUW1UZ2k4Vmx0YkcwOC84eXpyMXdlL3FKNDA4MFNPT2Zyb1hMY3BrVWdra2tGTXY0aHlNcGxrVzNNelRRR0dVNnFxMHBHbDV3aVErTFNSMlBLVk9ORUNSMDBVWlVmODYvQ0VYUmx5eG1rTStmSVgwbHlpMG5EekljYyt5ZlNKVDI1dnhYR2N3SW1aMktyVkpIejNvMFRDRU12ZXprUXlTZFBXcld6KzlOUEE0MjFaRE1Ba0VvbEVzbk5RTWNGRENzWnhJSmtVcmxLZnJLRDVUL2ZSZk9lOUpENXRGTWNrRW9sRUlpbFRLbGVVVlZVczJYeUNYWkl0cmJRODhqak5kOXhEc3FWVVdlQWtFb2xFSWlrOUZXbDlyWVREREx2OEc5UWRkelFrRXlSYjI0aXRXRVhiYy84ayt2NVNraDJkYWIxaXA2T0QxcWVmcCthb0dlS2NQRUl1eVkrbUc3T0Jtd3NvMm9pSUVad0s1UCtjYlpsdHVVL0plczE1d0JHKzNaWnRtVDh2NE54ckVSbU12TnhwVzJaT2kyQk5ONjRFZnVqYlBkVzJ6QlpQbVQrUkdXYnhTSzhWdHV1WCs5Vjg3Y3pCaDdabG51Q3A3M2E2STRlbE9ORzJ6SktIOWRSMDR4WFM0M2s3dG1YdW11ZWM4V1RtTFg3SnRzd0xQR1VpWkZxOEw3WXQ4MVR2RGswM1BnUWFQTHMyMkpaNUtFV2k2Y2FkZEx2dVpjTUIxdEQ5ZlgzWHRzeThNYzgxM2ZnWHd1T2dwNlI5RnpYZFdFeDNNSlpjeEJFVzhCc1FGdWwzMkpZWjZLbWc2Y1lSd0x3aTJoUkhlQlg4QjNqQ3RzeHNhVUVEMFhRaktGNjhBOHdvSktpT3BodnZrUjVGTEFHY25PODc3c1pLOEJyMi9OVzJ6Rzk3am85RmVBemtvd01SSmpmMVhYZ2xtMmVGcGhzcTNhRnJlMFZGaWpLS1FuajhXS3IyY1o4VHlTVFZoeHhFM1NrbjB2bjJJcHJ2dUlmb1I1K2taWkpLTm0rbjdlbC9VUHZaR1lGSkxDUkZVMDk2UUpCc2pBUDJCODV6dDFkcXVuR1piWm5QRlhNeE4wUE5GOG4wdmZ5V3BodS95QmZpRXhnYTBON3JOTjJZYTF0bXJoamNRd0xPODQ4d2pRd280Lzl0RFE4b1V3eit4QjBqQXVycnF5UVFZd0t1bFk5UXdEbitNSTFLUUpsTU53aFJ4aXZLUFEwSkd2Ui9DbUk4TUNPMW9lbkdQNEZ2MlphWnkvMXFsd0xyem9ZL2ZPQll4T2RlQ0NrQk9nUHhuYjRIdURUZ04xRkY4VzJjZ01pRGZwV21HMzhHcmk0a05yakxKVm11ZHhId2l3TE9IMHZtaThudGRPZGx6NGIvZitFM0tBcjZibVpqRXQwcFBiczAzZmdaOE11QUFDcEIzK1VlVWJuRDExNWN5K3ZReUJIVW5YUTh3NzkxQ2VFeHZ2K2w0OUM1NEUyUzBwaHFvRkM4ZFd3QUFCVWVTVVJCVk5rVGVGYlRqYnMxM1dqSVY5akRiSUtESWV4QjRibHYvWVFSb1RQbDBJa2tGek9CLzJpNjRSOXBLVWRVaEJqbUhUM3FBVjlIQkV2Sml4dGFOMXRhMTltOWFNTUo3aWpkUUZBTjNBUzhwZW5HUWZrSzk1VEJJY29lbEZDSW1zTVBwZnF3ejJRY1MyemJSblR4RW1ud1ZSN01wc0RvUjY1bzV2b2g5dVpIZWlUdy8zcHh2bVRub0E3NHRhWWI1K1V0MlRja0VZRjR2RXV1ZU9YZjFYUmpTQUgxdGdiVXV3b3hWQnpFNlFYbVVEOE5NZUlReERSM0tMMm4vR3FBYzdFZkFqeWg2VWFmSkN1b3pPSHJQQ2hENnFrK2FIL2Fubm91UTRBNzV2K0wybU0rVzlDOGNzZUNOMGh1M1JvWTB6clpVZXBJZ29PQ1g1Q2VUSDQzNEFCM09aZk15RVRmMUhUalQ3Wmx2cDZuM2hNUlBleHNuSzNweHJkN09sY04zS3pweHJ3QlNDWXdtOExUVithS2xpWHBPVjlDaUJDSVljMjlFZE10UjlBZFB0UExiWnB1UE8yMUtjaENGL0RaSXRvUjdDZlpUWk50bVh2NmQ3cHo5OGNDZjBCTWthUlFFZUx4V3A1Njc3Y3Q4L0tBZWtjZzdDU3VJdE9PNDJ2a3o2RitTWjdqczRFMzhwVEp4aGhFS050U3Zrei9DN2pDczkyQStCN3NEM3dCVDlRMmx6MkE2eEdoZDdFdE02SHBSbVpQVVBBVjRIdStmVDhISGc0cVBEaEZPUlFpUEdZMFNsVVZUbGQ2ZHNENGVuL0V2dXkwL2YxWjJ2NytiS21iTjVoWjV3dFYrQzV1bkZ4Tk4zNkRFT3pKbnVNS1l2aDRlcDRnOXhmN3RqZVNQbjh6QkpFMDRzODliUGNJNE5ka0gyN3JLNWIxTUxTanBIUjhZRnVtTitUbHd0U0tPMHhxSTNySktYWUZiZ0N1emxPdjB4Ly9XOXN5TndCek5kM1lGYmpOZDNnZjhvdHl0bnEzQWc5cXV2RXk0cVhGcXhYWnhBY0F0eGY3QmQvdURhVDNuTS9YZE9PYVhxUnZ2VlRUamJ0dHk1emZ3L1A5dEFiOHYxNEIwSFRqZnhCWjdmeUdsZC9SZE9OZU43YzIyZjdmYm40QVAydXpsUjkwdzljcGxKcHFsTnFhalAySnBtMDRjdmk2MzdFdGN5SGlqZHZ2bDNZUU1DdmJlWnB1REtVN3RWNkszNUpwUGRuYmVhYXZ1Ym1RSlJJQWJNdThCemcvNE5DVm1tNWt6K3M2TUFSWkpDOE0yRmNVdG1XdUp6MjdGa0M5YTIyY2pRdEpIeFdMa2RtckhVR21jQmRENm9XK3p6dVd0bVZ1c3kzekxETFRla1pJenlGZUVnYXRLRHVKQk1RRE9sL2hFSXAwaVJvUWJNdmNBdHdSY09pQUhLZWRSM3BQeFVIa3NmMkxyOXlKbW03NGg1ank0VS9nY0x1bUd6ME4vaThaaE5pVytTVGRDVDlTaEJDOTBITEMzM3ROSlFvcEJYN2hlejFQWXBtTGZkdlAyWmI1ZDlMVFFBYVZ5NGYvOTNvQW1XNk9mVW1RQzJpdVoxZVBHSlREMXlTVEpMYzFrMnpQbklZTDcxS29sd0dvUStwUndwRkFtOS9FdG1acE1OWXpiREtIL3ZiTlVkNC9OelhmdHN4Vm1tNDhSUHFQUkVGWWg5NVlSRnMwd091YU5SVzREcEdacHo4WXB1bEdJYjZvaVNMY1VQb0ZUVGUrbmFkSTZUS3JERHh6QUg5ZTduM0pNeWRhNFA4V29OTzJ6QjVGTm5KOWdVOG4zWmZlUWFRTzdmVURTdE9OUGNpY1QzMGxSL2tEQVgrKzd3ZmN2M09CNzNyMm42YnB4bGpiTW5NWnJIbDVHZEg3LzRwbjM0ODEzWGpJdHN4VldjNHBHYlpsdnF6cHhoSzZNMlpCSDd5Y0RVcFJkdUlKRVZZem1ma3lGeHEzUzhIMU5IejFQS29QT1REUUtPelQvNzZlWkt1TUVOWURsaU1zTzcwcHZBSy8ySnB1VEFIOEdUb2VBTEF0YzZXbUcyK1Fib1JTckNpL2hKaUgvcnBuMy9jMTNYakF0c3hpMGlEMmxLY0xMTGVhM2dXbTZBdCtOOUFONkVlV0Jlekw5ekN1SWIveFZvcTd5VzhZTlZyVERmOERSeUY5RkFtRVFlQnMyeklEallnS3hRMndNUXY0TnVtLzFTVHdWSTVUL2ZmUkJqenVyditGZEZFT0l3THEvRzhSVGJzR1lZQ1dtajZvUTN3WGV6TVVYZ3pMU0JmbElacHVUQ2drR0VxaERNcmg2MlJMQzlHUGdwK3BWVlAyS2ppaVY5VzBLZFFlZFVUZ29sVDFWWnlHd1kxdG1Ra3lYVG1tWmZFVnZ0aTNIU1BkdXZzaDMvRXBtbTRjVldTVC9wdjB3QncxaU42OFJKSWlLRkpUcnRHZHZxTGV0d1M1NUt5RkhSR21DdUVpVFRjMitCZUVZZFlkcEErTE84QlZ0bVcrSFZTUk83L3JqMXIzZU1vcndyYk1SWFRuazA1UmxDMklhOWptajhJM1M5T05zNHFwcHhmMCtYZGgwSW15RTR2UjhkcnJkQzdNbkU0SmpScEp6V0dma1dFMkI1NUczM1lZM3lTQisxRDV1cS9jYzdabGVzK2RTMlllNkdKLzVKK1M2YTV3aXFZYkZ3U1ZsK3lVK0wrdlVMNmpqRk1RdjRzbkNyU1BxRU40TXZnWC8wTnlKU0k4WnE0UmtqTVEwYlM4M08vYjlyOUlINlRweGlFRnROT0xEZmhmRE13Qy9iSjdTNTkvRjhyMWk5VWpFbHUzMGZIYXY5ais0S01rR3YxUkNhSDZ3UDBKalJoTVUxMFZpMytPYWtXQTRjakpwTWV2QmQ4UDNMYk1kWnB1dklidzAwenhGVTAzcnJJdHN4aEg4anNRdlhKdkwvczJUVGNLSFY3dUtmT0JRdWFLKzl0L3VoQWV5WE84RnZHUUhnd0VUUjNrQ3JrSitZZDV2UlJpa05XQ3NJSHdNdzRSQnZKWTBzT3Nub0h3VXNqd1FlNGhld0kzYXJweHNXMlpRYUZRSVhOa2F3dnBOaHNnaHJDdjkrMmJUUkZHYWJabEpqWGR1QXg0ays2aDlRa0lXNUMrTnZ6cXlYZWhLQ3BUbEIySDJJclZkTDd6YjBna1NEWnZKNzV4RTEzdmYwRG42MjltNURrR1liUlZlL3pSS05YU3VIWWdjZWVxL080a1FYTU4vcmtwQjZqUmRPTXJ2djMrdVp4aHdKbGt2cEZueGJaTVI5T055eEVKRkZLL2liRUlCMzkvd29SU2NtMEJnVlBLRXRzeXo4MTFYTk9OQ1lqRURvT0JxUUg3OHRrY1JHM0xMT1U4WjVkdG1kbENYTjdxQmhGWmhQamVwcmhFMDQyZnVrTysyVmhNWnRLSUNMQTdJbWhQdldmL2FRaWY2T1A5Um1TYWJvd2g4eVhzUTBSZ0gvODFHMG1QZzM2aHBodlg1b2xWa0ladG1lOW91bUVEdW1lMzRjYm43a3Y4MzRVa21WYmx2YUlpUmRsSkpHajk2eE8wUGZzUGNCeWNyaWhPWnlkT1J5ZE9rQnVVcWxKMzZreVJJU29nT3Bla1h6azRZRi9hbTZhbUc4UEpkTlJYZ0xzS3ZNYkZGQ0hLQUxabEx0WjA0emJTL1E0dkE1NG9waDdKb0NUdmQzYWdzUzF6ZzZZYmZ5Ujl2clVLTWZyemFJNVRGOWlXZVZYUUFUY2d5UnVrajFnZGkzQUQ4cnVKZlkzTWhDaEhrMm1vR2NRdUNBdnlZbjlyLzRPSVlaREtXQlpDV01yM3lVUGVuUTd3Ry9pdHNTMHpXc3JyVktaQ09RNkpwcTNFMTZ3anZuWTlpVSsza0d4cERSUmtKUnltN3JpakdmYU5pd2lOOGljTGtmUW43anh4a0hYMEl0LzIrUWlEcTU1eWl0dHpLSmFmMEIxeUVjVHZ3Lzl5SU5tSmNIdjhWL2gySnlnOFBHcC80Zy95QWJuRDArYkVEUnp5ZndHSGpnM1lkM0ZQcitOU2RQQWYyekszaytsZWVRU1owMTZsNGxveVhmMzh6NjVlVTVtaVhBQktKRUo0OTkwWWR2azNHSG5kVlVRbTdDcDd5UVBQZDRERGZmdFcwTzNIbUNLZmUwZytRb2czOTZLd0xiT2Q5T0V3eVU2TTJ6UDZQZWxEdUFEMzJwWlpqa1B6UVZiQXZXM25IeEZlRDE2TzgyNW91bkVvSWpKZmI1alZreVFUcnV0WFg5dCtvT25Hd2NBUEFnN2RWT3BybGYzd3RSSUppM2xnSll1Z0tnb29Da3BJUmEydlJ4MHhuTWp1dTFHMS83N1VURCtFeU42VFVldHFzMXRjS3dwS0tCUTgxeHdLWmU1TG5WWlRuWEdPRXFtU2x0MCszQWZiL2dnampDRERuNS9ZbGhuemxOOFhUeTVibDc4aUhnN1pDQ0dHNkx6L2tObkFyNHB0cjIyWlQycTY4VGhpWGxxeUUrSk9ueHlGOEorZDVqc2NSWXlvbEJXdUsrQmxBWWQ2RlJ2YXRzeU5tbTZzUkZoMXA1amlLM1p4d0ttWEF1dHpWSDBhNmIzY0t1QUNNb08wRk1LVndIc0k0OEtTNGJwcFRrSjRnWHdmMFVZdmoyVnpEK3NOWlMvS3d5NjdtSWF2blpmcCtPSkhBZFNRRVBHYUdwVGFHcFFjb3JyanRGQ0kydU9QWWJmSC9KYjdpT0h1TENJNzdpNDdNemhKSkV4bzVFNDlSSDZEcGh2WGViWVZSQkQ2YlArSUpXVG1adzNxSlZ1MlpiNlU2OEthYmp4RHVwRHU3eWE2NkVuOFh4MWgvZTN2SVpXYXh6VGRLR1krNnVBOGtiMmUwM1REMzZzSllvTnRtYjFKblRmUWpOVjBvMUFEdkFkdHk3d3V4L0VYTmQzd3pudFZrVzRzNWVmL0Nvd2VWVjFFR3dHVzJwWjVXbzdqOVpwdW1BSDdVMW1pZ3RxOHpMYk1JTC9hWXRsQXVoRHZNTlRVZEtNS0VldmF5d2UyWmVhMC85QjA0eitJREZUZUIreHNlaURLdG1VdTEzVGpKb29MSE9Ubm1JRC8xMGl5UHdPU1pQcExsNFN5RitYUThPRXd2QS9kbUJRRnRiNE90YjY0MUpqaFhjZmxMN1R6TWNKZENtRWhjSjdYRlNwTFl2UjE1QWpyNTJFdW1iM2IyZlFnS0w5dG1XczAzZmdKUGVocEYwbXVoMzhRK2Q0eUMvMVNWdm84VGdoaEhWd0lvL0ljTDhiMjRHNUVHTlpDVUNpOGpRRGI4aHl2cGJpcGxSWkUzUGhTNE8veGVqL1RMNUw1R1QrWXIwTGJNdGRydWpFZjhHWlFPbHpUalgxdHkxemFnemIrQ2hHNHBLZUJQR29vL1ArMUZiZ2tsUjJxMUZUNmoxTlNtZndPT01xMnpPVysvWjhqVTFnZXloUDhQc1VUZ044MytVTDNUYjRuL0lieU5PYVI5RC90aUlmd0phN2RRYm5UQ0p4Ynd0U1Jma3ZyNGU0Y0t3UVBYZnR0UkxJeE4yQmZVSDE1Y1MyZy9RWjVmY0did0tHMlpUNmV0MlFQa2FJczZRK2FnQmVBVzRGVGJjdlVzN2dSQkExZDUzM3JCbkFEK3Z1RE5ZeWlod0VzWEovSnk4Zy9jU0labkt3QzVnRS9BcWJibG5uM3dEWW5MMTJJZVZVRG1HaGJaaWtUd1FlTk5zM1NkR01jNGtYYXk5dEZ4STEvQkRFTTdPVnI3b2haMGRpVytUSndUMC9PelVFWElucllINEZ2QWNmWWxybXl4TmRJb3l5R3J4M0hJUm1RUEtLdlVEMVcyUDE1N1VRaU1aZ3lTejBNdkZWQXVjMUZaSEM1QWJqRnMrMFVhVWh4SlpucDFWS0JFK1lBVC9xTzVReFdZRnZtdnpUZE9JaE1BeEovWW9EdmtEbWY1YmQ2dlJINFE2N3JGWUIzaVBNSHdLOTdXRSt4ZnBYbmt2NFpGUElsM2tTbXdWNnpienNXVUtZdG9LNFQ2UG16eXBzVTRscEVRSmhjT01CeTJ6SXpRd0xtNWt4NjU4Ym43NEdmU3FiZmJ4QkpZQ093dm9Dc1VJdkkvTHdMaVJiM2NzQjVUWWlScVNOOSt3dk4rSlR5cmY0TTZRYWFJUDdYQ2VBVTBqK0RRaEo4NkdUT1MvdERZMzVLNXYwRTBRNThXRXhRa3l6TUpUT2oyTXBzaFZPVDdDcWdKaEtKZDFWVjNiK1hEY2lncmEyTnUrOTdnTWFBMEplS29yRHZQdE9ZdEdmL0pNRUpoVUljZk9BQktJcUM0emlzVzcrZWxhdFc5WXRZdHJhMU1YL0I2elExQmYvZXYvaUZXWngyeWlrbHU5NmNPWE91dnVLS0s5NUF2TzExdUV1bnUwUVJvcFJBUElnR3pkdUNSQ0tSVkNwcGI1K080L1Q3Zkluak9DeForZ0ZMbG43UUw5ZXJxcXJpb0FQMjN5SEtTNVl1NWNtLy9iMWZlK3I5UlhOemN6SHhueVVTaVVReXdLVE5LU2VUeVZ3eFVpVVZ4cUpGaTFMRFBiSVhMSkZJSkJWQW1pZzdqaU5GZWZEZy9PTWYvd2p5YVhXeXJFc2tFb2xrZ1BHS3NwTklKS1FvRHhLNnVycWFHeHNiNDBqaGxVZ2trb29oSmNvT1FES1p6QlVXVFZKQmRIVjFiZkZzT3FRYmMva051NlJ3U3lRU1NSbVFObnpkMmRtNWNvRGFJU2t4TFMwdEd3Z1dZaW5BRW9sRVVxYWtXVjlibHZYNmozNzBveFpWVlllVzhpS2hVSWpkeG85blNIMWZoeExPVHlTUzd2bzNZdmdJOXQ1ckw1d3k4QjhlT2FKMGNiTVhMMTc4cG1jeld5OTU0RzlhSXBGSUpEdFFQSDlWSU5UVjFYVi9WVlhWT2FXOGlPTTR0TFMwa0VnTXZOdVJvaW9NSHliaXFUdU9RMGRIQiszdDVSRTVyNjZ1anJxNjRtSndaOEdaTld2VzJYLy8rOTgzSTN5VS9YN0tYWWpBRFhGRThBRXB6aEtKUkZJR2VFVlpBVUpidG15NWNOU29VWGNQWEpNa3ZhV3BxV25KcUZHanJrQ0lialpSamlORldTS1JTTXFLak5qWHp6MzMzRE5rSnJXV1ZCQWZmUEJCS29kcWFxZzY2VmtjNVB5eVJDS1JsQ1ZwMXRlQWMrR0ZGelpIbzlFWEJxcEJrdDZSVENhZHUrNjY2eFV5eFRqcDJTY0ZXU0tSU01xUU5EL2wxTEpzMmJLYkJxZzlrbDZ5WXNXS1orKzg4ODQxcEl0eGd1Q2Vza1Fpa1VqS2lLRFVqYzRCQnh6d1RrZEh4NlA5M2hwSnIwZ2tFdEh2Zi8vN2Q1UGVTMDU0L3FiVzVSQzJSQ0tSbENGK1VkN3hvRjZ3WU1IUGtIUExGY1hpeFlzZmUvamhoemVSTHNoZU1mYjJsaVVTaVVSU1p2aUhyMU4va3llZmZQTHk3ZHUzLzJrQTJpVHBBYkZZclBXeXl5NTdrR0JCOWd1ejdDRkxKQkpKR1pLMXB3d2tUZFA4ZVN3Vys2VC9teVVwbG5uejV0MzI1cHR2TnBNdXlISGZrc3FkTElWWklwRkl5aEFsWURzVlNDUU1SSjU4OHNsOVAvLzV6LzhqRkFxVk5NcVhwSFFzWExqd3ZzTU9PK3d1aE9qR2dLaTdkSHFXMUQ2dk9FdFJsa2dra2pMQ0w4cXBmU29RUWdoejFjS0ZDejkzNktHSDNrK3dZWmhrQUZtM2J0Mzh2ZmJhNjhkZFhWMnAzbkJLbEZOQlFsS2lISE1YdjdHWFJDS1JTTXFFYkNMcnRkNk5UNTgrL2ZrMWE5YjhyUCthSlNtRWxwYVdGYWVkZHRyTnJpQjdoNnRqbmlVVnRVdk9LVXNrRWttWkUrZ1M1VmwyQ1BPKysrNTcrNW8xYTI1Q1BzekxncTFidDM1d3dRVVhYUGYrKysrMzR2NlB5QlJrdnpBUGZQQnhpVVFpa1dRbGFQZzZ0VDlqR0J1b2V2MzExMDgvL1BERGZ4Y0toVXFTT1VGU1BDdFdySGpodU9PT3UzWHQycldkZFBlUS9YUEpYWjd0MUxDMW5FdVdTQ1NTTWliWDhMVzN0N3pqd1gva2tVYytjOTk5OTUwVmpVYlg5bE1iSlI0V0xGaHc1NVFwVTM2eGR1M2FEdElGMlN2SzNoNnlkOWhhSXBGSUpHVk1xTUJ5cVo0emdESnYzcnpHTFZ1MlBEbGp4b3hkNnV2cjl5RjdqMXRTSWxwYlc5ZmNjODg5dnpqcnJMT2VjUnduTlJ6dE4rN3lMbDQzS0JsZVV5S1JTQ3FBZkdMcUg4WU9BUkYzcVFLcTVzeVpjK0I1NTUzMzNSRWpSaHpUcHkzZFNlbnE2dHI2MGtzdjNmMlZyM3pscWVibVpxL0k1aExrVkc4NVNKUWxFb2xFVXFZVTBzTU5tbDhPMHkzTUVhRHFrVWNlT2U2VVUwNjVxcUdoNGNDK2F1ek9SQ3dXYTNuMzNYZi9PbnYyN0xsTGx5NXRKejFTbDkrb3l5dkUvbDV5YWg0WnBDaExKQkpKV1ZQb3NIT3VIck8zNXh5NTVwcHI5cmp3d2d0blRwNDhlZWJ3NGNNL282cXE5RzB1a0k2T2pzMHJWcXg0N1lVWFhuanQrdXV2LzQvYk0wNzFjcjNoTXYxVzFsSGZ0aitzSmtoQmxrZ2trcktubUxuZ0lHSDI5cHI5Uy9qMDAwOGZlZVdWVng0MWR1elkzUm9hR3NiVTFkV05xYXVyRzExVFV6TkdWZFdha3Q1SmhlQTRUaklhalRhMXQ3YzN0clcxYldsdWJtN2N1blZyNDRzdnZ2amV6VGZmdkN3ZWp3ZTVwQVdGenN6bStpUUZXU0tSU0NxVVlnMjB2TUxzSDg1T2liUDNiOGp6Vi9Vc2ltL3BTVnNHQzk2aFpmL2lUNzNvRldUdlg3OVJseFJraVVRaXFVRENSWlpQUGVDVHZuMUJQVHEvS0h1RjJTL0tPNnN3KytkNnMvV1FVNFpkUVVrbXZHTHNOZXJ5MWl1UlNDU1NDcUJZVVlaMFljN1dzMHVKUjhpM3BIclhRYUs4c3dseWlxQ2VjdEJManZkejlhNzd4VmdLc2tRaWtWUW9QUkZseU4zRFN3bUdWNFNEZXNyZUhqTklVYzRteXY0aGJQK2NjWUxNbHlPSlJDS1JWQ0M5RlVLdm9Qcm5tNE9XRUptQzdCZmxuVVdjSGQ5NjBLaERrRGo3ajhuZXNVUWlrUXdTU2lXQTJjUTUxOStkZlQ0NVJUNURyMXgvdmVkSkpCS0pwTUlwdFJBR2lYT3V4ZCtHblUyWS9iM2wxTjlDbHFBNkpCS0pSRkxCOUpVSVpodVMzcG1IcS9PUmJaNCsyekdKUkNLUkRETDZReEN6OVlTbEdBZVRxeGNzeFZnaWtVZ0dNUU1oakZLTUMwZUtzRVFpa1Vna0VvbEVJcEgwTi84Zmw5UmNGM0pOckhrQUFBQUFTVVZPUks1Q1lJST0iLz4KICAgIDwvZGVmcz4KPC9zdmc+Cg==" alt="Steuerberater Daniel Hildebrandt">
+<img class="ci-claim" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+CjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL0dyYXBoaWNzL1NWRy8xLjEvRFREL3N2ZzExLmR0ZCI+Cjxzdmcgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDU3MyAyMzciIHZlcnNpb249IjEuMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSIgeG1sbnM6c2VyaWY9Imh0dHA6Ly93d3cuc2VyaWYuY29tLyIgc3R5bGU9ImZpbGwtcnVsZTpldmVub2RkO2NsaXAtcnVsZTpldmVub2RkO3N0cm9rZS1saW5lam9pbjpyb3VuZDtzdHJva2UtbWl0ZXJsaW1pdDoyOyI+CiAgICA8dXNlIGlkPSJIaW50ZXJncnVuZCIgeGxpbms6aHJlZj0iI19JbWFnZTEiIHg9IjAiIHk9IjAiIHdpZHRoPSI1NzNweCIgaGVpZ2h0PSIyMzdweCIvPgogICAgPGRlZnM+CiAgICAgICAgPGltYWdlIGlkPSJfSW1hZ2UxIiB3aWR0aD0iNTczcHgiIGhlaWdodD0iMjM3cHgiIHhsaW5rOmhyZWY9ImRhdGE6aW1hZ2UvcG5nO2Jhc2U2NCxpVkJPUncwS0dnb0FBQUFOU1VoRVVnQUFBajBBQUFEdENBWUFBQUJVTU1RSEFBQUJnMmxEUTFCelVrZENJRWxGUXpZeE9UWTJMVEl1TVFBQUtKRjFrYzhydzJFY3gxL2JNREZOY1hCd1dCb2xQMkpLWEJ5MkdJWERObVc0Yk4vOVV0dDgrMzYzdEZ5VjY0b1NGNzhPL0FWY2xiTlNSRXJPY2lRdTZPdnp0ZFVrK3p4OW5zL3JlVC9QNTlQemZCNndodEpLUnE4WmdFdzJwd1g4WHRkOGVNRmxmOFpLSFU1NjZJNG91am9UbkFoUjFkNXZzWmp4dXMrc1ZmM2N2OVlZaStzS1dPcUZ4eFJWeXdsUENrK3Y1bFNUdDRSYmxWUWtKbndpM0t2SkJZVnZURDFhNGllVGt5WCtORmtMQlh4Z2JSWjJKWDl4OUJjcktTMGpMQy9IblVubmxmSjl6SmM0NHRtNW9NUU84WFowQXZqeDRtS0tjWHdNTThpb3pNUDA0YUZmVmxUSkgvakpuMlZGY2hXWlZRcG9MSk1rUlk1ZVVmTlNQUzR4SVhwY1JwcUMyZisvZmRVVFE1NVNkWWNYYWg4TjQ3VVQ3SnZ3VlRTTWp3UEQrRG9FMndPY1p5djVLL3N3OGlaNnNhSzU5OEM1RHFjWEZTMjZEV2NiMEhhdlJyVElqMlFUdHlZUzhISU1UV0ZvdVlLR3hWTFB5dnNjM1VGb1RiN3FFbloyb1V2T081ZStBWWdJWi9VZFhzdkhBQUFBQ1hCSVdYTUFBQTdFQUFBT3hBR1ZLdzRiQUFBZ0FFbEVRVlI0bk95ZGQ3aGpWZFdIM3pVejlGNFZFQUVWQlNzMmlxQWlvQ0FJZzZCK05rQkVRRDRGeFlhaXdDQkZzVmNRQlJRTElpcWZxQ2hLRzZxQUlDQ0lWR25TZXk5VGZ0OGZlNGZKelNRbnlkbjc1Q1EzNjMyZVBQZmVuT3k5VjI1T3psNW5WWEFjeDNHeUlHbFhTVWRMZW5uZHNqaU80emlPNDFTQ3BPVWtYUzNwdHZpWVViZE1qdU5NWkVyZEFqaU80MHdTUGdVczBmVDNhWFVKNGppTzR6aU9Vd21TMXBKMGE1T1Y1OGQxeStRNHp2eFl6c2trVFFQV0FGWUVudFh5MDREN2dmdWFIcGVaMlcwNVpYQWN4eGtra2d6NEpmRDYrTlJzWUdNenU3RStxUnpIYWNlMDFBbmlGLzRWd1BiQWRHQzVQc2YvR3pnMVBpNDFNeVhLc3had2VNb2NOZkVuTS90YTh4T1NsZ0JPcWttZVh0blp6Rzd1ZEZEUzFzRGVtZGM4eE14T0x6TlEwc3VBYnlldS94RXorM2VIK1g4SXZDQngvaXI1bHBuOXZ0dUxKUDBjV0xraUdVUzRBYm9MdURzKzdnTE9OYk43S2xxelNqWmpuc0lEY0l3clBJNHpuSlJXZWlRdERud0llQWZCdWxPV3RlTmpMK0J2a3ZicnRLSDB5TXVCRnlXTXI0dGZ0WGx1YlliN3Zjd0didS95bXZYSS94N3VTQmk3RHVueTNOcnV5V2pwZkRPd1lPTDhWZEpWcVpDMEtMQXhtUzNCUFRCSDBsbkFiNEcvbU5rVEExNi9ieVF0QUJ6UTlOVDl3RGRyRXNkeG5DNlVVbm9rclFOOEgxaTl6ZUZiZ011Qkc1c2V0d0FMQThzREt3Q3ZBZDdhWnZ3R3dGL2pYZWFoWnZaSUNmRmUzT1g0SE9CeFlHNFBjeTBNTEZSdy9HSENYV3NSQml3R1RPM3l1bXZhUFBjRWNDemgvN1lpNFgrM010MDMxZG5BWTExZTA0MHB3Q0lVbnlQWG05bXNMdk5jQ1J4UGtMM3hXS2tQT1JvV2dYdmk0MTdndWo3R3QzSWI4UE1veDRxRS8rM0tkUDU4R3BhSXh0bzNtZG1qSFY2N0tPSHphbnhXeXhQZTZ4SWRYdC9NUXozSzN3a2puS3RGNXl0QUx6Y1Vpd0ZITS8vN1dMekx1TGxBcjkvWkpaZy9rV0lxc0VsOFBDcnBVT0NucWRiZml2a0FFMi82dm1KbUQ5Y2tpK000WGVqclRrN1NGR0FQNERQTXZ4bmVBM3dOT043TVp2Y3dseEh1dXI4R3JOWG1KWmNBNyt0WDhaRjBQQk5OelkyNXZnajhFNWpWNjBVMHBwenUydUh3SThEYXZjd2xhU3F3REdFVDJSSFlvYzNMWG0xbWQvWXcxMUxBSndoV3RrNzgwc3crMVcydVhvaDNzbXNEM3dPZTMzTDRSRFBiczhTY0x3TytEcnlrNEdXWEFRY0RGMVM5NlVsYUZUZ0UyTFRwNlRNSUc5Z1ZpWE5QQTdZRnZrWG43OXZOWnZhNmxIVmExbHNCT0JSNFM4dmhPODNzMVNYblhRaDRIM0JRd2N2T01yUDM5ampmWXNBcmdkZEdPVHZWdFRrSitFeUJvbGtia3BZRnptZWVVbnMxc0hrdjF6L0hjZXFoNTVUMXVIRWZBK3pMUklYblNjSUZmU016KzNtdlgzZ3prNWxkU3JENC9MVE5TMTROSEJmald2cGg3WmEvWndFZk5iT0x6ZXpwUGpmUWRzcFlnNnQ3bmN2TTVwalp2V1oyRmZDak5pOTVtR0RONkdXdWg0Qnp1N3pzNmw3bTZuRzlXV2IyVDlySEZwVmFKeW9TN1N4YnpYelh6UDQyaUx0OE03c1YrSHZMMDRla0tqeHg3dG5BS1JUZllLUzRjK2Riejh6dUFINlljeDB6ZXdyNFk1ZVg5WHcrbU5salpuYXVtWDBUMkliZzBtckhkT0JQa2xicGRlNEI4bWttV3ZFT2RJWEhjWWFiZnVyMGZJSVFyOURNVThCN3pPeXJaZS9Fek94cFlEL2dnamFIWDBXd0NQU0VwSVlwdnBuanpleVdNckxSUmVrcE02R1ozY0Q4Q2s3UENsVGtXVjJPWjl0RW03ZzI4enBGNzJFT2NGN0MzR1ZZc2VuM3UrbXVsSldkdXgzWmxOUW0ycmtBVTgrTFozYzVYdlk3TVF2NE9KMFRFSjRQZkNOYWg0ZUNtRER4L3FhblRqV3pzK3VTeDNHYzN1aEo2WkcwQ2VHaTFNcWVablpScWhEeDd1aWpoRmlVVnJhUzFLdnB2MVZKRVhCa0daa2tMVWR3RTNRaVpRTnBkV1AxdThIV3NZbmUzZWE1bFA5QjBYdTR0R1E4VndyTlN0alptUzFNZFNpcDl4T1V4MlpTejR2S3pqc3ptMnRtaHdDZHJpY2JNVkhKcUkyb2ZNMWczdlZ6TnNGOTdqak9rTk5WNlpHME12RGROb2ZPTmJPVGN3a1NUZkpuZGpoOFVIU3ZkYU5WNmZselF1cG9rWlVIMGphUTFneWFmdWQ2YnRIY1puWmZuL1AxUXF2Uzh4RHpLMjg5RVdQRG5sUHdrbVJGdWdTck52M2U2dXBLcGVpOVFnVktxcG5OSlFSZU4zTlY0clJGNTkxYzJsc0QrNlVvblg1L1NmMEV3VmZGcHN5Zm92NmZ1b1J4SEtkM2VySDA3QW9zM2ViNUt0SXlPMTN3MWlMVUF1cEdhK2JXRVFteXRNWUd0Wkt5VWJVcUVQMWFlb29Vc2lxc0JqQy9vdmJ2Qkd2SWN3bVpZWjJvNmoyMEpTclV6V25zcWNwQkswWG4wdFBBVFpuWGE5RHNScDBOWEo4NFg5RjVkNU9aUFprNFA4REpkTTZJWEpUNWc3TUhTcHNVOVFmd0ZIWEhHUmtLbFI1SkN3THZiSE5vTG5CcEJmSVViVFp2N0dGODgwWDVJalA3UjRJc1JSZjQyMk5BY1ZsS0t6MXhnMzVod1V1cWNHMFJZN1llYjNvcVJUSHBaa1VicU5JRHJNYkVWTzhjRm90bWl0N3ZOUlVHdnpZcnFyMlVGK2hHNWNxMm1kME5YRmp3a28xeXJKUEFCNERuTmYzdEtlcU9NMEowcy9Sc1FVaTFidVhtbU0yUm02TENhVzhvR3RqbWJqM0Z5Z1BGZCtlcGlrV3owbk8zbWQzZng5aldEYnFWS2hXRzVzOG41WDlRdEhubXNFajBTL05uZlVzRjZkSFpBK0o3cFBrOFMxb254ckVVRlhYTStUNktDbDV1MktPck96c3hSZjJUVFU5ZEF4eFhoeXlPNDVTam05TFRxZVpHN2p2aEJnOFdIT3NXRjdFNjg1U0I2MG5vY0J4alRvb3U4S21LUmJQeTBLOXJxMHEzV3plYU45RVVGMURSZTdnaGcwV2lYNXFWa3F6L1AwbExVeHpJWEtXUzJ2eDVwYTd6SElxTEUrYjh2eFd0c3hRVDQ2OEdTV3NYOVJtZW91NDRvMFUzcFdlZERzL25UT2R0cG1oejZGWTl1bmtqUFRJR2NwYWxXOHhKNmdXK09kYWkzN21LckFhNWdrazcwYnlKcHF4VGwrV2pFNVVwUFF5UGtwcXE5RlFaMk4vS1lsMk9WMkZsTGlTbXFEY1hGZlVVZGNjWlFUb3FQWktXcEhQNS9Kc3FrYVo0ZytqV2VxRXg5aDQ2RnpyTElRZlVhK2taUkRCcEp4cWI2TTFsWFVDeHNtOVJyN1k2bEo3bXp6dTM1YVhPK0tXY1NrL1JkK0pKb0dQVDJSSjBVM3BTVzZ6MFJYVHRIWUNucUR2T3lGTmtQU21xZ0xwc2JrRWlSWDJ6V3ROdld6a0JPQjE0SUVPOFVkVXhKN2NEVzhmZis1MnJhUE9wT2dENGNPQkUwamFkTlNudVF6Ym96SzFGbU5nRExyZlNWWFF1UFVBUERVQVRPSWQ1NTFsS2sxWW9maC9YbWxsclRhQVV1aWs5ajNjNW5wdE5tUmhUK0dOUFVYZWMwYVJJNlNtS29Wa3R0eUNSb2cyOU1Gdk16RzRtMzkxbXBURW5NUTZnNzh5eU5odDBLNVVxREdaMk85MjdxbmRqa0c2U1huZ2g4MXBFekFKeWIyYUZBZkZWdHRtSUJSNVRNaGliR2FSTHNyV3Flak5QRERLT3hsUFVIV2R5VVJUVFV4VFRVb2ZTayt2aTNRdkRGblBTb0htRGJrZWRzdlZLMFdmOEtQRGZRUWtTYWY2c3I4dTVvZmFROFRUbzFQeFN4STIvdGRsc005bmVSOHlRYXBjeDJ1Q0dYR3YxeUFlWW1LTCsxY1J5Rlk3ajFFaVJwYWVvWDlVNmtoYlBtZG9iYXdJMVgxZ2ZBaTRuZE51K25BSDFZcEswTU1VeEozVnVWTU5XMzZZTTNXcldWTjVndElVcTQzbTZaVHlOd3VjRjhBS0tyeFU1bGUwMXV4eXZLb2xpUHFJQzlvbVd0WDh4cVBVZHg4bFAwWVhzcG9KalN4THVnTDZYVVpibENGM2NMNHVQbTJ2WUFDRllVNG9zWUhWdVZFVldraWNvVmxTSGhUcGprdHBSWmViV1pGQlNZYkFaYU4zV3VqampXdDM0Sk9GYTE4QlQxQjFueE9tNHVadlpnd1JyU3ljK0xLbGJ3R0hQbU5rZFpqYkR6SDVuWmpmVnBQREE4TVdjTk5QTlNwS1NwZytBcEE5SytwdWtINmJPMVdidWJqVnJ4aTFkUGJtOGdLUjE0dWQxZnJTV1ZzRWdnN0UzN1hMOEx4blg2b2lrRnpFeFJmMDBUMUYzbk5Hblc1MmVtd3FPTFFOOG84SUxiVjBVYlZTUEFMY05TcEEyVk5vR1FOSTA0TU9FT2tWVmxOYXZzMmJOZkVoYURsaWg2YWxCcHF2ZmJHWTVVcTkzSVRZQ05iT25NOHpYam9FRVkwdGFuSW1OUEZ2NWg1bmRWWEE4QzAxZDFCdFpocDZpN2ppVGhHNUtUN2R1MTI4RGZob3ZWcE9GWVlzNUFkcHUwSzNrVUJqZXpMeFNCVlVvSU1QbTdtbVc1MkZLZG8zdmNmNVdrdisva2xZRXRvbC9Wdm0vRzFTRDI0MkJCUXFPL3pualdrVnN3dndwNm9NT29IWWNwd0s2S1QxSDBMMzY2ZXVCRXlTOUlJOUl0Vk5IQi9OZUdJVENzRXZtK1ZvcGVnOTNScGZxSUdtMllGeVZVNkh0SWVNcGgxTDVQdWJGNVZWaUpZdEZTbGN1ZUVuT2RUZnZjcnh5cFNkYU8yYzBQZVVwNm80emlTaFVlcUlwK1djOXpQTUs0RXhKMzVGVWxQazAxTVJzalJVTFhsSm5QRStscnFGWVpuK0RYUE4xWU5nVXl1Yi9hZTczMnkzaktlbjlScVZxeDF6ekZUQVE2NXlrRndKYkZyems5MloyWTQ2MXVyQXpucUx1T0pPV2JwWWVnTzhUeXN6M010ZjJ3Tm1TdmlXcDZDNTNXQm5tSU9haWVpLzNtTmw5aWZQdm5IbStDUXk0UzNldk5IL2V1WldHcXVPWHRtU2lnbDdWLzYvb000TTh3ZGlMQWtjQ0MzZDR5YTNBUHFucjlDQkhhNHI2dFhpS3V1Tk1Lcm9xUFdaMk4vQ05QdWQ4SjBINStiV2tyZU5kNlNoUWRjK3RGQXFEU1ZNbWpoZjc3WnVlcXFJV3lpcDA3dVVHZ3c5aW5zTEVEWDJRNmVwUEE2V3RGbEdCM0xWbHZwdkt6dGVGb3ZQdWxreTF1ZzRtbElwb3h4emdJMlpXUldCOUs1Nmk3amlUbkc2ZHl3RXdzKzlIWC9kbitwei9kZkZ4cjZSZkFzZVoyVERYa2luYXFPNm95OHpkWm9OdUpWVVoreVFUSzNBUE9wNm5xaldMZUM0VDMzTnVSYTlJV2JnMmNUUGRFbmhsMDk5WkswbTNVRmt3ZGxUZWRnSCtwK0JsWHpPelMxTFc2VkdXMWhUMTA4M3NyS3JYZFJ4bnNQU2s5QUNZMmJjbFBRMThvY1E2eXdON0FoK1ZkQWJ3RFRPN3JNUThWVlBVOExST0s4K3F3S0lGeHgrUzFLMlNiUU1qZEt4ZmpGQXRlQnRndTViWFZHRjFLVklDNWdEWFZiQm1FYzN5L0RmMnFjcEprYkp3VngrZkY0VHY2V0tFYzJCOTRJTXR4eXM1TjZOU1VvbUZNU1krZkptSmNXVE56QVlPQlg1VWRvMCtaR2wwVVc5T1VUK3c2blVkeHhrOFBTczlBR1oyaEtRbkNOa05aVnhXUmlnK3RxbWtVd2hCZ2tQUkx5cGFVenFaMkdGNGl4SUNmRG8rY2pIb0lPYi9WRmhqcGhPVkZTWHNJZU5wVTdvWDRldUhxczdOWnpQUjNaTzBycVNwaEw1OTJ3TWZwZlAxNXpxQ1MrdGYvY3lmd0NiQUc1dis5aFIxeDVtazlLWDBBSmpaVHlTZFRuQjF0Vm9JK21FTFlITkpKd0ZmaVYzUzY2U2JOV1dZbFo2Y2lHcGllb2F0aVd1VlBiY0crWGxCZGYrL2JqRnViNUxVN1RWR3FDKzFGc0ZGMnlsWUdXQXVJVnYwSURON29tY3BFMmlUb3Y0Z25xTHVPSk9XdnBVZUFETzdGZGhUMHBIQXZreThTK3ByS21CYndzVnpKelA3ZThsNWNqQ3FRY3ozMEY5cC9nVUo3c1lWQ0MwaFdsUDBiODY5NGNSQTlxSTZUdVBXYytzNHdnYmZDMU9BUmltRkZRZ0I0YTBKQ0hXbHE3OHowem9YQTc4RFRvNkpFNFBrQTNpS3V1T01EYVdVbmdabWRpWHdYa25yRVFxbHZRMVlxTVJVU3dHL2t2UVJNeHRVMWRWV2lpN3djNERyQnlWSUc0cGtPOGZNU3FYenhsaUdzNWhZUks4S3E4SHpHVnlYN3E1SVdoaG9yaWMxeUo1YmQ1cFphVmVrcEM4ek1lRDJZYUNxMWd4Vlc2eStEcHhnWnYrdGVKMjJTRnFHRU1UZjRGcmc1M1hJNGpqT1lFaFNlaHFZMllYQWhaTDJJN2k4M2tkM3kwa3JDd0Uva3ZRRk0vdEpEcm42cEVqZUcycUlPUUVnOWpaN1hzRkxTbS9ZWmlaSnYyRmlEWlJCQnpGWHRXWVJhekxQV2pLYi9BcHRsWmwydjJXaTB2UHZDbHVqRkgxdUZ3Q0hkUm4vZWliV3ZXbmx1cm9Vbm9pbnFEdk9tSkZGNldrUXpjSS9sdlFUUXBYbTl4Rk00TDBHUFJ0d2lLUi8xZURxR3JhWWt3WnJNaStycEIycG0yanIrRUducXo5T0tENDNTSnJsdVQ3blJsZGx4bE9rOWZPcHF2M0VOTUs1MTRtTHpLeXdONStrYTRHOTZIeWRlU2Z3aDNJU3BoRlQxSnNyV251S3V1T01BYjFVWk80Yk01T1pYUmJOK0JzQXh4THVxSHZsZ0xoNURBUkpDMUZzVFJuV2VCNUkzL1R1enp4Zk80cmV3elZtMW10OFN5NnFER0xPbXZIVWhzZUFXVTEvVjNWdVBvL2ltNVd1N3lQMlVpdFNKRGFXVk5SRXR4STZwS2g3RjNYSEdRTXFVWHFhTWJNN3pHeGZRcEhDbnhQaVk3cnhTa0o4MEtCNEljWC9pMkZ0TlBvSWNFZmkvTTN0SnFxcTdEdHNQYmVxREdLdU5DQSt1ckthUDdPcXJKQzVXckw4dnVEWVZFSWl3NkI1RXhPVEwzNWlablhHN0RtT015QXFWM29hbU5sdE1lRDIvWVROdWh2N3huaVdRVERNUGJjS0ZZWU04UnpObHA3VVNzSHpJV2tKUXNaUko4WXBYVDFYRWNibXo2eU9kUFhaUUs5MWJQNUNVS1k3OFk2ZUpjcUFwNmc3em5nek1LV25nWm1kVGJpN3U2M0xTNTlMY1lYa25CUmQ0QjhGNmd5MnJESStCSUlDMmxCMHF0aEFpd28rd29BdFBURmpwOHBHbllNb3d0aXc5TnhlUVNYcEJrWHZvK2UyRjFHK013cGU4bEpKZzZ4cnRCTVRzeFcvRnQxd2p1T01BUU5YZWdCaUZlYTNBUTkwZVdsUmJaZWNGRjEwcjZrd082WVFTVXNSWWtRNmthd3d4UGZXc0J4VW9mUVVXWG1xV3JPSTVzLzZFZUQyelBOWHJhUkN0WjlYZzZMdnhGVjl6bFhrNG9JQldYczZwS2ovYkJCck80NHpITlNpOU1BejNkdS8zZVZsUmNIRk9TbmFxSVkxbmdmeWJYb2ZKUlJwKzc5TTh6WHpySUpqVDVoWmF5QjExYXpmOVB2bE9SWGFIaktlY3AxTDN5TjhYb2RtbW04Q2toWWpXRm83MGU5NWR5cFFWUEJ5KzlpaW9tbytTYWdKMXVCQVQxRjNuUEdpTnFVbmNpekZycVBuRnh6TFFodDNSeXZER3M4RG1XUXpzL1BNN0ZRenV6UEhmQzJzVkhDc0RyZkNaazIvNXk2TGtKengxQXRtZGxYOHZLcFN5THU1SlB0NkgyYjJPSEJhd1V0V0JEYnFaODUra2ZSQ0pxYW9uMkZtTTZ0YzAzR2M0YU5XcFNmR054eGI4SkkxQ283bFlwaURtSXNzVUxlYjJjTURrNlE4UmU2NWJ1N05yTVQwNkhXYW5ybzQ4eExEZkM3MVF4VVphSFc3dVBablhvcjZITHlMdXVPTUpST1VIa2xUSmEwbmFZYWt5cTBza1dzTGpnMmk2ZUF3OTl3YXRsVHZNaXhkY0d6UWxwNU5tbjRYY0VubStZdk9wY2NZZkJIR3NoU2RkdzhEWlN5Q1p4RCtCNTNZTW1iNlpVZlNKb1EwOVFhZW91NDRZOG9VU2RNa3ZVblNZY0EvZ0JPQlhRbE5LUWZCalFYSGJobkErdDM2Sk5XUzJSRUxxRTBHcGFjb3UyaWdsaDRtdXJhdXJDRHpxVnRBL0tDTE1KYWxNTWF0VEJ5VW1UMEpuRkx3a29XQkxmdWR0eHN4enVxQXBxY2VCTDZSZXgzSGNVYURLWVFNcVo4VDZ1YzBLenFMRGtpR1cramNjWG9RZDhiREdzUzhNbEIwNTF1NXEwVFN1cExlSUtrb0xxY2JSWXJOd0JUS1dQT3B1U0JkRlVIYnRTcXBrbDRVUDY5Kys5NDF6OUZOMlU0NTc3cTV1SEoxYlc5bUp5Wm1nWHFLdXVPTU1WUG9yRmdNU3VtWlMraTUxWTVLbFI1SlV5aHVEam5NUWN5VmJxS1MxaVFvQnI4a3JWNVMwUVl6eU0xblBXQ3grUHRjTWlzOWtoWW5iOFpUdit0UEEzNUIrTHhTbEljVmdHVUxqcWVjZDJjUjNHT2QyRURTY3hMbW4wQ2JGUFhyOEJSMXh4bHJwcGpaWThDOWJZNHRNaUFabHFHejBuTlp4V3V2U3JGeU42eEJ6UDFVeEMzTHJrMi9wMngwOXhVY2V5aGgzbjdab3VuM21iRmtRazdxTHNLNE5mTXk1ZnF0bzlOTVpjSFlaallMK0hPWGwyMVhkdjQyZkFKUFVYY2NwNGxHSUhNN2kwcFJHbmRPVnU3dy9EOHFUTWx0VUtzMXBRdEZzbDBmTjVCS2tMUTg4NndGcWYyOUxpZzRWaFRrbkExSkt3UHZhWHJxK0FxV3Fib3hiRWVpUzJyM1RHdFZuWUhXMWNXVm85bHd0RlR1MVBUVUdXWjJadXE4anVPTU5nMmxwMTNBOENadG5xdUMxM2Q0L3FjRFdIc1FmWkxLTW9qS3ZwM1lFV2owUGJzcXNZRGZsVUFucTBxUmF6RW5ud1lXaXI5ZlFYZHJReG1LenFXN3phektvTzMxZ1pmRjMxUFAyNkx6N3JZTXdkL25NckYzV0N2UFkySlpnYkkwZDFIM0ZIWEhjWUI1U3MvbGJZNnRHOXNnVk0xbWJaNTdHUGpEQU5ZdXVzRG42cFBVTnpFK282Z0ZSNVZXZzRVSjFYNnpyQlVWcGs2RjZTcnZ1U1RwSlV5TWNUbW9vaXlxT2dQaW02MDhONWpaVXdselZSWEVERUIwTDUzYzVXVkpBYzJlb3U0NFRpY2FTczl4eko5YVBKV0tyVDJTWGd1czIrYlFNVEhGdFdxR05TWDhCY0MwZ3VOVnlyWWRzRnpUM3lueElRMDZ1VFJXU2NrMDZrYXMrM0lrODJMR3pqQ3o4eXBZcDhxTXAyNXJQdzk0YzQ2MVlpdUlJdXRiam5NQnVydTRwc2RzdTc1cGs2TCtFSjZpN2poT1pBbzgwd201WFdYa0Q4YUxTSFppNXRRQmJRNzlEZmhtRld1MnJMOFF4YjI5aGpsenF4TFo0bWV5Vys2MXpPd2M0UFFPaHorWU9uODc0bnY1SHZPcWVqOEVmS0dLdFFnWlQ4c1VISzlTU1czOXZGTFdXbzE1YnNCMlhKTXdkek1YMHRubENTSFdxNTBGdUJkMnhGUFVIY2ZwUUhORjVxT0JWbmZPcTRDOWN5OGE3NHozQjE3WmN1Z3VZSThCWlZpc3pUeWZmenVLZW9KVnpjc0tqajBDM0ZiUnVoc3pmOFBNWEJ2ZC9rQzc0T3Z0SmEyYWFRM2dtYnY5UTVpM2NjNGxuRmMzNTF5bmlhTFBDNnBUVXBkbGZsZFFpdEx6Nmk3SHM1U1FNTE01ZEhkeHZhZkw4Zm1JS2VxZmFucnFPZ1lURytnNHpvandqTklUVTNpLzMrWTFINVAwdWx3THhqdnd2Wm1ZRWcwaERYdFhNN3NuMTFwZGFGVzRXc21kMHR3UFJZR2MxK1RzRE43QzdpMS8zNXFyYXJHWjNRUjhwODJoaFlDZjVHcEJFT2M1bG9uTkpiOXNabWZsbUw4RFJlZlNYS29MaU4rQlVNbTRtUlNsWjRNdXgzTitKMDdxY3Z4TkpaUmhUMUYzSEtlUTFvYWpYd2QrMVBLY0FiK1E5T0hvOHk5TnJPeDdIQk1MaGtHbzViS3ptZVh1aFZURWE3c2NyMFhwaVlIRVJaYURTbHdsa3Q3QS9KMnVjNi8xVGVDWU5zK3ZCUndqcWFnNWFTR1NUTkxtd0o4SUZxc0czd0VPTHp0dmp4U2RTemRXRVo4bWFUbGdqNWFuVTYyQTYzYzVmbGZDM0sxY1FuRXBCR09pNGxxSXA2ZzdqdE1MRTVTZWFFRTRFRGlxNVhVTEF2c0J2NU8wVWI5eFBwTFdsdlJsUWtYVzFoVDFNNEhOek95TXZpUXZpYVRGSkwyTlVNeXRpRzBrTFRrSW1SckVUWDhHOHlvSHR5T0xxMFRTRkVtTFNscGUwblRncTFXdDFTQ2VYL3NUZ290YmVSMXdscVNkSmZWY0RWelN3cExlRFB5Um9GQTE0clJtQVh1WjJXRlZXY1lrTFNIcHZjeXZMRGFUNi9NeVNRdEpXa2JTK29TYmsxYnIyTlZsM3F1azFTUjlnUkRUMC9GbHdJNVJLVThtWnRCMXk5RGNYZEsya29xK0R3MWF1NmgvTVVVK3gzRW1KMjJMZ01XWW05MkFqekhSWE56Z0VVTFg1RVpBNGoyRTJodkxFaTZjcXhKSzhqY2VxN1NaNDJuZ0lPREhGVzVLbXhJeTBKNGRIeXNUZ2s1N0xYNDJtOUJSK25iQ1hla2R3UGZOcktqT1NLK3k3VVg0WHpYTDFvdVNOWWV3QWFYU2krSzZoNWwxeTdUcG0zaCs3UUI4aHZZQndFOFQ2cm5NSlB6djd5VllBeGNrWkpZdEJ6eUhvR3lzei96QnQ5Y0NuemF6aXpQS3ZBM0IvZk5zUXVYalp4UE9wYTVEQ1o5WktsT1kzekxieXMvTTdMT0Z3a2p2QUY3RHZQZndiUHByTHZ3MDRYdHdPL08rRjErSmNUcDlJV2tkdXNmMlFIQVIzZ2JjRE53RS9McjVzNDBwNnMzdEpZNHhzLzM2bGNkeG5NbFA0ZVlmNHlOMmk0L0ZNNjE1TGFHVCs0bG1WbFZBTGdDU2ZrYit0UHUxVXVOY1lzRGxsWm5rcVpLTnpheXlBbzN4L05xVEVOOVZLa1c1aFJzSUx0by9sdG1FaTVCME9nT29LNVRJNTh5c01IQlgwb1VFaFRFWHQ1dFpOMWR4SjFrTU9KL2lubVh0ZUVZWmoxYm4wNW1Yc2ZVUXNHSEZ4U0FkeHhsUkN1LzI0K2IrZFVuSEFHOGwzRlcvam5rOWZucmxUdUIzQkdVbnRjSnZQendLWEpweHZnY3pCZmF1UWw2NXFtQU9jR09WQzhULzVhR1NqaVprV3IyUjRQN3N4NjE0QTNBT3dYVjZSaFdCcXpHVzdSR0cvek1yN0ZVbmFSR0NWVFpuc2tCcGE1cVpLVjVicHZjNXREbldyRjJLdWlzOGp1TzBwZThlTi9IdTdMbkFTNW5uYWxpZXNGRTlRbEJ3N29xUE93bnVyd2NHcU9nNEkweThjMzhwd1JxeGJOTmpDY0pkL1AxTmo4dXJ0aFk2dzR1a3BRbVdvb1lML25wZ1U4L1ljaHpIY1J4blVpSHBpNUp1YTNvTXFsK2c0emlPNHpqT1lKQzBwcVJibWhTZW45Y3RrK000anVNNFRuWWsvYXhKNGJsRjBndnJsc2x4bk9Hbld3cXM0empPVUJIZFdNMnVyR1BON05xNjVIRWN4M0VjeDhtT3BHbVNaalpaZWE2S0pTQWN4M0c2NHBZZXgzRkdpUjJZMkJUMzY1Nmk3amlPNHpqT3BFTFMwcEwrMVdUbE9idmZsamlPNDR3M2J1bHhIR2RVK0FTd2ROUGZNN3dtaitNNGp1TTRrNG8yS2VxL2lJVlNIY2R4ZXNZdFBZN2pqQUwvdzhRdTZnZDZsWGZIY1J6SGNTWWRra3pTNnlYOVJ0TEJkY3ZqT0k3ak9JNVRPUjY4N0RpTzR6aU80emlPNHppTzR6aU80emlPNHppTzR6aU80emlPNHppTzR6aU80emlPNHppTzR6aU80emlPNHppTzR6aU80emlPNHppTzR6aU80emhPS2J4aG4rTTRqak9wa0RRVldCRjREckJLL0xrODhDandRTlBqWHVBYU0zdTZKbEdkQWZPTTBpTnBPZUNJQWEzN0dIQi9tOGV0aEJPd3NrYUNrZzRublB5andPbG1kbVRSQ3lTOUh0aHpBTExNQXU0QjdtcjZlWGY4ZVl1WnpSMkFERWxJMmdaNGY4WXB6ek96YitlWVNOTFBnSVZ5ekRVa1hHMW0rM2M2S0dsbjRLMGw1ejdJeks0b09iWVFTVHNDYnlzNS9GQXp1NnlITlZJLzYxUE43RWNKNDdzaTZZU0U0Wjgzcyt1eUNkTUZTWXNBYndRMkE5WWdLRGtyQWIyMksza2F1QVM0Q0xnQXVNVE1IcXRBVkdjSWFENHBGZ1EyckV1UUp1NlVkQ1p3Sm5DMm1UMlNlZjdYRUw0VW84RE5QYnhtUmVyLzNPNlE5RWZnSk9DeUllNSt2U093UWNiNVhpcnBjRE9ibFdHdTlZRkZNOHd6TEN6WTVmZ2FsRDl2bHlvNXJoZFM1RnE2eDllbGZ0YnJTVHJUeks1UG1LTWJLZGVVeGJOSjBRRkpCbXdLdkF2WUJGZ2tZYm9GQ2RlRkRZQ1BBVTlLT2hFNHhzeituU3FyTTF4TXFWdUFOandiZUEvd1ErQmZrbjRsNlpVMXkrUVVzeEt3Sy9CSDRHK1NQaS9wUlRYTE5BRkpLeEkybTV3c0Jid2g4NXlPMDQxcHdKZmp4ajlXU0pvcWFUcHdLbkFzc0JWcENrODdGZ2JlQzV3bTZUZVN0cEkwakh1bFU0SmgveUNuQWhzQmY1VDByYmh4T2NQTnFzRC9BcWRLK3JTa0Jlb1dLUEpXcW9saG0xN0JuSTdUalEyQTdlb1dZcEJJMm9EZ0FUZ2NXSHRBeTI1QXVBSC9qYVRuRFdoTnAwS0dYZWxwNXAzQXVaSStQSTUzT0NQSVZPRGp3TW1TQm5XQkttTHJpdWJkUXRMQ0ZjM3RPRVVjSUtsS1Y5OVFJR2t4U1ljQ3Z3R2VYNU1ZNnhFc1AvOHJxZGRZSVdjSUdTV2xCMkF4WUQvZ00zVUw0dlRNUzRCVEpPMVZsNG00SXRkV2c4VUlzUVdPTTJpV0F6NVh0eEJWRW0rWVRnZDJxbHNXUXZENTU0R1QzT3N3dW95YTB0TmdMMG03MXkyRTB6UFRnSDJBVDllMGZsV3VyUWJ1NG5McVlnZEpyNnBiaUNxUXRDSHdmd1NYK1RDeER2Qi9ra1lsSWNacFlsU1ZIb0Q5SmIyN2JpR2N2dGhMVXRsMDRCU3FjbTAxMkV4UzVSa3JqdE9Cd3lhYnkwWFMyNEhqZ0NYcWxxVURxeE1VbnpYcUZzVHBqMUZXZWdDK09BNCs3VW5HdHlTOWVGQ0xWZXphYXJBUThKYUsxM0NjVHJ3WTJMbHVJWEloYVZQZ08vUmVaNmN1VmlFb1BxdlZMWWpUTzZPdTlDekdjUGg2bmQ1WkJEaEcwcklEV3E5cTExWURkM0U1ZGZJWlNTdlhMVVFxTVlibkNFWm5iMW9CK041a3M3Uk5aa2JseENwaUY4K2VHVGxXSlpFTVFzNEFBQ0FBU1VSQlZCUUJHd1JWdTdZYWJDeXAxK0owanBPYlJZRUQ2eFlpaFdpVi9TbmhabmFVZUJXd2Q5MUNPTDB4R1pTZTVZSHQ2eGJDNlp0M1ZhMnNEc2kxMVdBYTVkc3FPRTRPdG95dW9aRWpsaUU1REJoVmE5VmVrdGF0V3dpbk83bE1jaGZTWGRPZFFxamN1enJ3WEVJTVJLNnF2YThDZnBGcHJrN01ZdkRwb1RkVVBQOXZnVDhWSEY4UVdBWllsdEN3YjZQNE13ZExFcXd3djg0MFh6dkt1cmIrUnJsMkZkT0JYNVlZQjdBditiNlBYeXM1N203Z0s1bGt1Q2ZUUEU1L0hDTHBmRE43b201QittUkw4c2ZGelFWdUovUjB2Qm00alhEZFdZMndCNjFLUHF2U0ZPQXJrallaaFQ2RTQweXVpK3dUWnRaTG42Z2JnZk1CSkgwVjJCYjRKT0VrVEdFUWdXUlBtMW5aRFcxWXVkYk1UdW4xeGZGdTdIbUVsaFB2SnoxV1prZXFWWHJLdXJhK1J6bWxaME5KSzVoWjN4dSttV1g3UDBncXEvUThNQW5QOFhHajRUcitjdDJDOUVwTVJqa2s0NVIzQUQ4Q2ppdnEzUml2WnhzUkdqYm42Ris0SnJBeGNFYUd1WnlLcU0yOVpXWnp6T3kzd09ha1d6UThlbjRBbUpuTTdBWXoreXl3QlhCTDRwU3ZrdlNTREtMTlI0SnI2Ny9BMmNDREpjWk9JZlFDY3B3NjJVUFNDK3NXb2cvMkpnUUVwM0lMc0Jld3Zwa2QyYTFaZGJ5ZW5XTm03eUo4YnkvSUlNT0hNOHpoVkVqdE1UM3h4TndWU0RISHJpU3BXMWRuSnlObWRpWEIybE5HT1dobXN3eml0S09zYSt2aWFKNitzT1M2bnNYbDFNMDA0RXVqMEs0bkJ2Ky9QOE5VVndKYm05bHZ6V3gydjRQTjdESkNrOUd6RStYWXNLb2JPU2NQdFNzOUFHWjJEZkNUbENuSTMyblg2WUtaM1VBb3k1NUNWVlZOeTdxMi9oNS8vcTNrK0hVblErcXdNL0tzRDd5amJpRjZZRWZTcjkxL0E5NWhadmVtVEdKbVR3RWZwUHgzdjRFWHpSMWloa0xwaVZ5V01QWUo0T0ZjZ2poOWNUSnBRYXZaRllURXJLMkw0OCt5bGg0WVhKcTg0eFN4djZSbDZoYWlFNUlXQW5aSm5PWWk0SDNkWEZtOUVnUEFkd0x1UzVqbU5UbGtjYXBobUpTZUt4TEczbTVteWlhSjB6Tm1OZ3Y0WThJVVZWaDZ5cnEySGdldWpyLy9DM2kwNVBydTRuS0dnV1VKV1lIRHltYUVraU5sbVFOOE5scG9zbUZtajVIbWVYaXhKUGM4RENuRHBQU2t4UFQwa2pubVZFZksvMytWQ21JUHlscGEvdEdJQnpDek9ZUzd5REs4UXRMcUpjYzZUaWRPS3pIbXZaS0cxZkx3NXNUeHg4VFFpQ280Rm5pNjVOaHB3Q3N5eXVKa1pKaEtaNmRrWVAwaG14Uk9HVzVQR0xzWW9YYkdRemtFeWVUYWFuQUJzRW5KdWJZaDlBOXluRno4blZCZnB0L01yTU1rYlY0bXdMY3FKRTBGVWdvcDNndDhQWk00ODJGbTkwbjZKbEMyNEtCWFp4OVNoa25wMmJqa3VNY0pjU1ZPZmFSZVRITm0zcVgwMm1xTjR6azNRWTdwdU5MajVHVko0SERnVzMyT1d3djRFUENEN0JLVlp4MkMrNjBzUitlSzQrbUVtZm4zZHhJeUZPNHRTVXNRb3ViTGNHTDB3VHIxa1JLTS9EVGhyaTBYWlYxYnM1aVh1ZFhnU3VDQmt2T3RKU2xYeFhISEFWZ0srQjJoK0Y2L2ZFcFNWWm1TWlVndEJ2alhMRkk0WTBmdFNrK000RCthY0JmVEwzY0FoK2FWeUNsQlNtdUsyM0lGb1VmWDFub2xoMS9jV3JvL3h2V2sxTzNZSm1HczQ3U3lkRXdjT0tMRTJFV0FMMmFXSjRXVUc0STdnS3BpZVp4SlRxMUtUN3dUUHA3eVd2L0h6U3hMTEloVERrbFRTR3UwZVZzdVdRaHlsRDJuTzdteVpwYWNEMkQ2S0JTSWMwYUd4ZVBQWHhENnBQWExGcEp5OTdjcVMwckY2Tk04VzljcHk4QmlldUxGZjBYZ3BjQkxnSmNUR3N4TkxUSGRYR0JmTTB1SnVlaVhoU1Y5YjBCckhSVXJoSTRDRzVNV2hQN2ZUSEpBV24yYzh6bzhmMWJDbkdzUXp2ZVVjZ3lPMDJCSkFETjdNbDZMeWxodURwWjBycGs5bmxlMDNvbEJ6QzlJbU1KN1d6bWx5YVgwYkNDcFd6RzNSVWtMWEd2d0pMQ0htUTNhcHpzVmVQdUExdm96YWNVYUI0S2tsVWp2eXAzRjBwUG8ybm9jdUxUZEFUTzdTOUxWaEdEUU1rekhsUjRuRDBzMC9mNEw0S09FRzhsK1dJWFE2eXBuZzg5K1daVzA1QVYzYlRtbHllWGVXb2dRMTFIMHlLSHduQU84clFhRngybEIwdk1KRjk2VkVxZEtMZm5lSU1XMWRVR1hkTjZaSmVjRjJDYTZBQjBubFdlVUhqTjdFdmh1eVhsMms5Uk5pWjlUY3U1ZVNDbElDSEIvRmltY3NXU1lVdGFMK0Fmd0RXQ20rM0xySTdvbzF5Q1VhZjhBNmVmUE5lVHBiQXpWdUxZYXpLUjg5K1JWZ0ZjeGZ3MGd4K21YSlZyK2JsaDdudFhuUEkyR3BOc1ZYRStmSWxqbnEyRHg3aS9weUN6S1YwcEgwbXJBb0ZwelhGdW5HOUZwenpBclBWY1N2dFIvTmJNNzZ4Wm1rdkoyU1VXRkJSY2tGTmxhaG1EUmVSM3BscDFtZnBKRGlVMTBiVUgzZWp3WEVkeXFDNWVjZnpxdTlEanBMQ1pwYXN3cXhNeWVrdlJkNE9BU2M2MUx5QzQ4cWNQeEtwV2V4UkxHM3BkNHpmZ2NnK3VOdHlWdytZRFdjbnBrbUpXZXh3aWJ6SXRqV3Z1dFpqYTNacGttRzJ0UjNrU2V5aVBBYnpQTmxlTGFlZ2k0cXVnRmNYTTVuL0xWbWJlV05LT3hXVGxPQW9zeHNibnljY0R1aERpWmZ2bUNwTCsybG1xSWxHM0IwQXRKU2s4MktaeXhaSmhqRGRZRERnQitCcHdQbkMxcGwxakkwQmw5VHNoWVZETEp0ZFdqTXAyU3hiVUM1VnRqT0U0ekV4U0cyR3p6b0pKenJVeFFtTnJ4Wk1rNWV5RkY2WG00KzBzY3B6UERyUFMwc2dZaFJmTVNTZnRJR21ZcmxWUE03VUNXOVA4QnVMWWF6RXhZQTd6enVwT0hkbGxQZjZKOFFzQkhKVDI3emZOVlducG1KWXhOaVFkeW5KRlNlaG9zQnV3Rm5CQTNQR2UwZUJUWXdjektGRmRyUjRwckM3b0hNVGU0Z2JUMCtxMGtMWkF3M25HZ1RWeFpqSEU1QUNnVDY3SUlzRytiNTU4cU1WZXZsQTVFQnBiTEpvVXpsb3lpMHROZ1BlQ3ZrdGFwV3hDblorWVNhaXhkblhIT0ZOZlczUVJscGl0eFk1bVpzTmJTd09zVHhqc09kS2h2WTJiL0lzVDNsR0Y3U1M5dmVhN0tacDRwYnUwY3BVK2NNU2FYaStoQlFyWlZONllRTW9HV2o0L1VFdjByQUQrVzlCWXp1eWR4THFkNnZtQm0yYXFwWm5CdG5kTm5Kc2hNNEgwSjYwM0hxOGs2YVN4VWNPd3JoSXlzTW5HUEh3TjJhZnE3U3FVbnhkS3pzS1JGT2dSZk8wNVhjaWs5bDVsWlg1dUJwQ1dCelFoZjBqY25yTDBpOEgxSjcvSHNtS0hsZnVBQU16c3g4N3lwcnExVCszejlUSUxadjJqaktXSUxTUXZId25LT1U0YU81NTZaM1N2cG04RCtKZWJkUXRKYVRWYllLZ09HVStkZWpyenRhNXd4b3JaZ1lETjdHRGdST0ZIUzY0SERLTi9EYVVOQ2thNXZaeEt2SFU4Qzc2cHcvbWIrTTZCMUJzR3ZnSVBNN0lFSzVrNXhiYzJtVDNlVm1UMHVhU2F3ZWNrMUZ5ZWt2ZitwNUhqSDZkYXI4QmpnM1pScjZMa244Skg0ZTVXV25wc1N4eitQMFZCNnF2d2ZPaVVaaWd3b016dEgwblRnRDVTck53R2h0UG9QWWdwbkZjd3hzMHNxbW5zeWNqZndFVE03djRySk03aTJwZ0ZIU0gzSGZyNHBZVTBJTGk1WGVweEtNTE5aa2o1SHVScFkyMGo2cXBuZFJJVWJ0cGs5Rm91aXJseHlpamNDWjJjVXFTcnVxRnNBWjM2R1F1a0JNTE43Sk8xSWNEbVVrV3RwWUN1QzljaXBuK09yVW5naXFhNHRTRmRneXJDWnBNVXkxaWdhUjZyTWdodWFhMkpaek93Q1NiOEMvcWZQb1ZNSUZ2TlBVWDA5bk9zb3IvUzhpZksxaVM2bHY4OTRWZUNsSmRaNXdPT09ocE9oK29LYjJiV1Mva0Q1YnVZNzRFclBzUEFoU1QvT21KcmV5cUJLeWVkbVlVSU0yKy9xRnFSbVVsb0o5TnRycWgvYTFhenBsV0hxQzNnd3dRMjdkSi9qM2huamdnYWg5THl4NU5nWFNWclp6SXBhNkxURnpJNEVqdXoxOVpJMkpyUkQ2cGUrWlhNR3d6Q21ySmM1d1Jxc0s4bnJPUFRPemNCbkNoNVhKTXk5S1BDSlZBSGJrY0cxVlRkZXFCQlNzaTFYeVNaRjNybnZ5aVpGSW1aMlArV3NJZE1JellTclZub3VTaHcvS0N0dDJmUEJsWjRoWmFnc1BaRnJFOGV2Z3ZkbjZaWGp6S3lqa2hsTjVHY0JxNWVjLzcyU2pqYXo2MHFPNzBRTzExYWRiQ0pwS1RON3FHNUJhdVRXaExHcjV4S2lHVWxUS1o5TUFjTVhYSHNDd2NXMWJwL2oza241Q3MrOWNqWXdoKzZCMlozWVJkS3Z6R3gyUnBuYXNYckpjYTcwRENuRHVISGNUMW8xMENydkFzZUtlRUU1TEdHS3FZU3V4cmtaVmRkV2cybkFGblVMVVRPM0pJeDlpNlNVL2syZGVBUDl1NE1hUEdCbUtmVm5zaE43eW4yT2tLbllEeXNBcjh3djBUek03QkhnN3dsVHZJaTBtbGxkaVVyd3RpV0hwMVJ2ZHlwa0dKV2VwU2hmQndYS0I4YzU3ZmtqYVc2dXpTWDFlNmZaRVVrck1OcXVyUWJqN3VKS3NZb3NUdm5OcUlqM0o0eE5zVnhWUnF5NzAzTU1TeE52elMxTEcxSUxkWDVHVWxrbHRSYzJwdngrNHBhZUlXVVlsWjZYSlk3M21KNk14THZGTHlWT3M1K2sxT3JiRFViZHRkVmdJMG5MMXkxRWpkeExXaWZ2M1NRdGtrc1lTV3VUVmlSMUtKV2V5TGZvWDhsY3V3cEJXamlKMEpxbUxFc0QrMlNTWlFLeG9mVkhFNmFvMmozb2xHUVlONDlVczZwcjJQazVHMGhKUDM4VnNHVW1XYmJKTkUvZFRDWGYvMlRraU8wL1VoU0ZGd0NINWxDbUpTMEJIRVg1K0JJWVlxWEh6QjRIUGwrM0hLMlkyWCtCUHlkT3M2T2t6MmE4cVdxd0gvM0hRalc0eE16dXpDbU1rNCtoVW5va1BaOTVGVUhMa2hJcjRMUWhibENISkU2emI3eDdLczBrY20wMUdIY1gxNldKNDkvRnhINVJmU05wSWVBN3BBZEgveU54ZktXWTJXbWtLeGhWOE1NTWMreEpVSUNUOXpOSkptbG40RU1KMDNqeDBTRm1hSlNlR0poNEZNRmZuOExOR2NSeFdqQ3p5MGo3TXE5T1dzd0VUQjdYVm9QMUpLMVV0eEExY2t5R09RNlU5RTFKaS9ZN1VOSWF3TytCdHlUS2NCdndsOFE1QnNIK3dPTjFDOUhDSmNCbEdlYlpFZmlCcExJVi9SdWxNSTRtMURncXkyekNPZVVNS2JXbnJFdGFBSGdId2NLelJ1SjBjL0dvK1NvNWpKQjFWRmJ4K0lTazN5Umt1YVM2dHVaUXJqeC9KNHlRM3BzeS9tM0FqL0tJTTFxWTJSV1NMZ0RXVDV6cVhjQ3JKSDBmK0dOMDUzUkUwc3B4elA4Q09iTEFqaGxBNm5ReVpuYTdwSzhDQjlRdFN3TXprNlFEZ2YvTE1OMVdoTWFwZndDT01MTXJ1dzJJYnJHMTR0aGRnQ1VUWlRpK1RORkVaM0RrVW5xbVNGcXdoOWN0UktoNHVoSWhLbjQxd3FhUjYyNzNzZ292UGxNbHZhQ2l1VHZ4a0ptbEZISExpcGxkSDJ2M3ZLZmtGTXNCZXdCZjdYZGdCdGZXWE9BVnVSdWZTbm9RMkRWaGltMFpVNlVuY2hUcFNnK0VHSjl2QWdkSk9wbFE3K3YyK0ZpWWNMMVpHWGdOSVNzblZ3ekk0OEJ4bWVZYUJNY1Fycmt2cmx1UUJtWjJVY20yR2Uxb3BKbHZLK21maE9iTnR4QmlydjRMTEVoSXlWK0JzQmU5a1h4MW4yWUQzOHMwbDFNUnVaU2VOd0EzWnBvcmhSeis0VTRzVENqVU4waU9JUVRVRFJOZkI3WW5YRHpLc0x1a241cFp2OVZyVTExYkYxWFU2ZjNQcENrOTYwaGF6Y3pHMVMzN1Y4S0dWTm90MGNMaTVOazhlK1ZYWmxaMTllSnNtTmxzU2ZzUVhEQzVnMzlUS05zMm80aVh4OGVnT05iTWhqYWczUWxNcHZpSUhKa0FUaGZNN0E3U1lqRVdBVDVaWWx5cWErdXZpZU03Y1RFaC9UcUZ5WktSMWpkbU5vY1FSekdLaUJHVTNjeitBZnk4YmptYWlXMHpQbE8zSEFsY1RQa21xTTRBbVV4S3oxR2o0RmVmSkh3UGVDUmgvSHNrdmJEWEYyZksycXBFNlltYmRtb1E2N2huY2YyWVVCWmgxSmhoWnNOZzRTN0RseGl5ZGoxbWRqTEJSVGxxM0Ezc1ptYXo2aGJFNmM1a1VYcitDL3l5YmlIR2hlZ21PanhoaWluQXZuMjhQdFcxZFgzRm0xT3FoWEh0ZnBUQXlVYThXZGtOdUtadVdmcmdHRE03cW00aHloTDd2aDFZdHh4dCtBYWpaYkdmVFZCNGhxYlpyRlBNWkZCNkhnYmVQMng5YjhhQW93aDNPR1Y1czZSZUExaFQzVDlWcHhPZlM1cmxDOGJZeFFYUDlHTGFrYlR1NjRQaVZHQkczVUprNEVUU2lvNW1KMWFBMzR2UnNmeDl3Y3hTZW9nNUEyYlVsWjVad000VmRQRjJ1aERUZ2xOTjBWM2JVd3l6YTZ0Qk5HdWZsampOOUFxcXlvNFVzVUx2QjBoclQxRTFWd0FmaVc3TmtTWVdIZjBzNFRvNk5NUnJ5NDZFTmhYRHpFOFpzdGdvcHp1anJ2Ujh6TXd1cUZ1SU1lWTQwb3BCcmtPb2oxRkVxbXZyUHRJci8vWkNxa24rZWNCTGNnZ3l5c1FpbUxzQ0Q5VXRTeHYrQ2V4a1pvL1ZMVWd1ek93RzRQdDF5OUZLdkpINEtNTlp6dUZSNE9QQXZsRnhkRWFJVVZWNmJnVGVaV2JEZmljd3FZbXhHSWNsVHJOdkxGRFppVlMzejJrRHVpdWZDVHlkT01lNEJ6UURZR1puRUdycG5GeXpLQTJlSXFSVWJ6MUpZemUreXhCV3NqZXp1V1kyQTlpSk5GZDZUdjRPdk5uTWZ1MEt6Mmd5YWtyUGJPRGJ3S1ptZGw3ZHdqZ0EvQUg0VjhMNDFZQWQyaDBZQmRkV2czajNQek54bW0zRzNjWFZ3TXp1TnJQZENGYWZPdU44TGlCY2I0NllyTm1oWnZZay9TVVdESlRZTit4TmhCaWt1bWpjNEcxdlp0N2ZjWVFaRmFWbkRuQW04Qll6KzRxWlBWVzNRRTRnQmg1K0tYR2F2V09uNjFaU1hWdFBNZGlBeUZRWDEzT0FWK1lRWkxKZ1puOGlWTTA5WWNCTFAwS0lkM25uQ0tlbDk0eVp6V1NJZTBhWjJZTm10aWV3SlhES2dKZi9HOEhLOTUzSkVNczE3Z3l6MHZNVUlldm00NFQyQWU4M3MxRkthUjBuWmhJdURHVlpsdEFIcVpWVTE5WTUzZm93WmVaVWdvS2VncnU0V2pDemg4eHNiK0MxaEt5cGl5dGE2Z21DNVhJMzRKVm05ck9vMUk4TE0walBRcXdVTTd2Y3pIWUJOZ1YrVFhYeVhnTWNDcXhyWnU4d3MzOVd0STR6WUZyYlVLVEdKUFRMdzRScXR2ZkVuNDNIRGNCWkZXMVlUelA0OTFtV1hqYlF1WlIvUDFudVdtTFR3RU5KYSthNWs2UWZtOW5kQUpLV0l3UTZwM3hXQSsxOGJXWVBTRG9IZUYzQ05HK1JkR0RpWmx2MmZ6WlVXVHl0eEVhT1B3SitGSnVHYmtWbzJQcWFoR21mSUdUZS9RRTR3OHllU0JhME8wOVR2Z1ZRWlVxWW1kMGw2Y3VrTnlTdFBOYkZ6SzRHUGg3akFUY2lXSVhmUk9pdlZwYTdDSTFQZnd2ODIyTjJKaWNlUCtBNHprZ2phV25DWnZlc3BzZXo0ODhWQ0VyR1hTMlBPK1BQMjl4ZFBubVF0QlN3ZG53OEgxaUswRGw5U1VKZnRvZUFPK0xqOXFiZjd3RHVHelBMbnVNNGp1TTRqdU00anVNNGp1TTRqdU00anVNNGp1TTRqdU00anVNNGp1TTRqdU00anVNNGp1TTRqdU00anVNNGp1TTRqdU00anVNNGp1TTRqdU00anVNNGp1TTRqdU00anVNNGp1TTRqdU00anVNNGp1TTRqdU00anVNNGp1TTRqdU00anVNNGp1TTRqdU00anVNNGp1TTRqdU00anVNNGp1TTRqdU00anVNNGp1TTRqdU00anVNNGp1TTR3NHJWTFlEak9JNHorWkUwQlZnZVdCbFlCWmdLM0JZZjk1alpuQnJGYzhhRTdFcVBwSldBWFROT2ViK1pmUy9qZkYyUjlMK0VMMmRaL21WbXY4MGxUenNrZlF4WXF1VHdYNXZadjN0WTR4UEE0bTBPN1ViM2MrZklMc2RuQTQ4Q2o4V2Zqd0kzQTllYjJaUGRaQnNWSk8wQnJEQ0FwWjRDN2djZWlEOGJqM3ZON1BFcUY1YjBOdUJWVmE2UmtZZk43RnZ0RGtqYUhYaFc0dndYbWRrcGlYTjBSZEoyd0VzVHA3bkt6SDZUUTU1bUpDMEliQVM4bXFEY05CNHJBd3QwR0RZYnVJTjVTdEJ0d0dYQVdZTytIa2phRlZncFlZcHJ6ZXo0WFBLMEkzR1BPc25NTHU5aGpUMkJaZG9jMmhsWXNNdndYcTcvanpIdit2OEljQXZoK3Y5RU45bFNxRUxwMlFQNFF1WnAxemV6V3pQUDJSRkpad0V2U0poaU5yQ3BtVjJmU2FUNWtQUjN3a1drREx1WjJjazlySEVaZzltd0p5eExPUG12QmY0T25FYTRpR2pBY21SQjBwbkFDK3NVQWJnY09DTSsvcG43amxyU1Y0RDM1Wnl6UXU0d3M5ZTBPeURwSGNDM0UrZS9IOWpBekI1Tm5LY2prcFlGTGdRV1RaeHFHek83SklOSVNKb0diQTVzQld4Sys1dWxNandCbkFuOENUalp6SjdPTkc5SEpQMFplSG5DRkhPQnQ1clpsWmxFbW8vRVBlcmpadmJySHRZNEgxaXQ1QnBsRVhBcjRmcC9DWEFxY0hYTzYvK1VYQk0xOGJZSzV0eTZnam1yWkJyd1pVbnVQdXdmSTN6UjNnenNTOWlvejVkMGtLVFVPOXR4eElCMWdFOEFmd1F1bC9ROS8xKzI1VVRnMHNRNWxnVSttRUdXSWo1RXVzTHp1eHdLajZSRkpPME1uQWY4RUpoT1BvVUhZQkZnUytCN3dJV1NQaXdwNS94Vk1JVncvYTlpZjUzc0dQQmNZRE5nSDhKTjc0V1NEcFcwVG80RnNuNG9rcDVMdU1EbVpwc0s1cXlhRFlEdDZoWmlrdkJjd2tieUYwbS9rclN4SzVTbFdRWjRPM0NLcE1Na0xWZTNRTU9DbWMwbGo1WDZ3NUtXeUREUGZFaGFrblNsNmluZzBFUTVwa1JsNXlMZ1lPQTVpVEwxd29yQWZzRGZKZTBSclV2RHlpdUI5OVl0eENSaEZXQW40R1JKdjVXMFdZcENtVnNUM1NyemZBMWVKdWw1RmMxZEpRZElLaHQzNDdSbkkrQVhoRTI3Q2dWN1hERGcvY0I1a25hVk5MVnVnWVlCTTdzTU9DRnhtcVVJY1c5VjhFRWdWYUg2Z1puZFZuYXdwT2NUckdJSEV5eGJnMlpKZ25MNmUwbHIxYkIrcjN4ZTBxRERBeVk3NndQSEFxZEtlbTJaQ1hJclBWVzR0aHFNb3JWbk9lQnpkUXN4U1hrcDhBZEpNeVNsbXZySG1TV0FHY0JoYmoxN2hpOFJnaXRUMkZYUzBqbUVhUkRkT3FsSkluY0QzMCtRWVdlQ3k2SFVocE9aVnhDc3YvODdwT2Z1a2dUTGxKT2Z0WURmUmJkWFh6Y0IyWlNlQ2wxYkRiWWQwaE83R3p0SUdwWE1sbEZqQ21FVE9HUEk3L2hHZ2ZjQSs0M29keXdyWm5ZMzBEYkRxdytXQUQ2Y1FaeG1kZ0pTRmFrdm1kbGovUTZLN3F3WkJPdE90OHlkUVRJTitEendwU0YxZDIwdmFjTzZoWmpFN0FTY0tla1Z2UTdJYWVtcHlyWFZZRTNnUlJXdlVSV0hEZWtYY3JLd0tuQ1NwRGZVTGNpSXN6dXdaOTFDREFsSEFUY216ckZMcnBpcGFNM2NQWEdhSzRDK1U5UWxMUVFjVHQ1U0pMblpBVGhxU0syK1g0cHAvRTQxckFUOFZ0Sm12Ync0cDlKVHBXdXJ3ZlFCckZFRkx5YlVObkNxWTNIZ1o1TGVXYmNnSTg0K0hpc0ZaallMT0NCeG1rV0JqMlFRQjBKSmdGUUY2b0FZck4wek1XRDBPNHhHQnUyYmdSOE1ZWHphODRFOTZoWmlrck1JOEdOSk8zUjdZUmFsWndDdXJRYlRSOWo4L2hsSlpldnFPTDB4RGZpbXBEZlhMY2lJODc5MUN6QU1tTm5waEpJSktYeEEwb29wRTBSTFMrcG44a2N6dTdERXVFOHhtQnZhWEd6S2NNYlJmRnpTNm5VTE1jbHBsQW9vVk5CeldYcXFkbTAxV0kwUXZEYUtMQW9jV0xjUVk0QUJoMHQ2U2QyQ2pEQmIrZ1g2R1dZUWlvMldaU0hTWFlidkpxUnJsMlVXY0VpL2d5UnREM3dzWWQyNjJMV1hPLzRCc3lCd3lBamZ0SThTMzViMHlrNEhjeWs5Zzd3VEdGVVhGNFROWk5PNmhSZ0RGZ1dPOVhUUjBoajVnM0JIRWpPN0FUZzZjWm9keWxwNUpTMEFmRFJ4L1NQTjdKWSsxMTBWT0N4eDNUbzVLS2JXRHhNYk16Z0R3VGl6RVBDVFR0KzU1T0RhK09VbzQ5cTZubkpsdExlUmRGQy92dWtoNGhCSjUxZmRYOFJoSllKbGJaUmROZDBDUjQxUUoyVTFRZ0hIZFFpRnZISXdxS0R3a3dscDFJUGk0Ukpqdmdsc1QvbGVSd3NBZXdHZkxUSDJuWlJ2TndOd0Q2R2FjYzlFYThTaGhEaUozTXdpdEJtNGhkQ3VZVlhDdWJ0UTVuVVdBTDRpNloxRHRsY2NKT2tzTTN1a2JrRW1PY3NUQXNnLzBOckNJa2RHVVZrcno0K0FnK2cvL2ZIWmhCb1JaZnpUdzhDcUJKUHhsK3NXcEdLS05zMEZDQ2ZsQ2swLzF3RGVSTjRMN1hSSnZ6YXpNelBPT1RETTdFLzl2RDVtQ0w0YjJKdndQVW5oT1pLbW1WbUthNmNYZm1obUYxZThSaEptOW9pa0x3RmZUNWptUFpJTzc4ZmlFai9QVkN2UFYwcHNzTnNBbXlTdTI4d1Z3QThJMSt5N1dwV1FxR1N0UUtoaXZDdWhtbjBPMWlkOEg0N0xORjhPVmdRK0RleGZ0eUFWMCszNnZ4emhNMi9zQWFzVExHRTVXNHhzQnJ5VjBMZnRHZXBVZXM0bk5CUXJjNEpQWjNTVkhvQTlKSjFvWnRmV0xVaEZQQkRkQW4waGFSR0M0ck1WSVJOanNReXlIQ3BwazNHd3JFVUY1ZWVTZmdQOG5MVE5ZeXJCYW5SekR0a21BU2NBTzFJK3BuQWE4SEZDRDdSZTJaYTBobzlYQWIvcVowQU1tcDZSc0dZejV3RGZCYzR2YWhnWmo5ME4vSVZRYkhBZGdvVTJoeXZvQzVKK1gyVUQyQkxzSEcvR3JxaGJrSXA0dXVUMWZ5SGdqWVRQZlhQU0s0OERIQ3pwbkdiRlB5bW1KOEcxZFQraEJzWUZKWmQrMjRqWHZabEdNTDE1VUZzVFp2YUVtZjNKekQ1Q3VFczdMY08wenlXMFd4Z2J6T3hKd3FhUjZqWWFkSWZsb1NWYUoxS3pndDRoYVkxZVhoalRydmRLWE84QU01dlQ1NWp0U1F1YWJ2QmQ0RDFtZGw2L0hiTE43REl6MjQwODFwQ2xDSVUzaDRsR2x0R3dwZGJYaXBrOVpXWi9OYk9QQWVzUlhOK3BQSXVXY2pHcGdjeGxyVHdYeHk5Q1dhVm5PZUIxSmNjT0Mrc0Q3NmhiaUdIRnpPNEhQa0M0OE0xS25HNlhjYnZBeEtyQ3FadTBOeU50SW5ZbC8yM0NGRk1KcnNkZTJJcFEzNlVzZnphejgvc1pFR3Z5cEJaQUJEalV6TDdjcjdMVGlwa2RUZmgvcGNiazdEYUVOOG5yTUdZM1kvMWdaZzhSenNWOUNBMXlVOWk1dVRoa2JVcFAvSGtKNWROQlJ6bUxxOEgra3BhcFc0aGh4Y3dVTDN6VFNUdnhWd1cyeUNQVlNIRlI0dmk3c2tneHVUZ0VlRHhoL0hhUzFpeDZRVlErVWxMRlp4UGFSZlRMcHBSTExtbG1ocG1WN3UzVmlwbWRRSHBjMDhvTVozSEZ6NlhXY0pyTXhPdi96NEV0Z2I1YnB6U3hJazI5TzBzclBRbXVMWWhLVDR5enVMemtIRnZHZE01UlpsbGczN3FGR0hiTTdISkNFOGdVUHBSRGxsRWlXbnZ1VEpqaWpseXlUQmJNN0M1Q2hlTFNVd0NmN1BLYXpRa05GY3R5bEpuZFZHSmNxaHZvVXRMVCsrZkR6RTRDVGsyYzVyMDVaTW5NRXFSWC9aNzBtTm5Wd0JjVHAza21FemJGMGxQV3lqT2JpWXJPMzByT3N5UWg2R21ZK0VlSk1lK1Y5SnJza2t3K2ppWXRlSDNkTWIycnVxZmtPT0ZLVHlkK1NGcUE5OWFTMW01M0lNYjVwVmg1N3FORXM5Um8vbjk5d3JvQSsxZVlIdjVGMG9wRXJ0dHZOKzRTWEZKaXpMYVNVdi92NDhBdmdKa0o0MThxYVRXb1IrbTVJZ1phTmtqWnlJYk54WFVaOEs4UzQ3d2hhUmZpeFhSdklDVUxhK004MG93VXp5MDU3dXlXNzZrVE1iT25TSyt1M3FsKzFQckF5eExtL1dySkdqQWJFSXA2bHVWRU15dHowOWNUWnZZZjRNY0pVMHlqK3RwVDF3Ri9Mekh1U3pGenllbEFqQS83RkpCUzMyZ1RLS24wSkxxMld1TU1McUs4QnI5NVRITWVGcFlDeXZpejEySU0zUy85WW1ZM2t4YlIzMU1YM3NsQ3JFaTdWTW5oSitTVVpSTHlWK0RzaFBIVEpUMm56Zk83SmN4NU5mRExrbU5Udnh0ZlN4emZDOThHK3MxR2E2YnFubnhsci85cmtLOHg3YVRGek80QWZwY3d4YVpRM3RLVFVqL2gzT1kvWXYyRXNzWEpGaU52RWExVWxpWnN5bjJWZkk5OFNsS3VhcnFUbWI4bWpIM0RtRm5VeWw1SUh3Sk95U25JWkNQZWVSNUErVTE0S2kwM09ySGZXY3JHZkdCQ01ja05FOWE5THQ2UVZJcVpQVUE1RjFLRGxQZllDMHNEcHdQWGxCaTdWNi9sRE1hY2xPdi9ocElXTHF2MGxJMkVuMDM3akpLelNzNEh3K1hpV2lwZWRJNG9NWFlSMG9PMXhvR3pLSi9DdmdRaGsydlNJMmtyUWd1RE11em5ycTN1eE9LaUtTNlg5MGxxdHNUdFFnaDBMc09wWmxiSzhoUnZCRkxTNDJjbWpPMlhsTDFpNVlyamVwYUtidmpEUzR4ZGdGQkkxV3UzRlhNZTViTW5Gd1JlMExmU2sramF1cXhEWmN5WkplY0QyR3dBQVdxOTBpaWhmVHpsZ2tDM2tQU1dqUEpNT3VMNTAxZjlrUlplbUV1V1lVVFNGRW52SjF4NHk5elVuQXljbUZlcVNjM1hDY1ZXeTdBb3NCT0FwQ1VKTFJQS01KdTBHNmJWU0t2T1B6TmgxMFdjdndBQUVJTkpSRUZVN0tEWHFySUphZVA2L3p0QzhkMStlUU5OcWRYTy9NUjR1aFRGZDgweUozbzIxMVlUVnhLeURzb1VRMXNJZUF0cFJjTnlzU1NBbVQwdDZUdVVTN00rV05LNVpwWlNDMlN5Y3pybE0vZldKSlM3bnpSRXBmL0Z3RXNJRlhYTDNwVDhFOWdudGFoY24yd242YlVEV09mZlpqWXo5NlJtOXJDa3d5amZrWHhuU2Q4SHRxTjhJUEdQWTZCdldWSnVCSjZpZkpIWk1sd0JQRWh3SlpWaFRVTENTUlUwcnYrekpYMkxFSVBVTHpNa25XbG1aUnJqamd1bkUzcHFsYUdVMHBOUzVLbXQwbU5tY3lXZERieTk1THpUR1E2bHA5bmlkRHl3Si8xM1NGNkZrS1YwU0M2aEppRXA4UU9GaGVHR0NVbkhkSG5KTkVJeHVSenRJczRFZGplemxDSmdaZGhwUU91a3Byd1c4VXRnQitDbEpjYXVTTWljS250ZGZaRFFCVDZGbElLRTF3N1NGV3BtY3lSZENXeFVjb29xTGIxTFNMSjQwL0E3UXErMWZ1TjBWaVJVSWY1OGJ1RW1FU25YLy83Y1c0bXVyYWNvRGtLYldYSmVnRGRLS3F2NTUyVHhXRTBWTTN1YThrWE1kcFBVclRoWlZmVXdSb0d5N2dUb1h3bXRrODI3UERZbFhlRjVpbkNlZnFBR2hXZFNFUHRicGZTSjJwM1FhNmdNWDRzbCsxTllJV0hzZllscmwrR0JoTEVwNzdVYlV3bXhtWTNtdjMzWFM0cnNKS2xiWTF1Ly9wZGpsWDU5L2ltdXJZdWlJdENKbFBUUGFZUlMxWFZqVE93TS9pdmc5aEx6OU5LUU5MVWZ5U2lUY3RMbjZOdytHWmhMU0V2ZnlNd09TOGo2Y1FBenV4QTRxZVR3VFNnWHdId2Q4TE9TYXphVDhwMUkrUzdXc1daS0xhSmVXTHpwOTdLeFBVYW8zVmJVTDlDdi8rVllyRitsSjhXMWRWN1J3Vmd5djB4aHZ3YkRrc1gxaklzcjBkcXpMckJ0d2ZGeFB1bFQ3aTRYNy82U1NjdlRoRlQwdllGWG1ObmVabFpHS1hmYWN6QXd5S3kzbEJUMVpsSytFM1VvUFNtV25xcS8vMHMyZm9tZlRWblg0OHNvRG13ZjUrdC95am0zZU05S1Q2SnJDK0NjSGw0ek0ySCsxdzFKbTRFbFcvNCtubkoxZXdBK0w2blRuVW1SMVd5eTh5amxDMXFPczZYblJrTDh5VVdFV2p4T1JxSUMrZDBCTFhlbW1aMlphYTV4c3ZSVXJmUzBaaEtmUkxESWxXR2Znc3prc2IzK1IyV3liR1htdml3OUthNnRSd2daV3QyWW1iREdGTkprek1XRUM0aVp6UUlPS2puWFNzQ0hPeHdiMnpvcU1WQ3c3TjNlT0NzOUx3S09KVmhkYjVCMGtxVHRZOThsSnc4L0FHNnRlSTA1NUszcGxmS2RlRENiRkwyVFl1bXArdnMvUWFtS0cvU01rbk10UitjK2JHTjcvWStVTGhQUmo5S1Q0dHE2b0VjejdOOHBYM2dJaHNQRjFXNEQrVFBsRzZ0K1JGSzc0TnR4Tm05QysvOXpMNlQwYnBsTUxBQzhodUIrdlVqU3h5VXRVTE5NSTAvTVpDcDdrOU1yUDQyRkVYT1IwdHFoam5NbXBhWlF5bnZ0aGZtdVM3RlV3dWtsNTlzMVZ1cHV4YS8vNVhpMEo2VW5nMnVyVTMyZUNVU3JTRXJodWRkMlVCQUd5WHlONDZKbFluL0tSZHd2REh5dXpmTmplOUxIQ3JKbGUwcmRsVk9XU2NJS3dLZUJFeVd0Vkxjd2s0QS9rWFlkSytKaFFrSEVuS1JrN1MyYlRZckJyTm11T0c1T09qVU9uVUU1bC93MFlMODJ6NC96OWQ4b2Z3N2MyYXVsSjlWdDFKUFNFNW1adUZhS1JTb0hiVFZRTTd1S1VDdWtETnRKZW1YTGMrT2NYcHhTbnVET2JGSk1QbDRGL0ZWUzFUMktKalh4Sm1jL3Fra3Iva2JzUVpXVEZFVmcxSlNlcXErYm5hNy8vd0c2MWQzcXhCYVNYdGZ5M0RoZi94ZWhzM0xaamJ0NlZYcFNGSW43Z0g1TXNUTVQxb0w2WFZ4Rkg4WlhLZTllK1VUTDMrUHNwa201NkkyU3BlZkJIaDRQVVQ2b3V4M0xBc2RLbXRUdE9xckd6SzRHZnBwNTJ2OEFQOGs4SjR5ZTByTk13dGk2TEQwUU1ybkt4cUw0OVg4ZVNkZi9ya3BQQnRmVzZiRUpXMCtZMlkyVWozWUhlRVVISCtpZzZIalNtOWw5bERkTmJ5S3B1ZUxyT0pjcFR6bnBSOGJTWTJZdjZlSHhZbUIxUWd1S3pRanhKUDlJWEhvUjRFZVN4am5vT3dkZkpXK2c3NEV4QkNBMzQrVGVxc1hTQTZGbENlWGJsV3pRMHE3RnIvL2x1TE9YZ0xCVTExYVpWdkIvSnExZHdEYVVyNCtUU3JmLzZVK0E5MUt1SFBwZXdHN3hkOWYweXpFeVNrK3ZSSGRLdy9MemIrQUhrallHdmt6NXJ2SXZJRnlnUDVwRHhnS09KSzJzZksva0RQenRDVE43VU5KWGdFTXpUSGNPNVlOaHU1R1NiZmFzYkZJTVpzMnk1VU42cFZ0Zzl5K0I5eFBxOFBUTFhvUjJKK0RYLzdMMHBQU2t4c2hzS0tsZlM5SExFOWVjVG4xS1R5Rm1Oa3ZTNXlqWEsyeExTV3VhMlhXTXQ2YmZyVVI3RWFQazNpcU5tYzJVdEJud0c4cGRZQUhlTHVuYjhYeXJpaitaMmNVVnpsODN2d0IyQkxxMWxTbGlMakNqd2thd0tRcmg4eVE5eTh3RzhyMktkV3ZLbnMrUTVrVklKdllPMndjNG1mNnJjRzhpNmVWbTlrLzgrbCtXdXdxVm5neXVMWUNkRThlWFlTMUphMFcvK3RCaFpoZEkraFh3UC8wT0pkeDVmNHp4MXZRM1N4Zzc2U3c5blRDelJ5WHRTT2dxWDdadzUvc29YMmRrN0lrZHQ3OUFVRDdMOG91S3IyV3Bpc0FiQ1MxTkJzSHJTRXRacjFYcEFUQ3p5eVg5aEhKNzQ1N0Fyb3ozOWYvTkNXTzdabThOUTdHL3NteFR0d0JkT0poeS92NjNTMXFOTWRYMG95S2VjdGM4TmtvUFBOUGU1WWlFS2Y1SDBzSzU1QmxIek94dndJVUpVMVJkNWZrZTBxNG5iOG9sU0E5c25EQjJObkJUSGpHU09ReTR1OFM0TFNXOWlQRzkvcTlBbWlHbXE5SlRkL3AzQ3RPN05PeXNGVE83bjNKRnpLWXkzcHAraXBiL254aE1PRzc4a3ZKbDY1Y2tOTVIwMGtqSkdxcjB1eDdkWmlsOUQ5L1lwVGxtRnVMMWZPT0VLYTRabHNhNlp2WUljRURKNGJzenZ0Zi9UU25YbkJmQ0RXL243SzFNcnEwNldaMDAzKzhnT0lIUUI2bGZ0bU44eTVCdmtUQzJxa0RRb1NaZVlNdDBlMjZ3V2k1Wm5LRWw1YnV4RklPeDlyd1NlRzdDK0dINy92OEJPS3ZFdUszSlc2WmlsRWk2L3B1WmlpdzlvK3phYWxCM3paNUNZaXIvNStqL0JGNEtXRCsvUk1PTnBMY0NLWVh6enNnbHl3ankzNFN4ZFZjNWQ2b25WU0hZTDFaS3I0Um81Wm1ST00xUUtUM1J3cll2L1Z0aEZ3WGVrRitpNFNabXBLWlkrcytBMEtTekU2UHMybXF3alZTbzJOVk9ERkE4c3NUUXQrYVdaWmlSdEF3aEJic3NUd0FYWkJKbkZGazBZZXdxMmFSd2hwWHJTRXRkZndHd1V5WloyckVOOE9xRThROEFsMmFTSlJ0bWRoUHc3UkpEMzBiMWZjU0docGkxOTdXRUtXWVRPME8wVlFnbWdXdXJ3Y3FrZlZFR3hiZm8vMDc4dGQxZk1xazRHRmcrWWZ6L21Wblp1SmFSSmlyK0thN2VPbXF4T0FNa1doMU9TWnptay9IbUpDc3hrUDRMaWRPY1ptYkRxaVFjVHFpMjNRK3ZKc1Izamd2N0F5bDlBZjlvWm85Q1owdlBaSEJ0TlJocUZ4ZUFtVDBPZkw3ZllWWElNbXhJbWlycFU4QzJpVk1kbFVPZUVXVjFZUEdFOFdWTDV6dWp4WTlKNnhlMkZIQlV2Q3ZQZ3FRRmdlK1Q3bUlkMnU5L3ZCbjdiTjF5RENPU3BrajZLS0dnYndvL2JQelNTZW1aREs2dEJtOGJSR1pCS21aMkdxRVN0Uk9KSGI5UEFQWk9uR3FtbVYyVFFhU1JJOFpDcEY1UUIxRXgyYWtaTTd1WjlHdlErc0FKa3BMYlU4UTJLRDhsTFhnVjRGd3p1ekpWbmlveHMvTW9WN0IyMGhMVDAzOUJpSHRONFNJenU3enh4M3hLenlSeWJUVllnZEVKK3QwZmVMeHVJZXBHMHFLUzNnR2NTcDdQN2djWjVoaFZkaWZkY3V0S3ovaVFVdE9wd2N1QkUxTjZJRXBha1ZCcTRmVVo1TW54bmdiQlFZeHAvWjFtSkMwc2FUcmgrcDhqWUh2QzliOWR0SDBPMTFaS3pZZDJ2Q1J4L0hUZ3ZCeUNWSW1aM1M3cHE1U3YzekN5eEx1NnpRam4zNlpBcm9KNEo1dlpPWm5tR2huaXByRTc4M3ExcFZCMXZ5Sm5TREN6U3lXZFNYb0srcHJBT1pMK0FCeGhabGYwTWtqUzg0RVBBKytrZXgrclhyaVVjbW5oQThmTTdwRjBDT1dia280c2toWWgxQVBibW5EOVQwbThhT1pNV3ZwL3RsTjZVbDFiSHpHejN5WE9NUUZKNzZaOGQzS0FyU1I5dnFJT3hiazVodkNGZjNIZGdpU3dqS1Q5Q281UEpUU05XNUZnaVZzZVdJNzhjVXFQRXF4bmt4NUppeFBpSGxZbXVBUGVUWjVOQTBJVFUyZDgrRHdodlRmMXhtTUs0WVp6dXFUemdMOFI2a1hkUkxBZXppWFUzVmtkV0lNUW5KdFNmSzZWMmNDbksreFpWZ1hIRWRvVHZhcHVRUkpZc0lmci96TE1mLzNQblduOUZQRDUxczkvZ3RLVHdiVTFtNkJaNWVaVXdoZWs3RDlsYVlLWmRPanJ0TVJlUGZzQXYyZTBnNVUvWExjQXdGZk1iR1RiVGtpYTJjUExwaEl1SE5tQ1IxczQzY3lxdFBUOFZ0SWdzMnB1TkxOTkI3amV5R0ZtTjB2Nkd1a1pVODFzU0ZxTnJUSWNZV1lqcGJDYjJkeDQvVCtGMGM3T0dvYnIvemRqbk5vRVdpMDlxYTZ0Qzgzc29jUTU1c1BNN3BOMEliQkJ3alRUR1FHbEI4RE0vaUhwNThBT2Rjc3l3cHhNeUVZWlpkYXNXd0NxajRlYVJsb0R5WDVaY0lCcmpUSS9JdFRHZVhuZGdwVGtQNFJTSUNPSG1WMGw2V2p5dUtiSGxUTUlwUURtbzlWeWt1cmErbXYzbDVRbU5hdGdpeEZyblBnbDRMNjZoUmhSTGdNK0ZpdGVPK1c1a3VDU2NNYU0yS05xRjhvMXhheWJoNEdkeld5VVcvVjhIYmlqYmlGR2xLdUJQVHJWWlhwRzZaSDBITkt6dHFwVWVsSUxaeTNPQ0RWT2pCYXpBK3VXWXdTNW5YREJlNkp1UVNZQjN4bXhlQWduSTJaMk83QXpJVFppVkpnTjdHcG0xOWN0U0FxeGtGNVJYSXpUbnJ1Qm5ScUZDTnZSYk9sSmRXMWRYYVh2Mzh4dUF5N3Yrc0ppaHI1UVlRc25BdWZYTGNRSWNUVXczY3hHOGU1MDJEakN6RTZ1V3dpblhzenNNbUJQUnFmbHdUNW1kbTdkUW1UaUZPQzB1b1VZSVc0QXRqV3p3dTRHelVyUE5va0xWbW5sYVpCcTdka3Nacm1NQlBFdSs3UEFLR1NkMWMwNWhCUCs5cm9GbVFTY0JCeGF0eERPY0JDVjM1MFk3aHBpczRBUG05bnhkUXVTaTNqOS93SXd5bTY2UVhFaHNFMjd3T1ZXcGtBMjE5WmZFc2YzUW1wY3o4S2tkV2tkT0daMkE2RU11OU9lT1lUaVkrODNzMGZxRm1ZU2NBSHdjWStIY3BveHN6T0I3WUI3NnBhbERROEQ3emF6UDlRdFNHN003RmJnRzNYTE1jUUlPQnA0ajVrOTJNdUFocVVuMWJWMU4vRFB4RG02WW1iWEFhbSsybEZ6Y1FGOEY2K0syNDRyZ2EzTTdPQVllT21rY1R6d2dYRnR6T29VRXdzTWJrazFaVW5LY2hHd3BabGRVTGNnRlhJa01KWnRkTHB3TmJDMW1lMXZaajNIblRXVW5sVFgxcWtEdkROTXRmYThTZEpTV1NRWkVERUxZZCs2NVJnaWJpTUUrVzNWYTZWWHA1RC9BTzh3czArNnRjd3BJcnFQZHdBK0JtUXZUOUlIanhHS0tHNXZaamZXS0VmbHhCdTYxUDVUazRtN2dDOENXNWpacGYwT25qSkNycTBHcVVyUE5PQ3RPUVFaSkdZMmsxQ3djSnk1RXZnSThEb3pPOGF0TzhrOFRhaGxzcG1aZVdxNjB4Tm1KalA3RGZCR1F2ZnFRY2I2UEEzOERIaVRtZjFrWE55d1puWWh3Ukk3emx4TlVMYlhNN01qeTNaWW1FYTZhK3NKQnR2WDZwK0V0T1NWRSthWXptaWVRRE1JUFhHcXFyNDdiSWpRTytkVTRIVGdLaytoVHVZUnd2L3l6NFR1OHgxVE94Mm5DRE83QnpoUTByY0pxZTBmSkxTWHFZSkhDQjNYanhyajdNeERnTTBKTFJ6R2hjc0lHV3luQVZmbXVQNVBJOTIxZGRZZ2kwQ1ptU1NkUXZpQ2xXVkRTY3ViMmIyNTVCb0VabmFYcE1PQWcrdVdKVE56Q1gyeWJnU3VBNjZOajB0SDdUTWFJaDRsRkxlOEp6N3VJRlFwUGM5amRweWN4QURTYjByNkxyQWV3WkwrVnVEWmlWUGZTL0FpbkFLY08rN25yWm5kTCtrZ0psOWdzd2pYcTVzSTEvM0dIbkJwRlFxdVNYb0IvOS9kdWF3Z0RBTlI5SXd1WEFodUZBVGZGUC8vazl6WWdxSzRFSkVpeUhYUkZycW9NU1JTSHhjR2tzVU1TUWg1REhkbTRtbzhuY3lzMWN6QmtnYkFPTkpNWm1hTmJsbEpTOExUMWUvTjdCdytMRGNrZFlFazBzek9oN3NoS2FHNS9zc0k5Mi9qVHNFVGNhRjY2RnlBNjc5NmNDTDNVZ2h5NE5obWNzYXlvdnV2OE9SdVBtR3Q3NGFrQ2RBUFZOODh5eTc3clpCa3dCU1lsVksxNTdWK2g0S2Zsd0ZiSUsxSkJxU2ZtTGVrQmRBTFZELzRSaEdGb0Z6WGRhUVpyenRLMG9ybW9zVkQzQjQ5OFRyZ1NCVGV1OWJQL3dlcTU3aG1kRzlxVXdBQUFBQkpSVTVFcmtKZ2dnPT0iLz4KICAgIDwvZGVmcz4KPC9zdmc+Cg==" alt="STEUER/ BERATUNG AND BEYOND">
+
+<div class="app-shell"><div class="app-card">
+<div class="app-card-top"><div class="enc-pill"><span class="ic ic-14"><svg viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg></span>Verschlüsselt</div></div>
+
+<div class="journey-banner" id="journeyBanner"><div class="jb-in">
+  <div class="jb-steps" id="jbSteps"></div>
+  <div class="jb-mobile" id="jbMobile">
+    <div style="display:flex;align-items:center"><span class="jb-m-pill" id="jbPill">1 / 9</span><span class="jb-m-label" id="jbLabel">Übersicht</span></div>
+    <button class="jb-m-btn" onclick="openJourney()"><span class="ic ic-16"><svg viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16"/></svg></span>Prozess</button>
+  </div>
+  <div class="jb-m-track" id="jbTrack" style="display:none"><div class="jb-m-fill" id="jbFill"></div></div>
+</div></div>
+
+<div class="jp-overlay" id="jpOver" onclick="closeJourney()"></div>
+<div class="jp-panel" id="jpPanel">
+  <div class="jp-handle"><div class="jp-handle-bar"></div></div>
+  <div class="jp-head"><h3>Ihr Gesamtprozess</h3><button class="jp-close" onclick="closeJourney()"><span class="ic ic-18"><svg viewBox="0 0 24 24"><path d="M18 6L6 18M6 6l12 12"/></svg></span></button></div>
+  <div class="jp-body" id="jpBody"></div>
+</div>
+
+<div class="main-w">
+
+  <!-- S1: OVERVIEW -->
+  <div class="scr on skel-wrap" id="s1">
+    <div class="skel-over" id="skelOver">
+      <div class="skel-block skel-hl"></div>
+      <div class="skel-block skel-sub"></div>
+      <div class="skel-block skel-card"></div>
+      <div class="skel-block skel-card-sm"></div>
+      <div class="skel-block skel-card-sm"></div>
+      <div style="height:16px"></div>
+      <div class="skel-block skel-card"></div>
+    </div>
+    <div class="skel-content" id="s1Content">
+    <div class="hl">Guten Tag,<br>Herr Dr. Müller.</div>
+    <div class="sub">Ihr Steuerberater Daniel Hildebrandt hat Sie eingeladen, über die Erstellung Ihrer nach GoBD vorgeschriebenen Verfahrensdokumentation zu entscheiden.</div>
+
+    <div class="decisions" style="margin-top:20px">
+      <div class="dc-group">
+        <div class="dc a" onclick="goAccept()"><div class="glow"></div><div class="dc-inner"><div class="dc-ic"><span class="ic ic-22"><svg viewBox="0 0 24 24"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="10"/></svg></span></div><div class="dc-bd"><div class="dc-tt">Beauftragen</div><div class="dc-ds">Verfahrensdokumentation erstellen lassen</div></div><span class="dc-arr ic ic-20"><svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span></div></div>
+        <div id="priceWrap"><div class="pcard-tuck collapsed" id="priceCard">
+          <div class="pcard-tuck-hd" onclick="event.stopPropagation();togglePrice()"><h3><span class="ic ic-16" style="margin-right:4px;vertical-align:-2px"><svg viewBox="0 0 24 24"><path d="M20.59 13.41l-7.17 7.17a2 2 0 01-2.83 0L2 12V2h10l8.59 8.59a2 2 0 010 2.82z"/><line x1="7" y1="7" x2="7.01" y2="7"/></svg></span>Ihre Konditionen</h3><div style="display:flex;align-items:center;gap:6px"><span class="pkg">Paket M</span><div class="dev-pill" onclick="event.stopPropagation();toggleDev('price')"><span class="dl" id="priceLbl">DEV</span><div class="swi on" id="priceSw"></div></div><span class="ic ic-16 pcard-chev"><svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></span></div></div>
+          <div class="pcard-tuck-body" id="priceBody">
+            <div class="prows">
+              <div class="pr main"><span class="pr-l">Erstdokumentation (Jahr 1)</span><span class="pr-v" data-price="erstdoku">2.000,00 €</span></div>
+              <div class="pr"><span class="pr-l">Aktualisierung (Jahr 2)</span><span class="pr-v" data-price="update2">800,00 €</span></div>
+              <div class="pr"><span class="pr-l">Aktualisierung (Jahr 3)</span><span class="pr-v" data-price="update3">800,00 €</span></div>
+            </div>
+            <div class="pfoot">Alle Preise zzgl. gesetzlicher MwSt. · Rechnungsstellung nach Fertigstellung</div>
+          </div>
+        </div></div>
+        <div id="infoWrap"><div class="pcard-tuck collapsed" id="infoTuck">
+          <div class="pcard-tuck-hd" onclick="event.stopPropagation();toggleInfo()"><h3><span class="ic ic-16" style="margin-right:4px;vertical-align:-2px"><svg viewBox="0 0 24 24"><path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2"/><rect x="9" y="3" width="6" height="4" rx="1"/><path d="M9 14l2 2 4-4"/></svg></span>Wie läuft die Erstellung ab?</h3><div style="display:flex;align-items:center;gap:6px"><div class="dev-pill" onclick="event.stopPropagation();toggleDev('info')"><span class="dl" id="infoLbl">DEV</span><div class="swi on" id="infoSw"></div></div><span class="ic ic-16 pcard-chev"><svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></span></div></div>
+          <div class="pcard-tuck-body" id="infoBody">
+            <div style="padding:14px 16px">
+              <p style="font-size:13px;color:var(--t2);line-height:1.65;margin-bottom:8px">Die Erstellung Ihrer Verfahrensdokumentation erfolgt in zwei Schritten:</p>
+              <p style="font-size:13px;color:var(--t2);line-height:1.65;margin-bottom:6px"><span class="stag">Schritt 1</span> <strong>Digitaler Fragebogen</strong> – Sie erfassen alle technisch benötigten Informationen zu Ihrer Praxis über einen geführten Online-Fragebogen.</p>
+              <p style="font-size:13px;color:var(--t2);line-height:1.65;margin-bottom:6px"><span class="stag">Schritt 2</span> <strong>Vor-Ort-Termin</strong> – In einem persönlichen Termin bei Ihnen in der Praxis komplettieren und finalisieren wir gemeinsam Ihre Verfahrensdokumentation.</p>
+              <p style="font-size:13px;color:var(--t2);line-height:1.65;margin-top:12px">Das Ergebnis ist eine vollständige, GoBD-konforme Dokumentation mit allen vorgeschriebenen Abschnitten.</p>
+            </div>
+          </div>
+        </div></div>
+      </div>
+      <div class="dc-group dc-group-d">
+        <div class="dc d" onclick="showDecWarn()"><div class="glow"></div><div class="dc-inner"><div class="dc-ic"><span class="ic ic-22"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M15 9l-6 6M9 9l6 6"/></svg></span></div><div class="dc-bd"><div class="dc-tt">Ablehnen</div><div class="dc-ds">Ich wurde informiert und lehne ab</div></div><span class="dc-arr ic ic-20"><svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span></div></div>
+        <div class="pcard-tuck pcard-tuck-warn collapsed" id="decWarn">
+          <div class="pcard-tuck-body pcard-tuck-warn-body" id="decWarnBody">
+            <div style="padding:14px 16px"><div style="display:flex;gap:10px;align-items:flex-start"><span class="ic ic-18" style="color:var(--r);margin-top:1px;flex-shrink:0"><svg viewBox="0 0 24 24"><path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/><path d="M12 9v4M12 17h.01"/></svg></span><div>
+              <p style="font-size:12px;color:var(--rd);line-height:1.65">Die Verfahrensdokumentation ist eine <strong style="color:var(--r)">Pflicht gemäß GoBD</strong>. Ohne ordnungsgemäße Dokumentation riskieren Sie bei einer Betriebsprüfung die Verwerfung Ihrer Buchführung.</p>
+              <p style="font-size:12px;color:var(--rd);line-height:1.65;margin-top:6px">Ihre Ablehnung wird rechtssicher dokumentiert und als PDF zugestellt.</p>
+            </div></div>
+            <div style="display:flex;justify-content:flex-end;margin-top:12px"><button class="dw-btn" onclick="goDecline()">Trotzdem ablehnen</button></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="dev-bar" id="priceBar"><span class="lbl">Konditionskarte (ausgeblendet)</span><span class="pkg" style="margin-left:auto">Paket M</span><div class="dev-pill" onclick="toggleDev('price')"><span class="dl off" id="priceLbl2">DEV</span><div class="swi" id="priceSw2"></div></div></div>
+    <div class="dev-bar" id="infoBar"><span class="lbl">Info-Karte (ausgeblendet)</span><div class="dev-pill" onclick="toggleDev('info')"><span class="dl off" id="infoLbl2">DEV</span><div class="swi" id="infoSw2"></div></div></div>
+    </div><!-- /skel-content -->
+  </div>
+
+  <!-- S2: PDF -->
+  <div class="scr" id="s2">
+    <div class="hl">Vertrag<br>prüfen</div><div class="sub">Bitte lesen Sie das Vertragsdokument vollständig durch.</div>
+    <div class="pdfv"><div class="pdfv-bar"><div class="fn"><span class="ic ic-16"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></span> Auftragsvereinbarung_VD.pdf</div><span id="pgN">Seite 1 / 2</span></div>
+      <div class="pdfs" id="pdfA" onscroll="onPdf()">
+        <h4 style="font-size:18px;margin-bottom:8px">Auftragsbedingungen: Verfahrensdokumentation nach GoBD</h4>
+        <p style="font-size:11px;color:var(--t3);margin-bottom:24px"><strong>Für Bestandsmandanten der Steuerberatungskanzlei Daniel Hildebrandt</strong><br>Stand: Februar 2026 | Version 1.0</p>
+
+        <!-- PRÄAMBEL -->
+        <h4 style="margin-top:28px">Präambel</h4>
+        <p>Dieser Auftrag zur Erstellung einer Verfahrensdokumentation nach GoBD (Grundsätze zur ordnungsmäßigen Führung und Aufbewahrung von Büchern, Aufzeichnungen und Unterlagen in elektronischer Form sowie zum Datenzugriff) wird auf Basis Ihres bestehenden Steuerberatervertrags durchgeführt.</p>
+        <p>Es gelten ergänzend die nachfolgenden Bestimmungen speziell für die Verfahrensdokumentation. Im Übrigen bleiben die Regelungen Ihres Steuerberatervertrags unberührt und gelten weiterhin.</p>
+        
+        <!-- OPTIONAL CLAUSE: P0-01 -->
+        <div class="toggle-clause" id="clause-p0-01-hierarchy">
+          <div class="clause-toggle-box" onclick="toggleClause('p0-01-hierarchy')">
+            <div class="clause-toggle-header">
+              <input type="checkbox" class="clause-toggle-checkbox" id="cb-p0-01-hierarchy">
+              <div class="clause-toggle-content">
+                <div class="clause-toggle-title">
+                  <span class="clause-badge p0">P0</span>
+                  Vertragshierarchie bei Widersprüchen
+                </div>
+                <div class="clause-toggle-desc">Klärt Vorrang: VD-Bedingungen schlagen bei Widersprüchen den Haupt-Steuerberatervertrag. Verhindert rechtliche Unklarheiten.</div>
+              </div>
+            </div>
+          </div>
+          <div class="clause-content" style="display:none" id="content-p0-01-hierarchy">
+            <p style="background:#f0f9ff;border-left:4px solid #2563eb;padding:12px;border-radius:6px"><strong>Vertragshierarchie:</strong> Bei Widersprüchen zwischen diesen VD-Auftragsbedingungen und dem Steuerberatervertrag gelten die VD-spezifischen Regelungen vorrangig. Im Übrigen gelten die Bestimmungen des Steuerberatervertrags.</p>
+          </div>
+        </div>
+
+        <!-- § 1 LEISTUNGSUMFANG -->
+        <h4 style="margin-top:28px">§ 1 Gegenstand der Beauftragung</h4>
+        <p><strong>(1)</strong> Der Berater erstellt für den Mandanten eine Verfahrensdokumentation nach den Anforderungen der GoBD. Die Verfahrensdokumentation dient dem Nachweis der Ordnungsmäßigkeit der Buchführung gegenüber Finanzbehörden im Rahmen von Betriebsprüfungen.</p>
+        <p><strong>(2)</strong> Die Verfahrensdokumentation umfasst folgende Bestandteile:</p>
+        <div class="lg" style="margin-left:20px">
+          <p><strong>a) Allgemeine Beschreibung</strong> des buchhaltungsrelevanten DV-Systems<br>• Organisationsstruktur der Praxis/des Unternehmens<br>• Verantwortlichkeiten und Zuständigkeiten<br>• Verwendete Software-Systeme und deren Schnittstellen</p>
+          <p><strong>b) Detaillierte Prozessbeschreibungen</strong><br>• Belegerfassung und -ablage (analog und digital)<br>• Buchführungsprozesse und Kontierungsrichtlinien<br>• Datensicherung, Archivierung und Wiederherstellung<br>• Zugriffs- und Berechtigungskonzept</p>
+          <p><strong>c) Arbeitsanweisungen</strong> für die laufende Buchführung<br>• Rechnungseingang und -ausgang<br>• Kassenbuchführung (falls vorhanden)<br>• Digitale Belegverwaltung und Ablagestruktur<br>• Ordnungsgemäße Archivierung</p>
+          <p><strong>d) Technische Systemdokumentation</strong><br>• Beschreibung der eingesetzten Hard- und Software<br>• Schnittstellen zur Steuerberatung (z.B. DATEV Unternehmen online)<br>• Datensicherungskonzept und Notfallwiederherstellung</p>
+        </div>
+        <p><strong>(3)</strong> Die Verfahrensdokumentation wird als digitales Dokument im PDF-Format sowie in editierbarer Form (Microsoft Word .docx) zur Verfügung gestellt.</p>
+
+        <!-- § 2 MITWIRKUNGSPFLICHTEN -->
+        <h4 style="margin-top:28px">§ 2 Mitwirkungspflichten des Mandanten</h4>
+        <p><strong>(1)</strong> Der Mandant hat dem Berater sämtliche zur Erfüllung des Auftrages notwendigen Informationen und Unterlagen rechtzeitig zur Verfügung zu stellen, so dass dem Berater eine angemessene Bearbeitungszeit zur Verfügung steht.</p>
+        <p><strong>(2)</strong> Für die Erstellung der Verfahrensdokumentation sind insbesondere folgende Informationen bereitzustellen:</p>
+        <div class="lg" style="margin-left:20px">
+          <p><strong>a) Organisationsunterlagen</strong> (Frist: innerhalb von 7 Tagen nach Beauftragung)<br>• Aktuelles Organigramm mit Namen und Funktionen<br>• Liste aller Mitarbeiter mit buchhaltungsrelevanten Aufgaben<br>• Vertretungsregelungen (Urlaub, Krankheit, Notfall)</p>
+          <p><strong>b) IT-Dokumentation</strong> (Frist: innerhalb von 7 Tagen nach Beauftragung)<br>• Liste aller genutzten Software-Systeme<br>• Vorhandene Arbeitsanweisungen oder Checklisten<br>• Screenshots der Software-Oberflächen</p>
+          <p><strong>c) Prozessinformationen</strong> (Frist: innerhalb von 14 Tagen nach Beauftragung)<br>• Beschreibung besonderer Praxisabläufe<br>• Vorhandene Verträge mit IT-Dienstleistern<br>• Datensicherungskonzept (falls bereits vorhanden)</p>
+        </div>
+        
+        <!-- OPTIONAL CLAUSE: P1-07 -->
+        <div class="toggle-clause" id="clause-p1-07-phases">
+          <div class="clause-toggle-box" onclick="toggleClause('p1-07-phases')">
+            <div class="clause-toggle-header">
+              <input type="checkbox" class="clause-toggle-checkbox" id="cb-p1-07-phases">
+              <div class="clause-toggle-content">
+                <div class="clause-toggle-title">
+                  <span class="clause-badge p1">P1</span>
+                  Phasen-basierte Abrechnung bei Kündigung
+                </div>
+                <div class="clause-toggle-desc">Regelt anteilige Abrechnung bei vorzeitiger Kündigung: 20% Datenaufnahme, 40% Analyse, 30% Erstellung, 10% Finalisierung. Schützt vor Totalausfall.</div>
+              </div>
+            </div>
+          </div>
+          <div class="clause-content" style="display:none" id="content-p1-07-phases">
+            <p style="background:#f0f9ff;border-left:4px solid #2563eb;padding:12px;border-radius:6px"><strong>(3) Bearbeitungsphasen:</strong> Die Erstellung erfolgt in folgenden Phasen:<br>• <strong>Phase 1 - Datenaufnahme</strong> (20% der Vergütung): Fragebogen, Organigramm, Software-Liste<br>• <strong>Phase 2 - Prozessanalyse</strong> (40% der Vergütung): Interviews, Prozessaufnahme, Screenshots<br>• <strong>Phase 3 - Dokumenterstellung</strong> (30% der Vergütung): Ausarbeitung, erste Abstimmung<br>• <strong>Phase 4 - Finalisierung</strong> (10% der Vergütung): Korrekturen, finale Übergabe<br>Bei vorzeitiger Beendigung wird die Vergütung anteilig nach abgeschlossenen Phasen berechnet.</p>
+          </div>
+        </div>
+
+        <!-- § 3 VOLLSTÄNDIGKEIT -->
+        <h4 style="margin-top:28px">§ 3 Vollständigkeitsnachweis und Haftungsausschluss</h4>
+        <p><strong>(1)</strong> Der Mandant bestätigt mit seiner Unterschrift, dass er alle für die Erstellung der Verfahrensdokumentation erforderlichen Informationen <strong>vollständig, wahrheitsgemäß und nach bestem Wissen</strong> bereitgestellt hat.</p>
+        <p><strong>(2)</strong> Die Verfahrensdokumentation basiert ausschließlich auf den vom Mandanten bereitgestellten Informationen. Für die Richtigkeit und Vollständigkeit dieser Angaben trägt der Mandant die Verantwortung.</p>
+        <p><strong>(3)</strong> Der Berater haftet nicht für Schäden, die aus unvollständigen, fehlerhaften oder verspätet bereitgestellten Informationen des Mandanten resultieren.</p>
+        
+        <!-- OPTIONAL CLAUSE: P1-09 -->
+        <div class="toggle-clause" id="clause-p1-09-liability">
+          <div class="clause-toggle-box" onclick="toggleClause('p1-09-liability')">
+            <div class="clause-toggle-header">
+              <input type="checkbox" class="clause-toggle-checkbox" id="cb-p1-09-liability">
+              <div class="clause-toggle-content">
+                <div class="clause-toggle-title">
+                  <span class="clause-badge p1">P1</span>
+                  Erweiterte Haftungsausschlüsse
+                </div>
+                <div class="clause-toggle-desc">Erweitert Haftungsausschluss: Mandant stellt Kanzlei frei bei Schäden durch fehlerhafte/unvollständige Angaben. Wichtig für Betriebsprüfungs-Szenarien.</div>
+              </div>
+            </div>
+          </div>
+          <div class="clause-content" style="display:none" id="content-p1-09-liability">
+            <p><strong>(4)</strong> Dies gilt insbesondere für steuerrechtliche Konsequenzen bei Betriebsprüfungen, wenn die tatsächliche Verfahrensweise von der dokumentierten Verfahrensweise abweicht. Der Mandant stellt den Berater von allen Ansprüchen Dritter frei, die aus unvollständigen oder fehlerhaften Angaben resultieren.</p>
+          </div>
+        </div>
+        
+        <!-- OPTIONAL CLAUSE: P1-08 -->
+        <div class="toggle-clause" id="clause-p1-08-retention">
+          <div class="clause-toggle-box" onclick="toggleClause('p1-08-retention')">
+            <div class="clause-toggle-header">
+              <input type="checkbox" class="clause-toggle-checkbox" id="cb-p1-08-retention">
+              <div class="clause-toggle-content">
+                <div class="clause-toggle-title">
+                  <span class="clause-badge p1">P1</span>
+                  Aufbewahrungspflicht (10 Jahre)
+                </div>
+                <div class="clause-toggle-desc">Verpflichtet Mandanten zur 10-jährigen Archivierung der VD (§ 147 AO). Ohne diese Klausel könnte Mandant VD "verlieren" und bei BP Probleme bekommen.</div>
+              </div>
+            </div>
+          </div>
+          <div class="clause-content" style="display:none" id="content-p1-08-retention">
+            <p style="background:#f0f9ff;border-left:4px solid #2563eb;padding:12px;border-radius:6px"><strong>(5) Aufbewahrungspflicht:</strong> Der Mandant verpflichtet sich, die Verfahrensdokumentation für die Dauer der gesetzlichen Aufbewahrungsfrist von 10 Jahren (§ 147 Abs. 3 AO) ordnungsgemäß zu archivieren und bei Betriebsprüfungen vorzulegen. Der Berater stellt die Verfahrensdokumentation in digitaler Form zur Verfügung und empfiehlt die zusätzliche Ablage in der elektronischen Handakte.</p>
+          </div>
+        </div>
+        
+        <p><strong>({{ABS}})</strong> Der Mandant verpflichtet sich, die Verfahrensdokumentation aktuell zu halten und wesentliche Änderungen in den Geschäftsprozessen, der IT-Infrastruktur oder der Organisationsstruktur unverzüglich mitzuteilen.</p>
+
+        <!-- § 4 NUTZUNGSRECHTE -->
+        <h4 style="margin-top:28px">§ 4 Nutzungsrechte und Weitergabe</h4>
+        <p><strong>(1)</strong> Der Mandant verpflichtet sich, Arbeitsergebnisse des Beraters nur mit dessen schriftlicher Einwilligung weiterzugeben.</p>
+        <p><strong>(2)</strong> Die Verfahrensdokumentation ist ausschließlich für die interne Verwendung in der Praxis/dem Unternehmen des Mandanten bestimmt.</p>
+        <p><strong>(3)</strong> Ausgenommen ist die Vorlage gegenüber: Finanzbehörden, Wirtschaftsprüfern, Datenschutzbeauftragten oder ISO-Auditoren.</p>
+        <p><strong>(4)</strong> Bei der Weitergabe der Arbeitsergebnisse an einen Dritten ist der Dritte auf die vereinbarten Haftungsbegrenzungen schriftlich hinzuweisen.</p>
+        
+        <!-- OPTIONAL CLAUSE: P2-12 -->
+        <div class="toggle-clause" id="clause-p2-12-transfer">
+          <div class="clause-toggle-box" onclick="toggleClause('p2-12-transfer')">
+            <div class="clause-toggle-header">
+              <input type="checkbox" class="clause-toggle-checkbox" id="cb-p2-12-transfer">
+              <div class="clause-toggle-content">
+                <div class="clause-toggle-title">
+                  <span class="clause-badge p2">P2</span>
+                  Praxisverkauf Nutzungsrecht-Transfer
+                </div>
+                <div class="clause-toggle-desc">Regelt VD-Transfer bei Praxisverkauf: Käufer zahlt 1.000€ (50%) für aktualisierte Version. Generiert potenzielles Folgegeschäft.</div>
+              </div>
+            </div>
+          </div>
+          <div class="clause-content" style="display:none" id="content-p2-12-transfer">
+            <p style="background:#d1fae5;border-left:4px solid #065f46;padding:12px;border-radius:6px"><strong>(5) Praxisverkauf:</strong> Im Falle eines Praxisverkaufs oder einer Praxisübergabe geht das Nutzungsrecht an der Verfahrensdokumentation nicht automatisch auf den Erwerber über. Eine Übertragung bedarf der schriftlichen Vereinbarung mit dem Berater und kann gegen Zahlung von 50% des ursprünglichen Erstdokumentations-Preises (= 1.000,00 EUR zzgl. MwSt.) erfolgen. Der Erwerber erhält dann eine aktualisierte Version der Verfahrensdokumentation.</p>
+          </div>
+        </div>
+
+        <!-- § 5 VERGÜTUNG -->
+        <h4 style="margin-top:28px">§ 5 Vergütung</h4>
+        <p><strong>(1)</strong> Für die Erstellung der Verfahrensdokumentation nach § 1 wird ein <strong>Festpreis in Höhe von <span data-price="erstdoku">2.000,00 €</span></strong> zzgl. der jeweils gültigen gesetzlichen Umsatzsteuer vereinbart.</p>
+        <p><strong>(2) Zahlungsplan:</strong><br>• 50% bei Beauftragung als Anzahlung<br>• 50% bei Übergabe der finalen Verfahrensdokumentation</p>
+        
+        <!-- OPTIONAL CLAUSE: P2-11 -->
+        <div class="toggle-clause" id="clause-p2-11-updates">
+          <div class="clause-toggle-box" onclick="toggleClause('p2-11-updates')">
+            <div class="clause-toggle-header">
+              <input type="checkbox" class="clause-toggle-checkbox" id="cb-p2-11-updates">
+              <div class="clause-toggle-content">
+                <div class="clause-toggle-title">
+                  <span class="clause-badge p2">P2</span>
+                  Update-Pflege mit Automatik-Verlängerung
+                </div>
+                <div class="clause-toggle-desc">Jährliche Pflege 300€: Automatische Verlängerung schafft wiederkehrendes Einkommen. Kunde kann 4 Wochen vor Jahrestag kündigen.</div>
+              </div>
+            </div>
+          </div>
+          <div class="clause-content" style="display:none" id="content-p2-11-updates">
+            <p style="background:#d1fae5;border-left:4px solid #065f46;padding:12px;border-radius:6px"><strong>(3) Optionale Pflege und Aktualisierung:</strong><br>Der Mandant kann optional eine jährliche Pflege und Aktualisierung der Verfahrensdokumentation beauftragen. Diese umfasst die Anpassung an geänderte Geschäftsprozesse, neue Software-Systeme oder rechtliche Anforderungen.<br><br><strong>Vergütung:</strong> 300,00 EUR zzgl. MwSt. pro Jahr (= 357,00 EUR brutto)<br><strong>Fälligkeit:</strong> Jeweils im Voraus zum Jahrestag der Erstbeauftragung<br><strong>Laufzeit:</strong> 12 Monate mit automatischer Verlängerung um jeweils 12 weitere Monate<br><strong>Kündigung:</strong> 4 Wochen vor Ablauf des Vertragsjahres in Textform (E-Mail ausreichend)</p>
+          </div>
+        </div>
+
+        <!-- § 6 E-RECHNUNG -->
+        <h4 style="margin-top:28px">§ 6 Elektronische Rechnung</h4>
+        <p><strong>(1)</strong> Der Mandant erklärt sein Einverständnis, dass der Berater Honorarrechnungen als PDF-Anhang per E-Mail verschickt.</p>
+
+        <!-- § 7 KÜNDIGUNG -->
+        <h4 style="margin-top:28px">§ 7 Dauer und Kündigung des Auftrags</h4>
+        <p><strong>(1)</strong> Der Auftrag gilt als erfüllt mit der Übergabe der finalen Verfahrensdokumentation in digitaler Form (PDF und DOCX).</p>
+        <p><strong>(2)</strong> Der Mandant kann den Auftrag bis zur Übergabe jederzeit kündigen. Die Anzahlung wird verrechnet mit dem anteiligen Honorar für erbrachte Leistungen.</p>
+
+        <!-- § 8 HAFTUNG -->
+        <h4 style="margin-top:28px">§ 8 Haftung</h4>
+        <p><strong>(1)</strong> Die Haftung des Beraters wird auf einen Betrag i.H.v. <strong>€ 1.000.000,00</strong> begrenzt. Die Beschränkung bezieht sich allein auf einfache Fahrlässigkeit.</p>
+
+        <!-- § 9 DATENSCHUTZ -->
+        <h4 style="margin-top:28px">§ 9 Datenschutz</h4>
+        <p><strong>(1)</strong> Die zur Erfüllung des Auftrages notwendigen Daten werden unter Beachtung der DSGVO und BDSG erhoben, genutzt und gespeichert.</p>
+        <p><strong>(2)</strong> Weitergehende Informationen zum Datenschutz gemäß Art. 13, 14 DSGVO wurden dem Mandanten mit dem Steuerberatervertrag zur Verfügung gestellt und bleiben weiterhin gültig.</p>
+        
+        <!-- OPTIONAL CLAUSE: P1-14 -->
+        <div class="toggle-clause" id="clause-p1-14-audit-gobd">
+          <div class="clause-toggle-box" onclick="toggleClause('p1-14-audit-gobd')">
+            <div class="clause-toggle-header">
+              <input type="checkbox" class="clause-toggle-checkbox" id="cb-p1-14-audit-gobd">
+              <div class="clause-toggle-content">
+                <div class="clause-toggle-title">
+                  <span class="clause-badge p1">P1</span>
+                  GoBD-Konformität der Audit-Logs
+                </div>
+                <div class="clause-toggle-desc">Rechtfertigt Speicherung der Audit-Logs (IP, Zeitstempel, Scroll) als GoBD-Nachweis. Ohne diese Klausel könnte DSGVO-Problematik entstehen.</div>
+              </div>
+            </div>
+          </div>
+          <div class="clause-content" style="display:none" id="content-p1-14-audit-gobd">
+            <p style="background:#f0f9ff;border-left:4px solid #2563eb;padding:12px;border-radius:6px"><strong>(3) Audit-Logs:</strong> Die im Rahmen des Onboarding-Prozesses und der Vertragsunterzeichnung erfassten Audit-Logs (Zeitstempel, IP-Adressen, Scroll-Verhalten, etc.) werden gemäß den Grundsätzen ordnungsmäßiger Buchführung (GoBD) unveränderlich gespeichert. Die Logs dienen ausschließlich der Nachweisführung der ordnungsgemäßen Vertragsanbahnung und werden nach Ablauf der gesetzlichen Aufbewahrungsfrist gelöscht.</p>
+          </div>
+        </div>
+
+        <!-- § 9a ELEKTRONISCHE SIGNATUR (Optional) -->
+        <div class="toggle-clause" id="clause-p0-04-eidas">
+          <div class="clause-toggle-box" onclick="toggleClause('p0-04-eidas')">
+            <div class="clause-toggle-header">
+              <input type="checkbox" class="clause-toggle-checkbox" id="cb-p0-04-eidas">
+              <div class="clause-toggle-content">
+                <div class="clause-toggle-title">
+                  <span class="clause-badge p0">P0</span>
+                  eIDAS Elektronische Signatur Klausel
+                </div>
+                <div class="clause-toggle-desc">Anerkennung einfacher E-Signatur (eIDAS): Macht Canvas-Signatur rechtsverbindlich. Inkl. Audit-Trail (IP, Hash, Timestamp). Ohne = rechtliche Grauzone.</div>
+              </div>
+            </div>
+          </div>
+          <div class="clause-content" style="display:none" id="content-p0-04-eidas">
+            <h4 style="margin-top:28px;background:#fef3c7;border-left:4px solid #f59e0b;padding:12px;border-radius:6px">§ 9a Elektronische Signatur</h4>
+            <p><strong>(1)</strong> Die Parteien vereinbaren ausdrücklich die Verwendung einer <strong>einfachen elektronischen Signatur</strong> im Sinne der Verordnung (EU) Nr. 910/2014 (eIDAS-Verordnung) für diesen Auftrag.</p>
+            <p><strong>(2)</strong> Die elektronische Signatur wird mittels digitaler Signatur-Erfassung (Signatur-Canvas auf dem Bildschirm oder Smartphone) erstellt. Die Signatur wird als Bilddatei (PNG) gespeichert und mit einem kryptografischen Hash-Verfahren (SHA-256) versehen.</p>
+            <p><strong>(3)</strong> Beide Parteien erkennen die elektronische Signatur als rechtsverbindlich an. Die Signatur hat die gleiche Rechtswirkung wie eine eigenhändige Unterschrift auf einem Papierdokument.</p>
+            <p style="background:#f0f9ff;border-left:4px solid #2563eb;padding:12px;border-radius:6px;margin-top:8px"><strong>(4) Audit-Trail:</strong> Zur Sicherstellung der Authentizität und Nachvollziehbarkeit werden folgende Informationen protokolliert und unveränderlich gespeichert:<br>• Zeitstempel der Unterschrift (Datum, Uhrzeit, Zeitzone)<br>• IP-Adresse des Unterzeichnenden (anonymisiert gem. DSGVO)<br>• Kryptografischer Hash (SHA-256) der Signaturdaten<br>• Gerätetyp (Desktop/Mobil) und Browser-Information<br>• Mandatsreferenznummer</p>
+          </div>
+        </div>
+        
+        <!-- § 10 ISO -->
+        <h4 style="margin-top:28px">§ 10 ISO-Zertifizierung</h4>
+        <p>Der Mandant erteilt seine Zustimmung, dass Dritte über die von ihm vorhandenen Daten Kenntnis erhalten, soweit dies für Zertifizierungsverfahren (z.B. ISO 9001) erforderlich ist.</p>
+        
+        <!-- § 10a WIDERRUFSRECHT (Optional) -->
+        <div class="toggle-clause" id="clause-p0-03-widerruf">
+          <div class="clause-toggle-box" onclick="toggleClause('p0-03-widerruf')">
+            <div class="clause-toggle-header">
+              <input type="checkbox" class="clause-toggle-checkbox" id="cb-p0-03-widerruf">
+              <div class="clause-toggle-content">
+                <div class="clause-toggle-title">
+                  <span class="clause-badge p0">P0</span>
+                  Widerrufsrecht bei Fernabsatzvertrag
+                </div>
+                <div class="clause-toggle-desc">Mandant verzichtet auf 14-Tage-Widerrufsrecht bei vorzeitigem Start (§ 356 Abs. 4 BGB). Ohne = Kunde könnte nach Fertigstellung widerrufen.</div>
+              </div>
+            </div>
+          </div>
+          <div class="clause-content" style="display:none" id="content-p0-03-widerruf">
+            <h4 style="margin-top:28px;background:#fef3c7;border-left:4px solid #f59e0b;padding:12px;border-radius:6px">§ 10a Vorzeitiger Leistungsbeginn und Widerrufsrecht</h4>
+            <div style="background:#fef3c7;border-left:4px solid #f59e0b;padding:12px;border-radius:6px;margin:12px 0">
+              <p><strong>Hinweis zum Widerrufsrecht:</strong> Bei Verträgen über Dienstleistungen, die im Fernabsatz (z.B. online) geschlossen werden, haben Verbraucher grundsätzlich ein 14-tägiges Widerrufsrecht gemäß § 355 BGB i.V.m. § 312g BGB.</p>
+              <p style="margin-top:8px"><strong>Verlust des Widerrufsrechts bei vorzeitigem Leistungsbeginn:</strong><br>Das Widerrufsrecht erlischt vorzeitig, wenn der Berater vor Ablauf der Widerrufsfrist mit der Ausführung der Dienstleistung begonnen hat und der Mandant dies ausdrücklich verlangt und gleichzeitig zur Kenntnis genommen hat, dass er sein Widerrufsrecht bei vollständiger Vertragserfüllung durch den Berater verliert (§ 356 Abs. 4 BGB).</p>
+            </div>
+            <p><strong>Erklärung des Mandanten:</strong><br>Der Mandant verlangt ausdrücklich, dass der Berater bereits vor Ablauf der 14-tägigen Widerrufsfrist mit der Erstellung der Verfahrensdokumentation beginnt.</p>
+            <p>Dem Mandanten ist bewusst, dass er sein Widerrufsrecht verliert, sobald der Berater die Dienstleistung vollständig erbracht hat (d.h. die finale Verfahrensdokumentation übergeben wurde).</p>
+          </div>
+        </div>
+
+        <!-- § 11 SCHLUSS -->
+        <h4 style="margin-top:28px">§ 11 Schlussbestimmungen</h4>
+        <p><strong>(1)</strong> Änderungen und Ergänzungen dieses Vertrages bedürfen der Textform.</p>
+        <p><strong>(2)</strong> Die Beratung erfolgt ausschließlich in deutschem Steuerrecht.</p>
+        <p><strong>(3)</strong> Erfüllungsort und Gerichtsstand ist Wiesbaden.</p>
+        <p><strong>(4)</strong> Für den Auftrag gilt nur deutsches Recht.</p>
+        <p><strong>(5)</strong> Falls einzelne Bestimmungen dieses Vertrages unwirksam werden sollten oder bereits unwirksam sind, wird die Wirksamkeit der übrigen Bestimmungen dadurch nicht berührt.</p>
+        
+        <!-- OPTIONAL CLAUSE: P0-10 -->
+        <div class="toggle-clause" id="clause-p0-10-double-submit">
+          <div class="clause-toggle-box" onclick="toggleClause('p0-10-double-submit')">
+            <div class="clause-toggle-header">
+              <input type="checkbox" class="clause-toggle-checkbox" id="cb-p0-10-double-submit">
+              <div class="clause-toggle-content">
+                <div class="clause-toggle-title">
+                  <span class="clause-badge p0">P0</span>
+                  Doppel-Submission Schutz
+                </div>
+                <div class="clause-toggle-desc">Schutz vor Doppel-Klick: Erste Übermittlung gilt, weitere werden ignoriert. Verhindert versehentliche Mehrfach-Beauftragung.</div>
+              </div>
+            </div>
+          </div>
+          <div class="clause-content" style="display:none" id="content-p0-10-double-submit">
+            <p style="background:#fef3c7;border-left:4px solid #f59e0b;padding:12px;border-radius:6px"><strong>(6) Mehrfach-Übermittlung:</strong> Bei versehentlicher Mehrfach-Übermittlung dieses Auftrags (z.B. durch Doppelklick auf den "Beauftragen"-Button) gilt die erste Übermittlung als verbindlich. Weitere Übermittlungen werden automatisch ignoriert und erzeugen keine zusätzlichen Vertragsverpflichtungen.</p>
+          </div>
+        </div>
+        
+        <!-- OPTIONAL CLAUSE: P0-05 -->
+        <div class="toggle-clause" id="clause-p0-05-pdf-hash">
+          <div class="clause-toggle-box" onclick="toggleClause('p0-05-pdf-hash')">
+            <div class="clause-toggle-header">
+              <input type="checkbox" class="clause-toggle-checkbox" id="cb-p0-05-pdf-hash">
+              <div class="clause-toggle-content">
+                <div class="clause-toggle-title">
+                  <span class="clause-badge p0">P0</span>
+                  PDF-Hash Unveränderlichkeit
+                </div>
+                <div class="clause-toggle-desc">SHA-256 Hash des PDFs wird gespeichert: Jede nachträgliche Änderung ist nachweisbar. Macht PDF unveränderlich = GoBD-konform.</div>
+              </div>
+            </div>
+          </div>
+          <div class="clause-content" style="display:none" id="content-p0-05-pdf-hash">
+            <p style="background:#fef3c7;border-left:4px solid #f59e0b;padding:12px;border-radius:6px"><strong>(7) Dokumentenintegrität:</strong> Das nach Unterzeichnung generierte PDF-Dokument wird mit einem kryptografischen Hash-Wert (SHA-256) versehen, der unveränderlich in der Audit-Datenbank gespeichert wird. Jede nachträgliche Änderung am PDF-Dokument macht den Hash-Wert ungültig und ist somit nachweisbar. Der Hash-Wert wird im PDF-Dokument selbst sowie in der E-Mail-Benachrichtigung angezeigt.</p>
+          </div>
+        </div>
+
+        <div style="margin-top:32px;padding:14px 16px;background:var(--gs);border:1px solid rgba(30,142,62,.25);border-radius:12px;display:flex;gap:10px;align-items:flex-start"><span style="color:var(--g);flex-shrink:0;margin-top:1px"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></span><p style="font-size:13px;color:var(--gd);line-height:1.55;font-weight:500"><strong>Für Ihre Unterlagen:</strong> Nach Ihrer Beauftragung erhalten Sie eine Kopie mit Ihrer digitalen Unterschrift per E-Mail als PDF.</p></div>
+      </div>
+    </div>
+    <div class="shint" id="sH"><span class="ic ic-16"><svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></span> Bitte scrollen Sie das Dokument vollständig durch</div>
+    <div class="acts"><button class="btn btn-t" onclick="back(1)"><span class="ic ic-16"><svg viewBox="0 0 24 24"><path d="M19 12H5M12 19l-7-7 7-7"/></svg></span> Zurück</button><button class="btn btn-p" id="btnS2" disabled onclick="go(3)">Weiter <span class="ic ic-16"><svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span></button></div>
+  </div>
+
+  <!-- S3: SIGN -->
+  <div class="scr" id="s3">
+    <div class="hl">Bestätigen<br>und&thinsp;…</div><div class="sub">Bitte bestätigen Sie die folgenden Punkte.</div>
+    <div style="margin-bottom:20px">
+      <div class="cb" id="c1" onclick="tog('c1')"><div class="cb-b"><span class="cb-k"><svg viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span></div><div class="cb-t">Ich beauftrage die Erstellung der Verfahrensdokumentation zu den genannten Konditionen.</div></div>
+      <div class="cb" id="c2" onclick="tog('c2')"><div class="cb-b"><span class="cb-k"><svg viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span></div><div class="cb-t">Ich habe die Leistungsbeschreibung und Datenschutzhinweise gelesen und zur Kenntnis genommen.</div></div>
+    </div>
+    <div class="sig-s"><div class="hl" style="margin-bottom:6px">…Unterschreiben</div><p>Wählen Sie Ihre bevorzugte Methode.</p>
+      <div class="mbar"><button class="mt" onclick="setM(0,'phone')" id="mt0a"><span class="ic ic-16"><svg viewBox="0 0 24 24"><rect x="5" y="2" width="14" height="20" rx="2"/><path d="M12 18h.01"/></svg></span> Smartphone</button><button class="mt on" onclick="setM(0,'mouse')" id="mt0b"><span class="ic ic-16"><svg viewBox="0 0 24 24"><path d="M4 1l10 14H8l2 7-10-14h6z"/></svg></span> Maus / Trackpad</button></div>
+      <div class="qrz" id="qz0"><div class="qr-c" id="qrEl0"></div><div class="qr-w"><span class="bl"></span> Warte auf Unterschrift</div><p style="font-size:11px;color:var(--t4);max-width:260px">QR-Code scannen und auf dem Smartphone unterschreiben.</p><div class="qr-timer" id="qrTimer0"><span class="ic ic-14"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></span><span id="qrTime0">15:00</span></div><div class="qr-expired" id="qrExp0" style="display:none"><span>QR-Code abgelaufen</span><button class="qr-renew" onclick="renewQR(0)"><span class="ic ic-14"><svg viewBox="0 0 24 24"><polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 11-2.13-9.36L23 10"/></svg></span>Neuen QR-Code generieren</button></div><div class="qr-meta" style="margin-top:6px"><span class="ic ic-12" style="color:var(--ov)"><svg viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg></span> 256-bit AES verschlüsselt</div></div>
+      <div class="drz on" id="dz0"><div class="sigw" id="sw0"><canvas class="sigc" id="sc0"></canvas><div class="sigg"><span class="ic ic-20"><svg viewBox="0 0 24 24"><path d="M17 3a2.83 2.83 0 114 4L7.5 20.5 2 22l1.5-5.5L17 3z"/></svg></span><span>Hier unterschreiben</span></div><div class="siggl"></div></div>
+      <div class="sigtb"><div class="sigtb-l"><button class="stl" id="undo0" onclick="doUndo(0)" disabled><span class="ic"><svg viewBox="0 0 24 24"><polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 102.13-9.36L1 10"/></svg></span></button><button class="stl" id="redo0" onclick="doRedo(0)" disabled><span class="ic"><svg viewBox="0 0 24 24"><polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 11-2.13-9.36L23 10"/></svg></span></button><div class="psel"><div class="pd th" onclick="setPen(0,1.5)" id="p0t"></div><div class="pd md on" onclick="setPen(0,2.5)" id="p0m"></div><div class="pd tk" onclick="setPen(0,4)" id="p0k"></div></div><button class="stl" onclick="doClr(0)"><span class="ic"><svg viewBox="0 0 24 24"><polyline points="3 6 5 6 21 6"/><path d="M19 6v14a2 2 0 01-2 2H7a2 2 0 01-2-2V6m3 0V4a2 2 0 012-2h4a2 2 0 012 2v2"/></svg></span></button></div><div class="sinfo"><span id="si0">Bereit</span></div></div></div>
+      <div class="sig-err" id="sigErr0"><span class="ic ic-14"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/></svg></span><span id="sigErrTxt0">Bitte unterschreiben Sie im Feld oben.</span></div>
+    </div>
+    <div class="acts"><button class="btn btn-t" onclick="back(2)"><span class="ic ic-16"><svg viewBox="0 0 24 24"><path d="M19 12H5M12 19l-7-7 7-7"/></svg></span> Zurück</button><button class="btn btn-p" id="btnOk" disabled onclick="submitOk()">Beauftragung bestätigen</button></div>
+  </div>
+
+  <!-- S4: CHECKLISTE + WUNSCHTERMIN -->
+  <div class="scr" id="s4">
+    <div class="hl">Nächste<br>Schritte</div>
+    <div class="sub">Beauftragung erfolgreich! Bereiten Sie sich in Ruhe auf den VD-Fragebogen vor.</div>
+
+    <div class="dl-card">
+      <div class="dl-card-ic"><span class="ic ic-22"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><path d="M16 13H8M16 17H8M10 9H8"/></svg></span></div>
+      <div class="dl-card-bd">
+        <div class="dl-card-tt">Vorbereitungscheckliste</div>
+        <div class="dl-card-ds">IT-Systeme, Belegwesen, Kassensystem, Datensicherung, Archivierung, Berechtigungen und Praxissoftware – alles auf einen Blick.</div>
+      </div>
+      <button class="dl-btn" onclick="dlChecklist()"><span class="ic ic-16"><svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></span>PDF laden</button>
+    </div>
+
+    <div class="wt-section">
+      <h3 style="font-family:'Inter',var(--f);font-size:14px;font-weight:800;margin-bottom:4px;color:var(--t1)"><span class="ic ic-18" style="vertical-align:-3px;margin-right:4px"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/><path d="M8 14h.01M12 14h.01M16 14h.01M8 18h.01M12 18h.01"/></svg></span>Wann möchten Sie starten?</h3>
+      <p style="font-size:12px;color:var(--t3);line-height:1.6;margin-bottom:12px">Wir richten uns nach Ihrem Zeitplan.</p>
+      <div class="wt-opts">
+        <label class="wt-opt wt-opt-date wt-feat" onclick="selWt(this,'date')"><input type="radio" name="wt" value="custom"><span class="wt-radio"></span><div class="wt-bd"><div class="wt-tt">Konkretes Datum wählen</div><div class="wt-ds">Genauen Starttermin festlegen</div></div><input type="date" class="wt-date" id="wtDate" onclick="event.stopPropagation()" onchange="selWt(this.closest('.wt-opt'),'date')"></label>
+        <label class="wt-opt" onclick="selWt(this,'radio')"><input type="radio" name="wt" value="asap"><span class="wt-radio"></span><div class="wt-bd"><div class="wt-tt">Schnellstmöglich</div><div class="wt-ds">Fragebogen sofort freischalten</div></div></label>
+        <label class="wt-opt" onclick="selWt(this,'radio')"><input type="radio" name="wt" value="2w"><span class="wt-radio"></span><div class="wt-bd"><div class="wt-tt">In ca. 2 Wochen</div><div class="wt-ds">Etwas Vorbereitungszeit</div></div></label>
+        <label class="wt-opt" onclick="selWt(this,'radio')"><input type="radio" name="wt" value="4w"><span class="wt-radio"></span><div class="wt-bd"><div class="wt-tt">In ca. 4 Wochen</div><div class="wt-ds">In Ruhe Unterlagen zusammenstellen</div></div></label>
+        <label class="wt-opt" onclick="selWt(this,'radio')"><input type="radio" name="wt" value="later"><span class="wt-radio"></span><div class="wt-bd"><div class="wt-tt">Später – nach Rücksprache</div><div class="wt-ds">Termin gemeinsam abstimmen</div></div></label>
+      </div>
+    </div>
+    <div class="wt-err" id="wtErr"><span class="ic ic-14"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/></svg></span>Bitte wählen Sie einen Wunschtermin.</div>
+    <div class="err-bar" id="errAccept"><span class="ic ic-16"><svg viewBox="0 0 24 24"><path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/><path d="M12 9v4M12 17h.01"/></svg></span><p>Übertragung fehlgeschlagen.</p><button onclick="goToDone()">Erneut versuchen</button></div>
+    <div class="acts"><div></div><button class="btn btn-p" id="btnWt" disabled onclick="goToDone()">Weiter zur Bestätigung <span class="ic ic-16"><svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span></button></div>
+  </div>
+
+  <!-- S5: DONE ACCEPT -->
+  <div class="scr" id="s5"><div class="done-box ok">
+    <div class="done-ic"><span class="ic ic-22"><svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></span></div>
+    <h2>Beauftragung<br>abgeschlossen</h2>
+    <p>Vielen Dank – Ihre Beauftragung wurde erfolgreich übermittelt.</p>
+
+    <div class="post-tl">
+      <div class="pt-item"><div class="pt-rail"><div class="pt-dot done"><span class="ic"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span></div><div class="pt-line done"></div></div><div class="pt-content"><div class="pt-title">Beauftragung abgeschlossen</div><div class="pt-desc">Digitale Unterschrift gespeichert.</div><div class="pt-tag sent">Erledigt</div></div></div>
+      <div class="pt-item" id="ptChk"><div class="pt-rail"><div class="pt-dot future" id="ptChkDot"><span class="ic"><svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></span></div><div class="pt-line pending" id="ptChkLine"></div></div><div class="pt-content"><div class="pt-title" id="ptChkTitle">Checkliste herunterladen</div><div class="pt-desc" id="ptChkDesc">PDF-Checkliste zur Vorbereitung.</div><button class="pt-dl-btn" id="ptChkBtn" onclick="dlChecklistS5()"><span class="ic ic-14"><svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></span>Jetzt herunterladen</button><div class="pt-tag wait" id="ptChkTag">Ausstehend</div></div></div>
+      <div class="pt-item pt-highlight"><div class="pt-rail"><div class="pt-dot next"><span class="ic"><svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22 6 12 13 2 6"/></svg></span></div><div class="pt-line pending"></div></div><div class="pt-content"><div class="pt-title">Auftragsdokument per E-Mail</div><div class="pt-desc">Das rechtsgültige PDF mit Zeitstempel und Ihrer digitalen Unterschrift wird innerhalb weniger Minuten an Ihre hinterlegte E-Mail-Adresse zugestellt.</div><div class="pt-tag next">Wird jetzt versandt</div></div></div>
+      <div class="pt-item"><div class="pt-rail"><div class="pt-dot future"><span class="ic"><svg viewBox="0 0 24 24"><path d="M21 2l-2 2m-7.61 7.61a5.5 5.5 0 11-7.78 7.78 5.5 5.5 0 017.78-7.78zm0 0L15.5 7.5m0 0l3 3L22 7l-3-3m-3.5 3.5L19 4"/></svg></span></div><div class="pt-line pending"></div></div><div class="pt-content"><div class="pt-title muted">Zugangsdaten per E-Mail</div><div class="pt-desc">Login-Link und vorläufiges Passwort.</div><div class="pt-tag wait">Folgt automatisch</div></div></div>
+      <div class="pt-item"><div class="pt-rail"><div class="pt-dot future"><span class="ic"><svg viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg></span></div><div class="pt-line pending"></div></div><div class="pt-content"><div class="pt-title muted">Erster Login & Passwort ändern</div><div class="pt-desc">Anmelden und eigenes Passwort vergeben.</div><div class="pt-tag wait">Ihre Aktion</div></div></div>
+      <div class="pt-item"><div class="pt-rail"><div class="pt-dot future"><span class="ic"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><path d="M16 13H8M16 17H8M10 9H8"/></svg></span></div><div class="pt-line pending"></div></div><div class="pt-content"><div class="pt-title muted">VD-Fragebogen ausfüllen</div><div class="pt-desc">IT-Systeme, Belegwesen, Praxisprozesse erfassen.</div><div class="pt-tag wait">Ihre Aktion</div></div></div>
+      <div class="pt-item"><div class="pt-rail"><div class="pt-dot future"><span class="ic"><svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></span></div></div><div class="pt-content"><div class="pt-title muted">Vor-Ort-Termin</div><div class="pt-desc">Gemeinsame Finalisierung in Ihrer Praxis.</div><div class="pt-tag wait">Terminvereinbarung folgt</div></div></div>
+    </div>
+
+    <div class="s5-foot">
+      <div class="s5-meta">
+        <div class="s5-meta-item"><span class="ic ic-12"><svg viewBox="0 0 24 24"><path d="M20.59 13.41l-7.17 7.17a2 2 0 01-2.83 0L2 12V2h10l8.59 8.59a2 2 0 010 2.82z"/><line x1="7" y1="7" x2="7.01" y2="7"/></svg></span><span data-price="erstdoku-label">Erstdokumentation 2.000 € zzgl. MwSt.</span></div>
+        <div class="s5-meta-item"><span class="clock-ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="2"/><line x1="12" y1="12" x2="12" y2="7" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" id="clkH0"/><line x1="12" y1="12" x2="12" y2="4.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" id="clkM0"/><line x1="12" y1="12" x2="12" y2="4" stroke="currentColor" stroke-width=".7" stroke-linecap="round" opacity=".5" id="clkS0"/><circle cx="12" cy="12" r="1" fill="currentColor"/></svg></span><span id="tsOk"></span></div>
+        <div class="s5-meta-item"><span class="ic ic-12"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></span>VD-2025-00847</div>
+      </div>
+    </div>
+  </div></div>
+
+
+  <!-- S6: DECLINE -->
+  <div class="scr" id="s6">
+    <div class="hl">Ablehnung<br>bestätigen</div><div class="sub">Bestätigen Sie Ihre Ablehnung mit Ihrer Unterschrift.</div>
+    <div class="wbox"><span class="ic ic-18"><svg viewBox="0 0 24 24"><path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/><path d="M12 9v4M12 17h.01"/></svg></span><p>Die Verfahrensdokumentation ist eine <strong>Pflicht gemäß GoBD</strong>. Ihre Ablehnung bezieht sich ausschließlich auf die Erstellung durch Steuerberater Daniel Hildebrandt.</p></div>
+    <div style="margin-bottom:20px"><div class="cb" id="c3" onclick="tog('c3')"><div class="cb-b"><span class="cb-k"><svg viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span></div><div class="cb-t">Ich wurde über die gesetzlichen Anforderungen informiert und lehne die Erstellung hiermit ab.</div></div></div>
+    <div class="sig-s"><div class="hl" style="margin-bottom:6px">…Unterschreiben</div><p>Unterschreiben Sie zur Bestätigung Ihrer Ablehnung.</p>
+      <div class="mbar"><button class="mt" onclick="setM(1,'phone')" id="mt1a"><span class="ic ic-16"><svg viewBox="0 0 24 24"><rect x="5" y="2" width="14" height="20" rx="2"/><path d="M12 18h.01"/></svg></span> Smartphone</button><button class="mt on" onclick="setM(1,'mouse')" id="mt1b"><span class="ic ic-16"><svg viewBox="0 0 24 24"><path d="M4 1l10 14H8l2 7-10-14h6z"/></svg></span> Maus / Trackpad</button></div>
+      <div class="qrz" id="qz1"><div class="qr-c" id="qrEl1"></div><div class="qr-w"><span class="bl"></span> Warte auf Unterschrift</div><div class="qr-timer" id="qrTimer1"><span class="ic ic-14"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></span><span id="qrTime1">15:00</span></div><div class="qr-expired" id="qrExp1" style="display:none"><span>QR-Code abgelaufen</span><button class="qr-renew" onclick="renewQR(1)"><span class="ic ic-14"><svg viewBox="0 0 24 24"><polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 11-2.13-9.36L23 10"/></svg></span>Neuen QR-Code generieren</button></div><div class="qr-meta" style="margin-top:6px"><span class="ic ic-12" style="color:var(--ov)"><svg viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg></span> 256-bit AES verschlüsselt</div></div>
+      <div class="drz on" id="dz1"><div class="sigw" id="sw1"><canvas class="sigc" id="sc1"></canvas><div class="sigg"><span class="ic ic-20"><svg viewBox="0 0 24 24"><path d="M17 3a2.83 2.83 0 114 4L7.5 20.5 2 22l1.5-5.5L17 3z"/></svg></span><span>Hier unterschreiben</span></div><div class="siggl"></div></div>
+      <div class="sigtb"><div class="sigtb-l"><button class="stl" id="undo1" onclick="doUndo(1)" disabled><span class="ic"><svg viewBox="0 0 24 24"><polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 102.13-9.36L1 10"/></svg></span></button><button class="stl" id="redo1" onclick="doRedo(1)" disabled><span class="ic"><svg viewBox="0 0 24 24"><polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 11-2.13-9.36L23 10"/></svg></span></button><div class="psel"><div class="pd th" onclick="setPen(1,1.5)" id="p1t"></div><div class="pd md on" onclick="setPen(1,2.5)" id="p1m"></div><div class="pd tk" onclick="setPen(1,4)" id="p1k"></div></div><button class="stl" onclick="doClr(1)"><span class="ic"><svg viewBox="0 0 24 24"><polyline points="3 6 5 6 21 6"/><path d="M19 6v14a2 2 0 01-2 2H7a2 2 0 01-2-2V6m3 0V4a2 2 0 012-2h4a2 2 0 012 2v2"/></svg></span></button></div><div class="sinfo"><span id="si1">Bereit</span></div></div></div>
+      <div class="sig-err" id="sigErr1"><span class="ic ic-14"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/></svg></span><span id="sigErrTxt1">Bitte unterschreiben Sie im Feld oben.</span></div>
+    </div>
+    <div class="err-bar" id="errDecline"><span class="ic ic-16"><svg viewBox="0 0 24 24"><path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/><path d="M12 9v4M12 17h.01"/></svg></span><p>Übertragung fehlgeschlagen.</p><button onclick="submitNo()">Erneut versuchen</button></div>
+    <div class="acts"><button class="btn btn-t" onclick="back(1)"><span class="ic ic-16"><svg viewBox="0 0 24 24"><path d="M19 12H5M12 19l-7-7 7-7"/></svg></span> Zurück</button><button class="btn btn-r" id="btnNo" disabled onclick="submitNo()">Ablehnung bestätigen</button></div>
+  </div>
+
+  <!-- S7: DONE DECLINE -->
+  <div class="scr" id="s7"><div class="done-box nope">
+    <div class="done-ic"><span class="ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg></span></div>
+    <h2>Ablehnung<br>eingegangen.</h2>
+    <p>Ihre Entscheidung wurde rechtssicher dokumentiert.</p>
+    <p>Sie erhalten in Kürze eine Bestätigung per E-Mail mit dem Ablehnungsdokument als PDF für Ihre Unterlagen.</p>
+    <p style="margin-top:12px">Sollten Sie Ihre Entscheidung ändern wollen, sprechen Sie Ihren Steuerberater gerne an.</p>
+    <div class="s5-foot" style="margin-top:20px">
+      <div class="s5-meta">
+        <div class="s5-meta-item"><span class="clock-ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="2"/><line x1="12" y1="12" x2="12" y2="7" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" id="clkH1"/><line x1="12" y1="12" x2="12" y2="4.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" id="clkM1"/><line x1="12" y1="12" x2="12" y2="4" stroke="currentColor" stroke-width=".7" stroke-linecap="round" opacity=".5" id="clkS1"/><circle cx="12" cy="12" r="1" fill="currentColor"/></svg></span><span id="tsNo"></span></div>
+        <div class="s5-meta-item"><span class="ic ic-12"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></span>VD-2025-00847</div>
+      </div>
+    </div>
+  </div></div>
+
+  <!-- S8: ALREADY COMPLETED -->
+  <div class="scr" id="s8"><div class="s8-card">
+    <div class="s8-ic"><span class="ic ic-22"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span></div>
+    <h2 class="hl" style="text-align:center">Bereits<br>bearbeitet</h2>
+    <div class="s8-status"><span class="ic ic-12"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span><span id="s8Type">Beauftragt</span></div>
+    <p style="font-size:13px;color:var(--t3);line-height:1.4">Dieser Vorgang wurde bereits abgeschlossen. Falls Sie Fragen haben, kontaktieren Sie Ihre Kanzlei.</p>
+    <div class="s8-details" id="s8Details">
+      <div class="s8-row"><span class="s8-l">Status</span><span class="s8-v" id="s8Status">Beauftragt</span></div>
+      <div class="s8-row"><span class="s8-l">Zeitpunkt</span><span class="s8-v" id="s8Time">–</span></div>
+      <div class="s8-row"><span class="s8-l">Vorgang</span><span class="s8-v">VD-2025-00847</span></div>
+    </div>
+  </div></div>
+</div>
+
+<div class="pgft"><div class="ftin">
+    <a class="ft-pill" href="/cdn-cgi/l/email-protection#90fbfffee4f1fbe4d0e3e4f5e5f5e2f2f5e2f1e4f5e2bdf8f9fcf4f5f2e2f1fef4e4bef4f5"><span class="ic ic-14"><svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22 6 12 13 2 6"/></svg></span>E-Mail</a>
+    <a class="ft-pill" href="tel:+496111746590"><span class="ic ic-14"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg></span>Anrufen</a>
+    <a class="ft-pill ft-wa" href="https://wa.me/496111746590?text=Hallo%2C%20ich%20habe%20eine%20Frage%20zur%20Verfahrensdokumentation." target="_blank" rel="noopener"><span class="ic ic-14"><svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 2C6.477 2 2 6.477 2 12c0 1.89.525 3.66 1.438 5.168L2 22l4.832-1.438A9.955 9.955 0 0012 22c5.523 0 10-4.477 10-10S17.523 2 12 2z"/></svg></span>WhatsApp</a>
+    <div class="ft-spacer"></div>
+    <div class="ft-exp"><div class="ft-exp-ic"><span class="ic ic-14"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg></span></div><div class="ft-exp-links"><a href="#">Impressum</a><span>·</span><a href="#">Datenschutz</a></div></div>
+</div></div>
+
+</div></div><!-- /app-card /app-shell -->
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+/* ── CONFIG (Backend liefert diese Werte per Token) ── */
+var CFG={
+  token:'VD-2025-00847',
+  client:{name:'Dr. Thomas Müller',email:'mueller@praxis-mueller.de'},
+  advisor:{name:'Daniel Hildebrandt',firm:'Steuerberatungskanzlei Daniel Hildebrandt'},
+  pricing:{erstdoku:2000,update2:800,update3:800,currency:'€',vat:'zzgl. MwSt.'},
+  session:{ttl:1800,warn:300}, /* 30min TTL, warn at 5min left */
+  api:{submit:'/api/vd/submit',status:'/api/vd/status'} /* Backend endpoints */
+};
+
+/* ── STATE ── */
+var flow='a',currentStep=0,checklistDl=false,sessionStart=Date.now(),sesTimer=null,sesWarnTimer=null;
+var dev={info:true,price:true};
+var SIG=[{strokes:[],redo:[],pen:2.5,drawn:false,eng:null},{strokes:[],redo:[],pen:2.5,drawn:false,eng:null}];
+
+var IC={
+  doc:'<svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>',
+  eye:'<svg viewBox="0 0 24 24"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>',
+  pen:'<svg viewBox="0 0 24 24"><path d="M17 3a2.83 2.83 0 114 4L7.5 20.5 2 22l1.5-5.5L17 3z"/></svg>',
+  clip:'<svg viewBox="0 0 24 24"><path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2"/><rect x="9" y="3" width="6" height="4" rx="1"/><path d="M9 12h6M9 16h6"/></svg>',
+  mail:'<svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22 6 12 13 2 6"/></svg>',
+  key:'<svg viewBox="0 0 24 24"><path d="M21 2l-2 2m-7.61 7.61a5.5 5.5 0 11-7.78 7.78 5.5 5.5 0 017.78-7.78zm0 0L15.5 7.5m0 0l3 3L22 7l-3-3m-3.5 3.5L19 4"/></svg>',
+  lock:'<svg viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>',
+  form:'<svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><path d="M16 13H8M16 17H8M10 9H8"/></svg>',
+  home:'<svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>',
+  chk:'<svg viewBox="0 0 24 24"><path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2"/><rect x="9" y="3" width="6" height="4" rx="1"/><path d="M9 14l2 2 4-4"/></svg>'
+};
+
+var JOURNEY=[
+  {icon:'doc',  title:'Übersicht',       short:'Übersicht',      phase:1},
+  {icon:'eye',  title:'Vertrag prüfen',  short:'Prüfen',         phase:1},
+  {icon:'pen',  title:'Unterschreiben',  short:'Unterschrift',   phase:1},
+  {icon:'chk',  title:'Nächste Schritte',short:'Schritte',       phase:1},
+  {icon:'mail', title:'Auftrags-E-Mail', short:'Auftrags-Mail',  phase:2,auto:true},
+  {icon:'key',  title:'Zugangsdaten',    short:'Zugangsdaten',   phase:2,auto:true},
+  {icon:'lock', title:'Erster Login',    short:'Login',          phase:2,action:true},
+  {icon:'form', title:'Fragebogen',      short:'Fragebogen',     phase:2,action:true},
+  {icon:'home', title:'Vor-Ort-Termin',  short:'Vor-Ort',        phase:2,action:true}
+];
+var TOTAL=JOURNEY.length;
+var PHASE1=JOURNEY.filter(function(j){return j.phase===1}).length;
+
+function renderBanner(){
+  var el=document.getElementById('jbSteps'),html='';
+  var displayStep=Math.min(currentStep,PHASE1-1);
+  JOURNEY.forEach(function(item,i){
+    if(item.phase!==1)return;
+    var state='waiting';
+    if(currentStep>=PHASE1){state='done'}
+    else if(i<displayStep){state='done'}
+    else if(i===displayStep){state='active'}
+    var icon=state==='done'||state==='complete'?'<svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>':IC[item.icon];
+    html+='<div class="jb-step '+state+'"><div class="jb-dot"><span class="ic">'+icon+'</span></div><div class="jb-lbl">'+item.short+'</div></div>';
+  });
+  el.innerHTML=html;
+}
+function updateMobile(){
+  var step=Math.min(currentStep,PHASE1-1);
+  document.getElementById('jbPill').textContent=currentStep>=PHASE1?'✓':((step+1)+' / '+PHASE1);
+  document.getElementById('jbLabel').textContent=currentStep>=PHASE1?'Abgeschlossen':JOURNEY[step].title;
+  document.getElementById('jbFill').style.width=(currentStep>=PHASE1?100:(step/(PHASE1-1)*100))+'%';
+}
+function setStep(idx){currentStep=idx;renderBanner();updateMobile()}
+function renderPanel(){
+  var body=document.getElementById('jpBody'),html='',lastPhase=0;
+  JOURNEY.forEach(function(item,i){
+    if(item.phase!==lastPhase){html+='<div class="jp-phase-label">'+(item.phase===1?'In diesem Portal':'Nach Beauftragung')+'</div>';lastPhase=item.phase}
+    var state='locked';
+    if(currentStep>=PHASE1){
+      // Portal complete: all phase1 done, phase2 shows future states
+      if(item.phase===1)state='done';
+      else state='waiting';
+    }else{
+      if(i<currentStep)state='done';else if(i===currentStep)state='active';else if(item.phase===2)state='locked';else state='waiting';
+    }
+    var tagHtml='';
+    if(currentStep<PHASE1&&i===currentStep)tagHtml='<div class="jp-tag current">Sie sind hier</div>';
+    else if(state==='done')tagHtml='<div class="jp-tag auto">Erledigt</div>';
+    else if(item.auto)tagHtml='<div class="jp-tag wait">Automatisch</div>';
+    else if(item.action)tagHtml='<div class="jp-tag action">Ihre Aktion</div>';
+    html+='<div class="jp-item '+state+'"><div class="jp-rail"><div class="jp-dot"><span class="ic">'+(state==='done'?'<svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>':IC[item.icon])+'</span></div>'+(i<JOURNEY.length-1?'<div class="jp-line"></div>':'')+'</div><div class="jp-content"><div class="jp-title">'+item.title+'</div>'+tagHtml+'</div></div>';
+  });
+  body.innerHTML=html;
+}
+function openJourney(){renderPanel();document.getElementById('jpOver').classList.add('open');document.getElementById('jpPanel').classList.add('open');document.body.style.overflow='hidden'}
+function closeJourney(){document.getElementById('jpOver').classList.remove('open');document.getElementById('jpPanel').classList.remove('open');document.body.style.overflow=''}
+function checkMobile(){document.getElementById('jbTrack').style.display=window.matchMedia('(max-width:768px)').matches?'block':'none'}
+checkMobile();window.addEventListener('resize',checkMobile);
+setStep(0);
+
+function show(n){
+  document.querySelectorAll('.scr').forEach(function(s){s.classList.remove('on')});
+  document.getElementById('s'+n).classList.add('on');
+  window.scrollTo({top:0,behavior:'smooth'});
+  
+  // Initialize inline toggle clauses when showing contract (Screen 2)
+  if(n===2){
+    loadClauseDefaults();
+  }
+  
+  if(n===3||n===6){setTimeout(resizeSigs,80)};
+}
+function goAccept(){flow='a';setStep(1);show(2)}
+function goDecline(){flow='d';setStep(0);show(6)}
+function go(n){setStep({2:1,3:2}[n]||0);show(n)}
+function back(n){if(n===1){setStep(0);document.getElementById('decWarn').classList.add('collapsed')}else setStep(1);show(n)}
+
+/* ── PAYLOAD ASSEMBLY ── */
+function getSignatureData(idx){
+  var c=document.getElementById('sc'+idx);
+  if(!c||!SIG[idx].drawn)return null;
+  return c.toDataURL('image/png');
+}
+function getWunschtermin(){
+  var sel=document.querySelector('.wt-opt.on');
+  if(!sel)return null;
+  var radio=sel.querySelector('input[type=radio]');
+  var val=radio?radio.value:'';
+  if(val==='date'){
+    var d=sel.querySelector('.wt-date');
+    return{type:'date',value:d?d.value:''};
+  }
+  return{type:val,value:val};
+}
+function buildPayload(action){
+  var d=new Date();
+  var payload={
+    token:CFG.token,
+    action:action, /* 'accept' | 'decline' */
+    timestamp:d.toISOString(),
+    client:CFG.client,
+    pricing:CFG.pricing,
+    checklistDownloaded:checklistDl
+  };
+  if(action==='accept'){
+    payload.signature=getSignatureData(0);
+    payload.wunschtermin=getWunschtermin();
+    payload.consents={vertragGelesen:document.getElementById('c1').classList.contains('on'),konditonenAkzeptiert:document.getElementById('c2').classList.contains('on')};
+  }else{
+    payload.signature=getSignatureData(1);
+    payload.consents={ablehnungBestaetigt:document.getElementById('c3').classList.contains('on')};
+  }
+  return payload;
+}
+
+/* ── LOADING / ERROR ── */
+function showLoading(msg,sub){
+  document.getElementById('ldText').textContent=msg||'Wird übermittelt…';
+  document.getElementById('ldSub').textContent=sub||'Bitte warten Sie einen Moment.';
+  document.getElementById('ldOver').classList.add('on');
+}
+function hideLoading(){document.getElementById('ldOver').classList.remove('on')}
+function showError(target,msg){
+  var el=document.getElementById(target);
+  if(el){el.querySelector('p').textContent=msg;el.classList.add('on')}
+}
+function hideError(target){var el=document.getElementById(target);if(el)el.classList.remove('on')}
+
+/* ── SIMULATED API CALL (replace with real fetch in production) ── */
+function apiSubmit(payload,onSuccess,onError){
+  console.log('[VD-API] Payload:',JSON.stringify(payload,null,2));
+  /* ── PRODUCTION: Replace this block with real API call ──
+  fetch(CFG.api.submit,{
+    method:'POST',
+    headers:{'Content-Type':'application/json','Authorization':'Bearer '+CFG.token},
+    body:JSON.stringify(payload)
+  }).then(function(r){if(!r.ok)throw new Error(r.status);return r.json()})
+    .then(onSuccess).catch(onError);
+  ── */
+  setTimeout(function(){
+    if(Math.random()>0.05){onSuccess({ok:true,ref:CFG.token})} /* 95% success for demo */
+    else{onError(new Error('Netzwerkfehler'))}
+  },1800);
+}
+
+/* ── SUBMIT: ACCEPT ── */
+function submitOk(){
+  var d=new Date();
+  var ts=d.toLocaleDateString('de-DE',{day:'2-digit',month:'2-digit',year:'numeric'})+', '+d.toLocaleTimeString('de-DE',{hour:'2-digit',minute:'2-digit',second:'2-digit'})+' Uhr';
+  document.getElementById('tsOk').textContent=ts;
+  initClock(0,d);
+  setStep(3);show(4);
+}
+function goToDone(){
+  var sel=document.querySelector('.wt-opt.on');
+  if(!sel){document.getElementById('wtErr').classList.add('show');return}
+  hideError('errAccept');
+  if(checklistDl)markChkDone();
+  var payload=buildPayload('accept');
+  showLoading('Beauftragung wird übermittelt…','Ihre digitale Unterschrift wird gesichert.');
+  apiSubmit(payload,function(res){
+    hideLoading();
+    try{localStorage.setItem('vd_'+CFG.token,JSON.stringify({status:'accepted',ts:new Date().toISOString()}))}catch(e){}
+    setStep(4);show(5);
+  },function(err){
+    hideLoading();
+    showError('errAccept','Übertragung fehlgeschlagen – bitte versuchen Sie es erneut. ('+err.message+')');
+    show(4);
+  });
+}
+
+/* ── SUBMIT: DECLINE ── */
+function submitNo(){
+  hideError('errDecline');
+  var payload=buildPayload('decline');
+  showLoading('Rückmeldung wird übermittelt…');
+  apiSubmit(payload,function(res){
+    hideLoading();
+    setStep(PHASE1);
+    var d=new Date();
+    document.getElementById('tsNo').textContent=d.toLocaleDateString('de-DE',{day:'2-digit',month:'2-digit',year:'numeric'})+', '+d.toLocaleTimeString('de-DE',{hour:'2-digit',minute:'2-digit',second:'2-digit'})+' Uhr';
+    initClock(1,d);
+    try{localStorage.setItem('vd_'+CFG.token,JSON.stringify({status:'declined',ts:new Date().toISOString()}))}catch(e){}
+    show(7);
+  },function(err){
+    hideLoading();
+    showError('errDecline','Übertragung fehlgeschlagen – bitte versuchen Sie es erneut. ('+err.message+')');
+  });
+}
+
+/* ── SESSION TIMEOUT ── */
+function startSession(){
+  var ttl=CFG.session.ttl*1000,warn=CFG.session.warn*1000;
+  sesWarnTimer=setTimeout(function(){
+    var bar=document.getElementById('sesBar');
+    bar.className='ses-bar warn';
+    document.getElementById('sesText').textContent='Sitzung läuft in '+Math.round(warn/60000)+' Min. ab.';
+  },ttl-warn);
+  sesTimer=setTimeout(function(){
+    var bar=document.getElementById('sesBar');
+    bar.className='ses-bar expired';
+    document.getElementById('sesText').textContent='Sitzung abgelaufen.';
+    bar.querySelector('a').textContent='Seite neu laden';
+    bar.querySelector('a').setAttribute('onclick','location.reload()');
+  },ttl);
+}
+function resetSession(){
+  clearTimeout(sesTimer);clearTimeout(sesWarnTimer);
+  document.getElementById('sesBar').className='ses-bar';
+  sessionStart=Date.now();
+  startSession();
+}
+
+/* ── ALREADY COMPLETED CHECK ── */
+function checkAlreadyCompleted(){
+  try{
+    var stored=localStorage.getItem('vd_'+CFG.token);
+    if(!stored)return false;
+    var data=JSON.parse(stored);
+    document.getElementById('s8Type').textContent=data.status==='accepted'?'Beauftragt':'Abgelehnt';
+    document.getElementById('s8Status').textContent=data.status==='accepted'?'Beauftragt':'Abgelehnt';
+    if(data.ts){
+      var d=new Date(data.ts);
+      document.getElementById('s8Time').textContent=d.toLocaleDateString('de-DE',{day:'2-digit',month:'2-digit',year:'numeric'})+', '+d.toLocaleTimeString('de-DE',{hour:'2-digit',minute:'2-digit'});
+    }
+    setStep(PHASE1);show(8);
+    return true;
+  }catch(e){return false}
+}
+
+/* ── PRICE POPULATION ── */
+function populatePrices(){
+  var fmt=function(v){return v.toLocaleString('de-DE',{minimumFractionDigits:2})+' '+CFG.pricing.currency};
+  document.querySelectorAll('[data-price]').forEach(function(el){
+    var key=el.getAttribute('data-price');
+    if(key==='erstdoku')el.textContent=fmt(CFG.pricing.erstdoku);
+    else if(key==='update2')el.textContent=fmt(CFG.pricing.update2);
+    else if(key==='update3')el.textContent=fmt(CFG.pricing.update3);
+    else if(key==='erstdoku-label')el.textContent='Erstdokumentation '+fmt(CFG.pricing.erstdoku)+' '+CFG.pricing.vat;
+  });
+}
+function dlChecklist(){
+  checklistDl=true;
+  alert('Download: VD-Checkliste.pdf');
+}
+function dlChecklistS5(){
+  checklistDl=true;
+  alert('Download: VD-Checkliste.pdf');
+  markChkDone();
+}
+function markChkDone(){
+  document.getElementById('ptChkDot').className='pt-dot done';
+  document.getElementById('ptChkDot').innerHTML='<span class="ic"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>';
+  document.getElementById('ptChkLine').className='pt-line done';
+  document.getElementById('ptChkTitle').textContent='Checkliste erhalten';
+  document.getElementById('ptChkDesc').textContent='PDF-Checkliste zur Vorbereitung heruntergeladen.';
+  document.getElementById('ptChkBtn').classList.add('done');
+  document.getElementById('ptChkTag').className='pt-tag sent';
+  document.getElementById('ptChkTag').textContent='Erledigt';
+}
+function initClock(idx,startDate){
+  var hEl=document.getElementById('clkH'+idx);
+  var mEl=document.getElementById('clkM'+idx);
+  var sEl=document.getElementById('clkS'+idx);
+  if(!hEl||!mEl)return;
+  var offset=startDate.getTime();
+  function tick(){
+    var d=new Date(offset+(Date.now()-offset));
+    var s=d.getSeconds(),m=d.getMinutes(),h=d.getHours()%12;
+    var sDeg=s*6;
+    var mDeg=(m*6)+(s*0.1);
+    var hDeg=(h*30)+(m*0.5);
+    if(sEl)sEl.setAttribute('transform','rotate('+sDeg+' 12 12)');
+    mEl.setAttribute('transform','rotate('+mDeg+' 12 12)');
+    hEl.setAttribute('transform','rotate('+hDeg+' 12 12)');
+    requestAnimationFrame(tick);
+  }
+  tick();
+}
+
+function toggleDev(k){
+  dev[k]=!dev[k];
+  if(k==='info'){
+    document.getElementById('infoSw').classList.toggle('on',dev.info);
+    document.getElementById('infoSw2').classList.toggle('on',dev.info);
+    if(dev.info){document.getElementById('infoWrap').style.display='';document.getElementById('infoBar').classList.remove('show')}
+    else{document.getElementById('infoBar').classList.add('show');setTimeout(function(){document.getElementById('infoWrap').style.display='none'},10)}
+  }else if(k==='price'){
+    document.getElementById('priceSw').classList.toggle('on',dev.price);
+    document.getElementById('priceSw2').classList.toggle('on',dev.price);
+    if(dev.price){document.getElementById('priceWrap').style.display='';document.getElementById('priceBar').classList.remove('show')}
+    else{document.getElementById('priceBar').classList.add('show');setTimeout(function(){document.getElementById('priceWrap').style.display='none'},10)}
+  }
+}
+function togglePrice(){var p=document.getElementById('priceCard'),i=document.getElementById('infoTuck');if(p.classList.contains('collapsed')){p.classList.remove('collapsed');i.classList.add('collapsed')}else{p.classList.add('collapsed')}}
+function toggleInfo(){var i=document.getElementById('infoTuck'),p=document.getElementById('priceCard');if(i.classList.contains('collapsed')){i.classList.remove('collapsed');p.classList.add('collapsed')}else{i.classList.add('collapsed')}}
+function selWt(el,mode){
+  if(!el)return;
+  document.querySelectorAll('.wt-opt').forEach(function(o){o.classList.remove('on')});
+  el.classList.add('on');
+  el.querySelector('input[type=radio]').checked=true;
+  haptic(12);
+  // Enable button
+  var btn=document.getElementById('btnWt'),wasDisabled=btn.disabled;
+  btn.disabled=false;
+  if(wasDisabled){glowBtn('btnWt')}
+  document.getElementById('wtErr').classList.remove('show');
+  if(mode==='date'){
+    var d=el.querySelector('.wt-date');
+    if(d)setTimeout(function(){try{d.showPicker()}catch(e){d.focus()}},100);
+  }
+}
+function showDecWarn(){var w=document.getElementById('decWarn');if(!w.classList.contains('collapsed'))return goDecline();w.classList.remove('collapsed');w.scrollIntoView({behavior:'smooth',block:'nearest'})}
+
+/* ── MICRO-FEEDBACK ── */
+function haptic(ms){try{navigator.vibrate&&navigator.vibrate(ms||10)}catch(e){}}
+function glowBtn(id){
+  var b=document.getElementById(id);
+  if(!b||b.disabled)return;
+  b.classList.remove('glow-on');
+  void b.offsetWidth; /* retrigger */
+  b.classList.add('glow-on');
+  setTimeout(function(){b.classList.remove('glow-on')},700);
+}
+
+function onPdf(){
+  var el=document.getElementById('pdfA'),p=(el.scrollTop+el.clientHeight)/el.scrollHeight;
+  document.getElementById('pgN').textContent='Seite '+(p<.5?'1 / 2':'2 / 2');
+  if(p>.93){
+    var btn=document.getElementById('btnS2'),wasDisabled=btn.disabled;
+    btn.disabled=false;
+    if(wasDisabled){haptic(20);glowBtn('btnS2')}
+    var h=document.getElementById('sH');
+    h.classList.add('ok');
+    h.innerHTML='<span class="ic ic-16"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span> Dokument gelesen';
+  }
+}
+function tog(id){
+  var el=document.getElementById(id);
+  el.classList.toggle('on');
+  haptic(el.classList.contains('on')?15:8);
+  /* retrigger checkbox animation */
+  if(el.classList.contains('on')){
+    var b=el.querySelector('.cb-b');
+    if(b){b.style.animation='none';void b.offsetWidth;b.style.animation=''}
+    var svg=el.querySelector('.cb-k svg polyline');
+    if(svg){svg.style.animation='none';void svg.offsetWidth;svg.style.animation=''}
+  }
+  updBtn();
+}
+function updBtn(){
+  var c1=document.getElementById('c1').classList.contains('on'),c2=document.getElementById('c2').classList.contains('on');
+  var okReady=c1&&c2&&SIG[0].drawn;
+  var btn=document.getElementById('btnOk'),wasDisabled=btn.disabled;
+  btn.disabled=!okReady;
+  if(wasDisabled&&okReady){haptic(25);glowBtn('btnOk')}
+  // Show sig hint when checkboxes done but signature missing
+  var sigErr0=document.getElementById('sigErr0');
+  if(c1&&c2&&!SIG[0].drawn){sigErr0.classList.add('show');var sw=document.getElementById('sw0');sw.classList.add('shake');setTimeout(function(){sw.classList.remove('shake')},500)}
+  else{sigErr0.classList.remove('show')}
+  // Decline
+  var noReady=document.getElementById('c3').classList.contains('on')&&SIG[1].drawn;
+  var btnNo=document.getElementById('btnNo'),wasNoDisabled=btnNo.disabled;
+  btnNo.disabled=!noReady;
+  if(wasNoDisabled&&noReady){haptic(25);glowBtn('btnNo')}
+  var sigErr1=document.getElementById('sigErr1');
+  if(document.getElementById('c3').classList.contains('on')&&!SIG[1].drawn){sigErr1.classList.add('show')}
+  else{sigErr1.classList.remove('show')}
+}
+var T0=self.crypto&&crypto.randomUUID?crypto.randomUUID():'a1b2c3d4';
+var T1=self.crypto&&crypto.randomUUID?crypto.randomUUID():'f9e8d7c6';
+setTimeout(function(){try{
+  new QRCode(document.getElementById('qrEl0'),{text:'https://vd.steuerberater-hildebrandt.de/sign/'+T0+'?mode=accept&ttl=900',width:140,height:140,colorDark:'#1f1f1f',colorLight:'#ffffff',correctLevel:QRCode.CorrectLevel.H});
+  new QRCode(document.getElementById('qrEl1'),{text:'https://vd.steuerberater-hildebrandt.de/sign/'+T1+'?mode=decline&ttl=900',width:140,height:140,colorDark:'#1f1f1f',colorLight:'#ffffff',correctLevel:QRCode.CorrectLevel.H});
+}catch(e){}},300);
+
+function initSig(idx,cId,wId){
+  var c=document.getElementById(cId),w=document.getElementById(wId),x=c.getContext('2d');
+  var S=SIG[idx],drawing=false,pts=[];
+  function sz(){var r=c.parentElement.getBoundingClientRect();c.width=r.width;c.height=parseInt(getComputedStyle(c).height);rd()}
+  function ctx(lw){x.strokeStyle='#4a4d4e';x.fillStyle='#4a4d4e';x.lineWidth=lw||S.pen;x.lineCap='round';x.lineJoin='round'}
+  sz();window.addEventListener('resize',sz);
+  function gp(e){var r=c.getBoundingClientRect(),t=e.touches?e.touches[0]:e;return{x:t.clientX-r.left,y:t.clientY-r.top}}
+  function ds(p,lw){if(p.length===1){ctx(lw);x.beginPath();x.arc(p[0].x,p[0].y,lw/2,0,Math.PI*2);x.fill();return}if(p.length<2)return;ctx(lw);x.beginPath();x.moveTo(p[0].x,p[0].y);for(var i=1;i<p.length-1;i++){var mx=(p[i].x+p[i+1].x)/2,my=(p[i].y+p[i+1].y)/2;x.quadraticCurveTo(p[i].x,p[i].y,mx,my)}x.lineTo(p[p.length-1].x,p[p.length-1].y);x.stroke()}
+  function rd(){x.clearRect(0,0,c.width,c.height);S.strokes.forEach(function(s){ds(s.p,s.w)});var has=S.strokes.length>0;w.classList.toggle('drawn',has);S.drawn=has;updBtn();ut(idx);document.getElementById('si'+idx).textContent=has?S.strokes.length+' Striche':'Bereit'}
+  function ms(e){e.preventDefault();drawing=true;pts=[gp(e)];S.redo=[];haptic(8)}
+  function mm(e){if(!drawing)return;e.preventDefault();pts.push(gp(e));x.clearRect(0,0,c.width,c.height);S.strokes.forEach(function(s){ds(s.p,s.w)});ds(pts,S.pen);w.classList.add('drawn')}
+  function me(){if(!drawing)return;drawing=false;if(pts.length>=1){S.strokes.push({p:pts.slice(),w:S.pen});S.drawn=true;rd();ut(idx);document.getElementById('si'+idx).textContent=S.strokes.length+' Striche'}pts=[]}
+  c.addEventListener('mousedown',ms);c.addEventListener('mousemove',mm);c.addEventListener('mouseup',me);c.addEventListener('mouseleave',me);
+  c.addEventListener('touchstart',ms,{passive:false});c.addEventListener('touchmove',mm,{passive:false});c.addEventListener('touchend',me);
+  S.eng={rd:rd,sz:sz};
+}
+function ut(i){document.getElementById('undo'+i).disabled=SIG[i].strokes.length===0;document.getElementById('redo'+i).disabled=SIG[i].redo.length===0}
+function doUndo(i){if(!SIG[i].strokes.length)return;SIG[i].redo.push(SIG[i].strokes.pop());SIG[i].eng.rd()}
+function doRedo(i){if(!SIG[i].redo.length)return;SIG[i].strokes.push(SIG[i].redo.pop());SIG[i].eng.rd()}
+function doClr(i){SIG[i].strokes=[];SIG[i].redo=[];SIG[i].drawn=false;SIG[i].eng.rd()}
+function setPen(i,w){SIG[i].pen=w;['t','m','k'].forEach(function(id,j){document.getElementById('p'+i+id).classList.toggle('on',[1.5,2.5,4][j]===w)})}
+function resizeSigs(){SIG.forEach(function(s){if(s.eng&&s.eng.sz)s.eng.sz()})}
+setTimeout(function(){initSig(0,'sc0','sw0');initSig(1,'sc1','sw1')},150);
+function setM(n,m){['a','b'].forEach(function(x){document.getElementById('mt'+n+x).classList.toggle('on',x==='a'?m==='phone':m==='mouse')});document.getElementById('qz'+n).classList.toggle('on',m==='phone');document.getElementById('dz'+n).classList.toggle('on',m==='mouse');var txt=document.getElementById('sigErrTxt'+n);if(txt)txt.textContent=m==='phone'?'Bitte scannen Sie den QR-Code und unterschreiben Sie auf Ihrem Smartphone.':'Bitte unterschreiben Sie im Feld oben.';if(m==='phone'){startQRTimer(n)}else{clearInterval(qrTimers[n])}if(m==='mouse')setTimeout(function(){if(SIG[n].eng&&SIG[n].eng.sz)SIG[n].eng.sz()},80)}
+
+/* ── INIT ── */
+populatePrices();
+var isDev=document.querySelector('.tag')!==null;
+if(!isDev&&checkAlreadyCompleted()){/* already done */}else{startSession()}
+
+/* Skeleton → Content reveal */
+setTimeout(function(){
+  var skel=document.getElementById('skelOver');
+  var content=document.getElementById('s1Content');
+  if(skel&&content){
+    skel.classList.add('gone');
+    content.classList.add('revealed');
+    setTimeout(function(){skel.style.display='none'},500);
+  }
+},900);
+
+/* ── QR COUNTDOWN ── */
+var qrTimers=[null,null];
+var qrSecs=[900,900]; /* 15 min = 900s */
+function startQRTimer(idx){
+  clearInterval(qrTimers[idx]);
+  qrSecs[idx]=900;
+  updateQRDisplay(idx);
+  document.getElementById('qrTimer'+idx).style.display='';
+  document.getElementById('qrTimer'+idx).classList.remove('warn');
+  document.getElementById('qrExp'+idx).style.display='none';
+  document.getElementById('qrEl'+idx).parentElement.style.opacity='1';
+  qrTimers[idx]=setInterval(function(){
+    qrSecs[idx]--;
+    updateQRDisplay(idx);
+    if(qrSecs[idx]<=120&&qrSecs[idx]>0){document.getElementById('qrTimer'+idx).classList.add('warn')}
+    if(qrSecs[idx]<=0){
+      clearInterval(qrTimers[idx]);
+      document.getElementById('qrTimer'+idx).style.display='none';
+      document.getElementById('qrExp'+idx).style.display='flex';
+      document.getElementById('qrEl'+idx).parentElement.style.opacity='.3';
+    }
+  },1000);
+}
+function updateQRDisplay(idx){
+  var m=Math.floor(qrSecs[idx]/60),s=qrSecs[idx]%60;
+  document.getElementById('qrTime'+idx).textContent=(m<10?'0':'')+m+':'+(s<10?'0':'')+s;
+}
+function renewQR(idx){
+  /* In production: API call to generate new token + QR. Here: simulate */
+  try{
+    var el=document.getElementById('qrEl'+idx);
+    el.innerHTML='';
+    var tok=self.crypto&&crypto.randomUUID?crypto.randomUUID():'renewed-'+Date.now();
+    var mode=idx===0?'accept':'decline';
+    new QRCode(el,{text:'https://vd.steuerberater-hildebrandt.de/sign/'+tok+'?mode='+mode+'&ttl=900',width:140,height:140,colorDark:'#1f1f1f',colorLight:'#ffffff',correctLevel:QRCode.CorrectLevel.H});
+    qrSecs[idx]=900;
+    document.getElementById('qrTimer'+idx).style.display='flex';
+    document.getElementById('qrExp'+idx).style.display='none';
+    document.getElementById('qrEl'+idx).parentElement.style.opacity='1';
+    startQRTimer(idx);
+  }catch(e){
+    console.error('[VD-Portal] renewQR error:',e);
+  }
+}
+
+/* ── INLINE TOGGLE CLAUSES ── */
+const ALL_CLAUSES = [
+  'p0-01-hierarchy','p0-03-widerruf','p0-04-eidas','p0-05-pdf-hash','p0-10-double-submit',
+  'p1-07-phases','p1-08-retention','p1-09-liability','p1-14-audit-gobd',
+  'p2-11-updates','p2-12-transfer'
+];
+
+function toggleClause(id){
+  var checkbox = document.getElementById('cb-' + id);
+  var content = document.getElementById('content-' + id);
+  var box = document.getElementById('clause-' + id);
+  
+  if(!checkbox || !content || !box){
+    console.error('[VD-Portal] toggleClause: Missing elements for', id);
+    return;
+  }
+  
+  var boxElement = box.querySelector('.clause-toggle-box');
+  if(!boxElement){
+    console.error('[VD-Portal] toggleClause: Missing clause-toggle-box for', id);
+    return;
+  }
+  
+  // Toggle checkbox
+  checkbox.checked = !checkbox.checked;
+  
+  // Show/hide content
+  if(checkbox.checked){
+    content.style.display = 'block';
+    boxElement.classList.add('checked');
+  } else {
+    content.style.display = 'none';
+    boxElement.classList.remove('checked');
+  }
+  
+  console.log('[VD-Portal] Toggled clause:', id, '→', checkbox.checked);
+}
+
+function loadClauseDefaults(){
+  // Load defaults from Admin-Config (localStorage)
+  try{
+    var saved = localStorage.getItem('vd_admin_toggles');
+    if(saved){
+      var config = JSON.parse(saved);
+      
+      ALL_CLAUSES.forEach(function(id){
+        if(config[id] === true){
+          // Auto-activate this clause
+          var checkbox = document.getElementById('cb-' + id);
+          var content = document.getElementById('content-' + id);
+          var box = document.getElementById('clause-' + id);
+          
+          if(checkbox && content && box){
+            var boxElement = box.querySelector('.clause-toggle-box');
+            if(boxElement){
+              checkbox.checked = true;
+              content.style.display = 'block';
+              boxElement.classList.add('checked');
+            }
+          }
+        }
+      });
+      
+      console.log('[VD-Portal] Loaded clause defaults from admin config');
+    } else {
+      // Default: Activate only P0 clauses
+      ['p0-01-hierarchy','p0-03-widerruf','p0-04-eidas','p0-05-pdf-hash','p0-10-double-submit'].forEach(function(id){
+        var checkbox = document.getElementById('cb-' + id);
+        var content = document.getElementById('content-' + id);
+        var box = document.getElementById('clause-' + id);
+        
+        if(checkbox && content && box){
+          var boxElement = box.querySelector('.clause-toggle-box');
+          if(boxElement){
+            checkbox.checked = true;
+            content.style.display = 'block';
+            boxElement.classList.add('checked');
+          }
+        }
+      });
+      console.log('[VD-Portal] Applied default P0 clauses');
+    }
+  }catch(e){
+    console.error('[VD-Portal] Failed to load clause defaults:', e);
+  }
+}
+
+function getActiveClauseIds(){
+  // Returns array of active clause IDs
+  var active = [];
+  ALL_CLAUSES.forEach(function(id){
+    var checkbox = document.getElementById('cb-' + id);
+    if(checkbox && checkbox.checked){
+      active.push(id);
+    }
+  });
+  return active;
+}
+
+// Show all toggle clauses (they start with display:none in CSS)
+function showAllToggleClauses(){
+  document.querySelectorAll('.toggle-clause').forEach(function(clause){
+    clause.style.display = 'block';
+  });
+}
+
+</script>
+
+</body>
+</html>
