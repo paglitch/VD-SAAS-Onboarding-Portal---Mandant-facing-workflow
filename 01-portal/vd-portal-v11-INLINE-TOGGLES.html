@@ -349,6 +349,7 @@ body{font-family:var(--f);color:var(--t1);min-height:100vh;-webkit-font-smoothin
 .mt{flex:1;padding:10px 14px;border-radius:10px;font-size:13px;font-weight:600;cursor:pointer;color:var(--t3);transition:all .3s var(--e);border:none;background:none;font-family:var(--f);display:flex;align-items:center;justify-content:center;gap:6px}
 .mt:hover{color:var(--t1);background:var(--sf)}
 .mt.on{background:var(--sf);color:var(--p);box-shadow:var(--s2);border:1px solid var(--pc)}
+@media(max-width:768px){.mbar{display:none}.qrz{display:none!important}.dz{display:block!important}}
 .sigw{border:2px dashed var(--ol);border-radius:var(--rs2);background:var(--sf);position:relative;overflow:hidden;transition:all .3s}
 .sigw:hover{border-color:var(--ov)}.sigw.drawn{border-color:var(--p);border-style:solid;background:var(--pu)}
 .sigc{width:100%;height:120px;cursor:crosshair;display:block;touch-action:none}
@@ -525,6 +526,8 @@ body{font-family:var(--f);color:var(--t1);min-height:100vh;-webkit-font-smoothin
 .ses-bar.expired{display:flex;background:var(--rs);border:1px solid rgba(217,48,37,.2);border-top:none;color:var(--r)}
 .ses-bar a{font-weight:600;color:inherit;text-decoration:underline;cursor:pointer}
 @keyframes fadeDown{from{opacity:0;transform:translateX(-50%) translateY(-100%)}to{opacity:1;transform:translateX(-50%) translateY(0)}}
+@keyframes fadeInDown{from{opacity:0;transform:translateX(-50%) translateY(-30px)}to{opacity:1;transform:translateX(-50%) translateY(0)}}
+@keyframes fadeOutUp{from{opacity:1;transform:translateX(-50%) translateY(0)}to{opacity:0;transform:translateX(-50%) translateY(-30px)}}
 
 /* ALREADY COMPLETED (S8) */
 .s8-card{text-align:center;padding:40px 20px}
@@ -1054,7 +1057,7 @@ body{font-family:var(--f);color:var(--t1);min-height:100vh;-webkit-font-smoothin
 </div>
 
 <div class="pgft"><div class="ftin">
-    <a class="ft-pill" href="/cdn-cgi/l/email-protection#90fbfffee4f1fbe4d0e3e4f5e5f5e2f2f5e2f1e4f5e2bdf8f9fcf4f5f2e2f1fef4e4bef4f5"><span class="ic ic-14"><svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22 6 12 13 2 6"/></svg></span>E-Mail</a>
+    <a class="ft-pill" href="mailto:daniel.hildebrandt@steuerberater-hildebrandt.de?subject=Anfrage zur Verfahrensdokumentation"><span class="ic ic-14"><svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22 6 12 13 2 6"/></svg></span>E-Mail</a>
     <a class="ft-pill" href="tel:+496111746590"><span class="ic ic-14"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg></span>Anrufen</a>
     <a class="ft-pill ft-wa" href="https://wa.me/496111746590?text=Hallo%2C%20ich%20habe%20eine%20Frage%20zur%20Verfahrensdokumentation." target="_blank" rel="noopener"><span class="ic ic-14"><svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 2C6.477 2 2 6.477 2 12c0 1.89.525 3.66 1.438 5.168L2 22l4.832-1.438A9.955 9.955 0 0012 22c5.523 0 10-4.477 10-10S17.523 2 12 2z"/></svg></span>WhatsApp</a>
     <div class="ft-spacer"></div>
@@ -1466,8 +1469,9 @@ function updBtn(){
 var T0=self.crypto&&crypto.randomUUID?crypto.randomUUID():'a1b2c3d4';
 var T1=self.crypto&&crypto.randomUUID?crypto.randomUUID():'f9e8d7c6';
 setTimeout(function(){try{
-  new QRCode(document.getElementById('qrEl0'),{text:'https://vd.steuerberater-hildebrandt.de/sign/'+T0+'?mode=accept&ttl=900',width:140,height:140,colorDark:'#1f1f1f',colorLight:'#ffffff',correctLevel:QRCode.CorrectLevel.H});
-  new QRCode(document.getElementById('qrEl1'),{text:'https://vd.steuerberater-hildebrandt.de/sign/'+T1+'?mode=decline&ttl=900',width:140,height:140,colorDark:'#1f1f1f',colorLight:'#ffffff',correctLevel:QRCode.CorrectLevel.H});
+  var currentUrl = window.location.origin + window.location.pathname + window.location.search;
+  new QRCode(document.getElementById('qrEl0'),{text:currentUrl,width:140,height:140,colorDark:'#1f1f1f',colorLight:'#ffffff',correctLevel:QRCode.CorrectLevel.H});
+  new QRCode(document.getElementById('qrEl1'),{text:currentUrl,width:140,height:140,colorDark:'#1f1f1f',colorLight:'#ffffff',correctLevel:QRCode.CorrectLevel.H});
 }catch(e){}},300);
 
 function initSig(idx,cId,wId){
@@ -1493,7 +1497,33 @@ function doClr(i){SIG[i].strokes=[];SIG[i].redo=[];SIG[i].drawn=false;SIG[i].eng
 function setPen(i,w){SIG[i].pen=w;['t','m','k'].forEach(function(id,j){document.getElementById('p'+i+id).classList.toggle('on',[1.5,2.5,4][j]===w)})}
 function resizeSigs(){SIG.forEach(function(s){if(s.eng&&s.eng.sz)s.eng.sz()})}
 setTimeout(function(){initSig(0,'sc0','sw0');initSig(1,'sc1','sw1')},150);
-function setM(n,m){['a','b'].forEach(function(x){document.getElementById('mt'+n+x).classList.toggle('on',x==='a'?m==='phone':m==='mouse')});document.getElementById('qz'+n).classList.toggle('on',m==='phone');document.getElementById('dz'+n).classList.toggle('on',m==='mouse');var txt=document.getElementById('sigErrTxt'+n);if(txt)txt.textContent=m==='phone'?'Bitte scannen Sie den QR-Code und unterschreiben Sie auf Ihrem Smartphone.':'Bitte unterschreiben Sie im Feld oben.';if(m==='phone'){startQRTimer(n)}else{clearInterval(qrTimers[n])}if(m==='mouse')setTimeout(function(){if(SIG[n].eng&&SIG[n].eng.sz)SIG[n].eng.sz()},80)}
+async function setM(n,m){
+  ['a','b'].forEach(function(x){document.getElementById('mt'+n+x).classList.toggle('on',x==='a'?m==='phone':m==='mouse')});
+  document.getElementById('qz'+n).classList.toggle('on',m==='phone');
+  document.getElementById('dz'+n).classList.toggle('on',m==='mouse');
+  var txt=document.getElementById('sigErrTxt'+n);
+  if(txt)txt.textContent=m==='phone'?'Bitte scannen Sie den QR-Code und unterschreiben Sie auf Ihrem Smartphone.':'Bitte unterschreiben Sie im Feld oben.';
+
+  if(m==='phone'){
+    /* Create session and generate QR */
+    var session=await createSignatureSession(n);
+    if(session){
+      var qrUrl=window.location.origin+'/sign/'+session.sessionId;
+      var el=document.getElementById('qrEl'+n);
+      el.innerHTML='';
+      new QRCode(el,{text:qrUrl,width:140,height:140,colorDark:'#1f1f1f',colorLight:'#ffffff',correctLevel:QRCode.CorrectLevel.H});
+      startQRTimer(n);
+      startPolling(session.sessionId,n);
+    }else{
+      showToast('❌ QR-Code konnte nicht generiert werden','error');
+    }
+  }else{
+    clearInterval(qrTimers[n]);
+    clearInterval(sessionPollers[n]);
+  }
+
+  if(m==='mouse')setTimeout(function(){if(SIG[n].eng&&SIG[n].eng.sz)SIG[n].eng.sz()},80);
+}
 
 /* ── INIT ── */
 populatePrices();
@@ -1538,14 +1568,98 @@ function updateQRDisplay(idx){
   var m=Math.floor(qrSecs[idx]/60),s=qrSecs[idx]%60;
   document.getElementById('qrTime'+idx).textContent=(m<10?'0':'')+m+':'+(s<10?'0':'')+s;
 }
+/* ── SESSION SYNC (Session 15) ── */
+var sessionPollers=[null,null];
+var activeSessions=[null,null];
+
+async function createSignatureSession(idx){
+  try{
+    var res=await fetch('/api/signature-session/create',{
+      method:'POST',
+      headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({onboardingToken:CFG.token})
+    });
+    if(!res.ok){
+      console.error('Session creation failed:',res.status);
+      return null;
+    }
+    var data=await res.json();
+    activeSessions[idx]=data.sessionId;
+    return data;
+  }catch(err){
+    console.error('Session create error:',err);
+    return null;
+  }
+}
+
+async function pollSignatureSession(sessionId,idx){
+  try{
+    var res=await fetch('/api/signature-session/'+sessionId);
+    if(!res.ok)return null;
+    var data=await res.json();
+    return data.session;
+  }catch(err){
+    console.error('Poll error:',err);
+    return null;
+  }
+}
+
+function startPolling(sessionId,idx){
+  clearInterval(sessionPollers[idx]);
+  sessionPollers[idx]=setInterval(async function(){
+    var session=await pollSignatureSession(sessionId,idx);
+    if(session&&session.completed&&session.signatureData){
+      clearInterval(sessionPollers[idx]);
+      clearInterval(qrTimers[idx]);
+
+      /* Parse and inject signature data */
+      try{
+        var strokes=JSON.parse(session.signatureData);
+        SIG[idx].strokes=strokes;
+        if(SIG[idx].eng&&SIG[idx].eng.rd){
+          SIG[idx].eng.rd();
+        }
+
+        /* Hide QR, show canvas */
+        document.getElementById('qz'+idx).classList.remove('on');
+        document.getElementById('dz'+idx).classList.add('on');
+
+        /* Update button states */
+        chkOk();
+
+        /* Show success toast */
+        showToast('✅ Signatur vom Smartphone übertragen!','success');
+      }catch(err){
+        console.error('Signature injection error:',err);
+        showToast('❌ Fehler beim Laden der Signatur','error');
+      }
+    }
+  },2000); /* Poll every 2 seconds */
+}
+
+function showToast(msg,type){
+  var toast=document.createElement('div');
+  toast.style.cssText='position:fixed;top:80px;left:50%;transform:translateX(-50%);background:'+(type==='success'?'#34a853':'#ea4335')+';color:white;padding:12px 24px;border-radius:12px;box-shadow:0 4px 12px rgba(0,0,0,.2);font-size:14px;font-weight:600;z-index:9999;animation:fadeInDown .3s ease-out';
+  toast.textContent=msg;
+  document.body.appendChild(toast);
+  setTimeout(function(){
+    toast.style.animation='fadeOutUp .3s ease-in';
+    setTimeout(function(){document.body.removeChild(toast)},300);
+  },3000);
+}
+
 function renewQR(idx){
-  /* In production: API call to generate new token + QR. Here: simulate */
+  /* Renew QR by creating new session */
+  setM(idx,'phone'); /* Re-trigger phone mode */
+}
+
+/* Original renewQR implementation (fallback) */
+function renewQRLegacy(idx){
   try{
     var el=document.getElementById('qrEl'+idx);
     el.innerHTML='';
-    var tok=self.crypto&&crypto.randomUUID?crypto.randomUUID():'renewed-'+Date.now();
-    var mode=idx===0?'accept':'decline';
-    new QRCode(el,{text:'https://vd.steuerberater-hildebrandt.de/sign/'+tok+'?mode='+mode+'&ttl=900',width:140,height:140,colorDark:'#1f1f1f',colorLight:'#ffffff',correctLevel:QRCode.CorrectLevel.H});
+    var currentUrl = window.location.origin + window.location.pathname + window.location.search;
+    new QRCode(el,{text:currentUrl,width:140,height:140,colorDark:'#1f1f1f',colorLight:'#ffffff',correctLevel:QRCode.CorrectLevel.H});
     qrSecs[idx]=900;
     document.getElementById('qrTimer'+idx).style.display='flex';
     document.getElementById('qrExp'+idx).style.display='none';
