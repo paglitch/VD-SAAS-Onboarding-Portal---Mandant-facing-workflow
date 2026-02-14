@@ -1057,7 +1057,7 @@ body{font-family:var(--f);color:var(--t1);min-height:100vh;-webkit-font-smoothin
 </div>
 
 <div class="pgft"><div class="ftin">
-    <a class="ft-pill" href="mailto:daniel.hildebrandt@steuerberater-hildebrandt.de?subject=Anfrage zur Verfahrensdokumentation"><span class="ic ic-14"><svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22 6 12 13 2 6"/></svg></span>E-Mail</a>
+    <button class="ft-pill" onclick="openContactModal()" style="border:none;background:transparent;cursor:pointer"><span class="ic ic-14"><svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22 6 12 13 2 6"/></svg></span>E-Mail</button>
     <a class="ft-pill" href="tel:+496111746590"><span class="ic ic-14"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg></span>Anrufen</a>
     <a class="ft-pill ft-wa" href="https://wa.me/496111746590?text=Hallo%2C%20ich%20habe%20eine%20Frage%20zur%20Verfahrensdokumentation." target="_blank" rel="noopener"><span class="ic ic-14"><svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 2C6.477 2 2 6.477 2 12c0 1.89.525 3.66 1.438 5.168L2 22l4.832-1.438A9.955 9.955 0 0012 22c5.523 0 10-4.477 10-10S17.523 2 12 2z"/></svg></span>WhatsApp</a>
     <div class="ft-spacer"></div>
@@ -1555,7 +1555,10 @@ function startQRTimer(idx){
   qrTimers[idx]=setInterval(function(){
     qrSecs[idx]--;
     updateQRDisplay(idx);
-    if(qrSecs[idx]<=120&&qrSecs[idx]>0){document.getElementById('qrTimer'+idx).classList.add('warn')}
+    if(qrSecs[idx]===120){
+      document.getElementById('qrTimer'+idx).classList.add('warn');
+      showToast('⏰ QR-Code läuft in 2 Minuten ab!','warning');
+    }
     if(qrSecs[idx]<=0){
       clearInterval(qrTimers[idx]);
       document.getElementById('qrTimer'+idx).style.display='none';
@@ -1776,7 +1779,252 @@ function showAllToggleClauses(){
   });
 }
 
+/* ══════════════════════════════════════════════════════════════
+   SESSION 15 GENIUS UPGRADES
+   ══════════════════════════════════════════════════════════════ */
+
+// ── CONTACT MODAL ──
+function openContactModal(){
+  document.getElementById('contactModal').classList.add('open');
+  document.getElementById('contactOverlay').classList.add('open');
+  document.body.style.overflow='hidden';
+  setTimeout(function(){document.getElementById('contactName').focus()},300);
+}
+
+function closeContactModal(){
+  document.getElementById('contactModal').classList.remove('open');
+  document.getElementById('contactOverlay').classList.remove('open');
+  document.body.style.overflow='';
+  document.getElementById('contactForm').reset();
+  document.getElementById('contactError').style.display='none';
+}
+
+async function submitContactForm(e){
+  e.preventDefault();
+
+  var name=document.getElementById('contactName').value.trim();
+  var email=document.getElementById('contactEmail').value.trim();
+  var message=document.getElementById('contactMessage').value.trim();
+
+  if(!name||!email||!message){
+    showContactError('Bitte füllen Sie alle Felder aus.');
+    return;
+  }
+
+  // Email validation
+  if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){
+    showContactError('Bitte geben Sie eine gültige E-Mail-Adresse ein.');
+    return;
+  }
+
+  // Show loading
+  var btn=document.getElementById('contactSubmitBtn');
+  btn.disabled=true;
+  btn.textContent='Wird gesendet...';
+
+  try{
+    var res=await fetch('/api/contact/send',{
+      method:'POST',
+      headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({
+        name:name,
+        email:email,
+        message:message,
+        onboardingToken:CFG.token
+      })
+    });
+
+    if(!res.ok){
+      var err=await res.json();
+      throw new Error(err.error||'Fehler beim Versenden');
+    }
+
+    // Success!
+    closeContactModal();
+    showToast('✅ Nachricht erfolgreich versendet!','success');
+
+  }catch(err){
+    console.error('Contact form error:',err);
+    showContactError(err.message||'Verbindung fehlgeschlagen. Bitte versuchen Sie es erneut.');
+    btn.disabled=false;
+    btn.textContent='Absenden';
+  }
+}
+
+function showContactError(msg){
+  var errEl=document.getElementById('contactError');
+  errEl.textContent=msg;
+  errEl.style.display='block';
+}
+
+// ── BROWSER NOTIFICATIONS ──
+function requestNotificationPermission(){
+  if('Notification' in window&&Notification.permission==='default'){
+    Notification.requestPermission();
+  }
+}
+
+function showBrowserNotification(title,body){
+  if('Notification' in window&&Notification.permission==='granted'){
+    new Notification(title,{
+      body:body,
+      icon:'/favicon.ico',
+      badge:'/favicon.ico'
+    });
+  }
+}
+
+// Enhanced polling with notifications
+var originalStartPolling=startPolling;
+startPolling=function(sessionId,idx){
+  originalStartPolling(sessionId,idx);
+
+  // Request notification permission
+  requestNotificationPermission();
+
+  // Override success handler to include notification
+  var originalInterval=sessionPollers[idx];
+  clearInterval(originalInterval);
+
+  sessionPollers[idx]=setInterval(async function(){
+    var session=await pollSignatureSession(sessionId,idx);
+    if(session&&session.completed&&session.signatureData){
+      clearInterval(sessionPollers[idx]);
+      clearInterval(qrTimers[idx]);
+
+      try{
+        var strokes=JSON.parse(session.signatureData);
+        SIG[idx].strokes=strokes;
+        if(SIG[idx].eng&&SIG[idx].eng.rd){
+          SIG[idx].eng.rd();
+        }
+
+        document.getElementById('qz'+idx).classList.remove('on');
+        document.getElementById('dz'+idx).classList.add('on');
+        chkOk();
+
+        // Enhanced success feedback
+        showToast('✅ Signatur vom Smartphone übertragen!','success');
+        showBrowserNotification('Signatur erhalten!','Ihre mobile Unterschrift wurde erfolgreich übertragen.');
+
+        // Haptic feedback (if on mobile)
+        if(navigator.vibrate){
+          navigator.vibrate([200,100,200]);
+        }
+      }catch(err){
+        console.error('Signature injection error:',err);
+        showToast('❌ Fehler beim Laden der Signatur','error');
+      }
+    }
+  },2000);
+};
+
+// ── TOAST NOTIFICATIONS ──
+function showToast(msg,type){
+  var toast=document.createElement('div');
+  var bgColor=type==='success'?'#34a853':type==='warning'?'#f9ab00':'#ea4335';
+  toast.style.cssText='position:fixed;top:80px;left:50%;transform:translateX(-50%);background:'+bgColor+';color:white;padding:12px 24px;border-radius:12px;box-shadow:0 4px 12px rgba(0,0,0,.2);font-size:14px;font-weight:600;z-index:9999;animation:fadeInDown .3s ease-out';
+  toast.textContent=msg;
+  document.body.appendChild(toast);
+  setTimeout(function(){
+    toast.style.animation='fadeOutUp .3s ease-in';
+    setTimeout(function(){document.body.removeChild(toast)},300);
+  },3000);
+};
+
 </script>
+
+<!-- CONTACT MODAL (Material Design 2026) -->
+<div class="contact-overlay" id="contactOverlay" onclick="closeContactModal()"></div>
+<div class="contact-modal" id="contactModal">
+  <div class="contact-modal-header">
+    <h3>Nachricht senden</h3>
+    <button class="contact-close" onclick="closeContactModal()" aria-label="Schließen">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M18 6L6 18M6 6l12 12"/>
+      </svg>
+    </button>
+  </div>
+
+  <form id="contactForm" onsubmit="submitContactForm(event)" class="contact-form">
+    <div class="contact-field">
+      <label for="contactName">Ihr Name</label>
+      <input type="text" id="contactName" placeholder="Max Mustermann" required>
+    </div>
+
+    <div class="contact-field">
+      <label for="contactEmail">Ihre E-Mail</label>
+      <input type="email" id="contactEmail" placeholder="max@beispiel.de" required>
+    </div>
+
+    <div class="contact-field">
+      <label for="contactMessage">Ihre Nachricht</label>
+      <textarea id="contactMessage" rows="5" placeholder="Wie können wir Ihnen helfen?" required></textarea>
+    </div>
+
+    <div class="contact-error" id="contactError" style="display:none"></div>
+
+    <div class="contact-actions">
+      <button type="button" class="contact-btn contact-btn-secondary" onclick="closeContactModal()">Abbrechen</button>
+      <button type="submit" class="contact-btn contact-btn-primary" id="contactSubmitBtn">Absenden</button>
+    </div>
+  </form>
+</div>
+
+<style>
+/* ══════════════════════════════════════════════════════════════
+   CONTACT MODAL STYLES (Material Design 2026)
+   ══════════════════════════════════════════════════════════════ */
+.contact-overlay{position:fixed;inset:0;background:rgba(0,0,0,.5);backdrop-filter:blur(4px);z-index:9998;opacity:0;pointer-events:none;transition:opacity .3s ease}
+.contact-overlay.open{opacity:1;pointer-events:all}
+
+.contact-modal{position:fixed;top:50%;left:50%;transform:translate(-50%,-50%) scale(.9);background:white;border-radius:16px;box-shadow:0 8px 32px rgba(0,0,0,.15);width:90%;max-width:500px;z-index:9999;opacity:0;pointer-events:none;transition:all .3s cubic-bezier(.34,1.56,.64,1)}
+.contact-modal.open{opacity:1;pointer-events:all;transform:translate(-50%,-50%) scale(1)}
+
+.contact-modal-header{display:flex;align-items:center;justify-content:space-between;padding:20px 24px;border-bottom:1px solid var(--ol)}
+.contact-modal-header h3{font-size:20px;font-weight:700;color:var(--t1);margin:0}
+
+.contact-close{width:36px;height:36px;border-radius:50%;border:none;background:var(--sc);color:var(--t3);cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .2s}
+.contact-close:hover{background:var(--sh);color:var(--t1)}
+
+.contact-form{padding:24px}
+
+.contact-field{margin-bottom:20px}
+.contact-field label{display:block;font-size:13px;font-weight:600;color:var(--t2);margin-bottom:6px}
+.contact-field input,
+.contact-field textarea{width:100%;padding:12px 16px;border:1px solid var(--ol);border-radius:8px;font-family:var(--f);font-size:14px;color:var(--t1);transition:all .2s}
+.contact-field input:focus,
+.contact-field textarea:focus{outline:none;border-color:var(--p);box-shadow:0 0 0 3px var(--pc)}
+.contact-field textarea{resize:vertical;min-height:100px}
+
+.contact-error{background:var(--rs);border:1px solid var(--r);border-radius:8px;padding:12px 16px;color:var(--rd);font-size:13px;margin-bottom:16px;display:flex;align-items:center;gap:8px}
+.contact-error::before{content:'⚠️'}
+
+.contact-actions{display:flex;gap:12px;justify-content:flex-end}
+
+.contact-btn{padding:12px 24px;border-radius:8px;font-family:var(--f);font-size:14px;font-weight:600;cursor:pointer;transition:all .2s;border:none}
+.contact-btn-secondary{background:var(--sc);color:var(--t2)}
+.contact-btn-secondary:hover{background:var(--sh)}
+.contact-btn-primary{background:var(--p);color:white;box-shadow:var(--s2)}
+.contact-btn-primary:hover{background:var(--ph);box-shadow:var(--s3)}
+.contact-btn-primary:disabled{opacity:.5;cursor:not-allowed}
+
+@media(max-width:600px){
+  .contact-modal{width:95%;max-width:none;max-height:90vh;overflow-y:auto}
+  .contact-modal-header{padding:16px 20px}
+  .contact-form{padding:20px}
+  .contact-actions{flex-direction:column-reverse}
+  .contact-actions .contact-btn{width:100%}
+}
+
+/* QR Timer Warning State */
+.qr-timer.warned{background:var(--ys);border-color:var(--yb);color:var(--yb)}
+.qr-timer.warned svg{stroke:var(--yb)}
+
+/* QR Pulse Animation */
+@keyframes qrPulse{0%,100%{transform:scale(1)}50%{transform:scale(1.05)}}
+.qr-c.pulse{animation:qrPulse 2s infinite}
+</style>
 
 </body>
 </html>
